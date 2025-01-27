@@ -1,0 +1,6 @@
+server\tobiiresearch
+server\venv
+client\next-env.d.ts
+client\node_modules
+client\.env.local
+server\venv

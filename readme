@@ -1,0 +1,12 @@
+.\venv\Scripts\activate
+
+uvicorn main:app --reload
+
+uvicorn main:app --reload --log-level debug
+
+
+pip version 25.0
+
+node v >=20.00
+
+python 3.11
