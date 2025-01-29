@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Home() {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/eye-tracker/status")
+    axios.get(`${API_URL}/eye-tracker/status`)
       .then(response => {
         setStatus(response.data);
       })

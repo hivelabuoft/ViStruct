@@ -6,6 +6,7 @@ router = APIRouter()
 @router.get("/eye-tracker/status")
 def get_status():
     devices = tr.find_all_eyetrackers()
+    print("finidng devices")
     if not devices:
         return {"status": "No eye tracker connected"}
     

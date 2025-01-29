@@ -1,12 +1,18 @@
+python path  -m venv venv
+
 .\venv\Scripts\activate
 
 uvicorn main:app --reload
 
 uvicorn main:app --reload --log-level debug
 
+in client
+
+npm run dev
 
 pip version 25.0
 
 node v >=20.00
 
-python 3.11
+python 3.10 must
+

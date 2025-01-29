@@ -1,6 +1,26 @@
-server\tobiiresearch
-server\venv
-client\next-env.d.ts
-client\node_modules
-client\.env.local
-server\venv
+# Ignore Python virtual environment
+server/venv/
+server/__pycache__/
+server/*.pyc
+server/*.pyo
+server/.pytest_cache/
+server/tobiiresearch/  # Exclude SDK files if they should not be versioned
+
+# Ignore Next.js build & dependencies
+client/.next/
+client/node_modules/
+client/.env.local
+client/.env.development.local
+client/.env.production.local
+client/next-env.d.ts
+client/out/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
