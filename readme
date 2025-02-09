@@ -1,3 +1,25 @@
+how to setup:
+
+cd ../server
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+pip install fastapi uvicorn python-multipart tobii-research
+
+cd ../client
+npm install axios
+
+make .env.local file under the client folder
+
+put in: 
+NEXT_PUBLIC_API_URL=http://localhost:8000
+
+
+
+
+how to run:
+
+cd in server:
+
 python path  -m venv venv
 
 .\venv\Scripts\activate
@@ -6,13 +28,19 @@ uvicorn main:app --reload
 
 uvicorn main:app --reload --log-level debug
 
-in client
+in another terminal, cd in client:
 
 npm run dev
+
+
+
+requirement:
 
 pip version 25.0
 
 node v >=20.00
 
 python 3.10 must
+
+
 
