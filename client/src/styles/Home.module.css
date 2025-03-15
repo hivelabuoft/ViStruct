@@ -1,0 +1,32 @@
+.container {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .chartGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .chartCard {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .chartCard:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chartImage {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
