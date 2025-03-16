@@ -4,11 +4,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Editor from "@monaco-editor/react";
-import { FaSave, FaRedo, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
-import styles from "../../styles/Question.module.css";
-import ChartImageContainer from "../../components/chartImageContainer";
-import typeColors from "../../utils/typeColor";
-
+import { FaSave, FaRedo, FaPlay  } from "react-icons/fa";
+import styles from "../../../styles/Question.module.css";
+import ChartImageContainer from "../../../components/chartImageContainer";
+import typeColors from "../../../utils/typeColor";
 
 
 interface ChartDescription {
@@ -38,6 +37,8 @@ export default function QuestionPage({
   // Destructure chart description values.
   const { chartType, description } = chartDescription;
 
+
+  
 
   // useEffect(() => {console.log(isWaiting)}, [isWaiting]);
 
@@ -213,11 +214,18 @@ export default function QuestionPage({
           {/* Right Sub-panel: Full JSON output */}
           <div className={styles.decompositionRight}>
             <h2 className={styles.panelTitle}>Task Flow Chart</h2>
-            <pre>
-              {generatedJSON
-                ? JSON.stringify(generatedJSON, null, 2)
-                : "JSON output here..."}
-            </pre>
+            <div className={styles.flowChart}>
+                <Link legacyBehavior href={`/${chart}/${questionId}/breakdown`} passHref>
+                    <button className={styles.runButton}>
+                        <FaPlay /> Run
+                    </button>
+                </Link>
+                <pre>
+                {generatedJSON
+                    ? JSON.stringify(generatedJSON, null, 2)
+                    : "JSON output here..."}
+                </pre>
+            </div>
           </div>
         </div>
       </div>
@@ -229,6 +237,7 @@ export default function QuestionPage({
 // Server-side functions
 
 import { GetStaticPaths, GetStaticProps } from "next";
+import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const fs = require("fs");

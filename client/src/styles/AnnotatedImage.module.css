@@ -1,0 +1,33 @@
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.chartImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Rectangle overlay */
+.annotationBox {
+  position: absolute;
+  border: 2px dashed;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* Optional: Number label inside the rectangle */
+.annotationLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+}

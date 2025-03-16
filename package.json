@@ -1,0 +1,20 @@
+{
+  "name": "visaware",
+  "version": "1.0.0",
+  "description": "how to setup:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hivelabuoft/VisAware.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hivelabuoft/VisAware/issues"
+  },
+  "homepage": "https://github.com/hivelabuoft/VisAware#readme"
+}
