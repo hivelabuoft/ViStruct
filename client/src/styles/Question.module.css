@@ -1,5 +1,298 @@
-.container {
-    padding: 2rem;
-    text-align: center;
-  }
-  
+:root {
+  --primary-blue: #3b82f6;
+  --blue-light: #dbeafe;
+  --blue-lighter: #f0f9ff;
+  --border-color: #e2e8f0;
+  --text-color: #1f2937;
+  --font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--blue-lighter);
+  color: var(--text-color);
+}
+
+.mainContainer {
+  height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--blue-lighter);
+}
+
+/* Header Section: Reduced vertical space; one line with chart type and question */
+.header {
+  height: 5%;
+  padding: 0.5rem 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.headerContent h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.questionIndex {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.headerContent p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Display Area */
+.displayArea {
+  height: calc(95% - 1.75rem);
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+/* Left Panel: Editor */
+.leftPanel {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.editorContainer {
+  margin-top: 0.5rem;
+  height: calc(60% - 7rem);
+  position: relative;
+  padding: 0.5rem;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--border-color);
+}
+
+/* Floating buttons inside the editor container */
+.editorFloatingButtons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.saveButton, .redoButton {
+  border: none;
+  height: 100%;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.saveButton {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.redoButton {
+  background-color: #ef4444;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #2563eb;
+  transform: scale(1.02);
+}
+
+.redoButton:hover {
+  background-color: #dc2626;
+  transform: scale(1.02);
+}
+
+.redoButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */
+.rightPanel {
+  width: 70%;
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* Left Sub-panel (65% of right panel): Chart image and decomposition cards */
+.decompositionLeft {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+/* Top part: Chart image with zoom buttons */
+.chartImageContainerWrapper {
+  position: relative;
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.zoomButtons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.zoomButton {
+  border: none;
+  padding: 0.3rem 0.5rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.zoomButton:hover {
+  background-color: #2563eb;
+}
+
+/* Bottom part: Decomposition cards */
+.decompositionCards {
+  flex: 1;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow-y: auto;
+}
+
+/* Decomposition Card styling */
+.decompositionCard {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.decompositionCardHeader {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.cardIndex {
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+
+.cardType {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.decompositionCardBody {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Right Sub-panel (35% of right panel): Full JSON output */
+.decompositionRight {
+  width: 55%;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border-left: 1px solid var(--border-color);
+}
+
+.questionContent {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: #91aae04d;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+
+.panelTitle {
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dashed var(--border-color);
+  margin-bottom: 1rem;
+}
+
+
+/* Loading Overlay */
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #91aae0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loadingSpinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--primary-blue);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

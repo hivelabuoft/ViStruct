@@ -1,0 +1,15 @@
+{
+    "chartType": "100% Stacked Bar Chart",
+    "description": {
+      "title": "Tokyo Olympic 2020 Performance",
+      "x_axis": {
+        "label": "Countries",
+        "categories": ["U.S.A.", "Great Britain", "Japan", "Australia"]
+      },
+      "y_axis": {
+        "label": "Olympic Medals (in %)",
+        "range": "0% to 100%"
+      },
+      "legend": ["Gold", "Silver", "Bronze"]
+    }
+  }

@@ -1,6 +1,101 @@
 {
-    "questions": [
-      "Which country has the lowest proportion of Gold medals?"
-    ]
-  }
-  
+  "questions": [
+    {
+      "question": "Which country has the lowest proportion of Gold medals?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Identify the bar segments representing 'Gold' medals in the chart legend.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Identify a country on the x-axis.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Determine the bottom boundary of the 'Gold' segment for the country.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 4,
+            "taskName": "Determine the top boundary of the 'Gold' segment for the country.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 5,
+            "taskName": "Calculate the proportion of 'Gold' medals by subtracting the bottom boundary from the top boundary.",
+            "type": "Compute Derived Value"
+          },
+          {
+            "index": 6,
+            "taskName": "Find the country with the minimum proportion of 'Gold' medals among all calculated proportions.",
+            "type": "Find Extremum"
+          }
+        ],
+        "example": [
+          {
+            "step": 1
+          },
+          {
+            "step": 2,
+            "labelName": "U.S.A."
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          },
+          {
+            "step": 2,
+            "labelName": "Great Britain"
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          },
+          {
+            "step": 2,
+            "labelName": "Japan"
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          },
+          {
+            "step": 2,
+            "labelName": "Australia"
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          },
+          {
+            "step": 6
+          }
+        ]
+      }
+    }
+  ]
+}

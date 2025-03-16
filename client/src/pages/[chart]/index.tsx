@@ -1,12 +1,21 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import fs from "fs";
 import styles from "../../styles/Chart.module.css";
 
+interface QuestionObject {
+  question: string;
+  decomposition?: any;
+}
+
+interface ChartData {
+  questions: QuestionObject[];
+}
+
 interface ChartPageProps {
   chart: string;
-  questions: string[];
+  questions: QuestionObject[];
 }
 
 export default function ChartPage({ chart, questions }: ChartPageProps) {
@@ -14,11 +23,14 @@ export default function ChartPage({ chart, questions }: ChartPageProps) {
     <div className={styles.container}>
       <h1>{chart.toUpperCase()} Questions</h1>
       <ul className={styles.questionList}>
-        {questions.map((question, index) => (
+        {questions.map((q, index) => (
           <li key={index}>
             <Link legacyBehavior href={`/${chart}/${index + 1}`}>
-              <a>{question}</a>
+              <a>
+                {typeof q.question === 'string' ? q.question : JSON.stringify(q.question)}
+              </a>
             </Link>
+
           </li>
         ))}
       </ul>
@@ -27,7 +39,6 @@ export default function ChartPage({ chart, questions }: ChartPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // List of chart routes (must match those in your Home page)
   const charts = [
     "100stackedbar",
     "area",
@@ -43,24 +54,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "treemap",
   ];
 
-  const paths = charts.map((chart) => ({
-    params: { chart },
-  }));
+  let paths: { params: { chart: string; questionId: string } }[] = [];
+
+  charts.forEach((chart) => {
+    const dataPath = path.join(process.cwd(), "public", "data", `${chart}.json`);
+    if (fs.existsSync(dataPath)) {
+      const fileContents = fs.readFileSync(dataPath, "utf8");
+      const data: ChartData = JSON.parse(fileContents);
+      data.questions.forEach((_, index) => {
+        paths.push({ params: { chart, questionId: (index + 1).toString() } });
+      });
+    }
+  });
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const chart = context.params?.chart as string;
-  // Assuming your JSON files are stored in /public/data/
   const dataPath = path.join(process.cwd(), "public", "data", `${chart}.json`);
   const fileContents = fs.readFileSync(dataPath, "utf8");
-  const data = JSON.parse(fileContents);
-  const questions = data.questions || [];
+  const data: ChartData = JSON.parse(fileContents);
+
   return {
     props: {
       chart,
-      questions,
+      questions: data.questions,
     },
   };
 };
