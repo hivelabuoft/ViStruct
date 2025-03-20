@@ -3,7 +3,9 @@ how to setup:
 cd ../server
 python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
-pip install fastapi uvicorn python-multipart tobii-research
+pip install fastapi uvicorn python-multipart tobii-research opencv-python numpy
+
+for mac: python3.10 -m pip install fastapi uvicorn python-multipart opencv-python numpy tobii-research
 
 cd ../client
 npm install axios
@@ -41,6 +43,11 @@ pip version 25.0
 node v >=20.00
 
 python 3.10 must
+
+
+python3.10 -m venv venv
+
+source venv/bin/activate
 
 
 

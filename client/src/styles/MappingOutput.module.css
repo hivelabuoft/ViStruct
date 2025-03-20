@@ -1,0 +1,48 @@
+.mappingOutputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f9fafb;
+  }
+  
+  .mappingCard {
+    width: calc(33.33% - 1rem);
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cardHeader {
+    padding: 0.5rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .cardBody {
+    padding: 0.75rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .label {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .coordinates {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.4;
+  }
+  

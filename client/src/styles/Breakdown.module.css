@@ -1,7 +1,43 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  width: 95%;
+  height: 95%;
+  background: white;
+  border-radius: 10px;
+  overflow: auto;
+  position: relative;
+  padding: 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
 .container {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 94vh;
+    width: 94vw;
     gap: 1rem;
     padding: 1rem;
     box-sizing: border-box;
@@ -64,4 +100,25 @@
     background-color: #2563eb;
   }
   
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .disabledCloseButton {
+    background: #aaa !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
   

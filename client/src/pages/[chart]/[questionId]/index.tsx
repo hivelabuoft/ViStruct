@@ -36,7 +36,7 @@ export default function QuestionPage({
 
   // Destructure chart description values.
   const { chartType, description } = chartDescription;
-
+  const [showModal, setShowModal] = useState(false);
 
   
 
@@ -215,20 +215,27 @@ export default function QuestionPage({
           <div className={styles.decompositionRight}>
             <h2 className={styles.panelTitle}>Task Flow Chart</h2>
             <div className={styles.flowChart}>
-              <Link legacyBehavior href={{
-                  pathname: `/${chart}/${questionId}/breakdown`,
-                }} passHref>
-                    <button className={styles.runButton}>
-                        <FaPlay /> Run
-                    </button>
-                </Link>
-                <pre>
+              <button className={styles.runButton} onClick={() => setShowModal(true)}>
+                <FaPlay /> Run
+              </button>
+              <pre>
                 {generatedJSON
-                    ? JSON.stringify(generatedJSON, null, 2)
-                    : "JSON output here..."}
-                </pre>
+                  ? JSON.stringify(generatedJSON, null, 2)
+                  : "JSON output here..."}
+              </pre>
             </div>
           </div>
+          {showModal && (
+            <div className="modalWrapper">
+            <BreakdownComponent
+              chart={chart}
+              questionId={questionId.toString()}
+              chartDescription={chartDescription}
+              onClose={() => setShowModal(false)}
+            />
+            <button onClick={() => setShowModal(false)}>Close</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -240,6 +247,7 @@ export default function QuestionPage({
 
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import BreakdownComponent from "@/src/components/breakdown";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const fs = require("fs");
