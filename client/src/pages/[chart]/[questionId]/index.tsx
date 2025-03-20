@@ -215,7 +215,9 @@ export default function QuestionPage({
           <div className={styles.decompositionRight}>
             <h2 className={styles.panelTitle}>Task Flow Chart</h2>
             <div className={styles.flowChart}>
-                <Link legacyBehavior href={`/${chart}/${questionId}/breakdown`} passHref>
+              <Link legacyBehavior href={{
+                  pathname: `/${chart}/${questionId}/breakdown`,
+                }} passHref>
                     <button className={styles.runButton}>
                         <FaPlay /> Run
                     </button>

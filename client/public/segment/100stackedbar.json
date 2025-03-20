@@ -1,0 +1,84 @@
+    {
+        "mapping": [
+        {
+            "description": "Stacked bar segment for Bronze medals for Australia",
+            "segmentNumber": 1
+        },
+        {
+            "description": "Stacked bar segment for Bronze medals for U.S.A.",
+            "segmentNumber": 2
+        },
+        {
+            "description": "Stacked bar segment for Bronze medals for Japan",
+            "segmentNumber": 3
+        },
+        {
+            "description": "Stacked bar segment for Bronze medals for Great Britain",
+            "segmentNumber": 4
+        },
+        {
+            "description": "Stacked bar segment for Silver medals for Japan",
+            "segmentNumber": 5
+        },
+        {
+            "description": "Stacked bar segment for Silver medals for U.S.A.",
+            "segmentNumber": 6
+        },
+        {
+            "description": "Stacked bar segment for Silver medals for Great Britain",
+            "segmentNumber": 7
+        },
+        {
+            "description": "Stacked bar segment for Silver medals for Australia",
+            "segmentNumber": 8
+        },
+        {
+            "description": "Stacked bar segment for Gold medals for Great Britain",
+            "segmentNumber": 9
+        },
+        {
+            "description": "Stacked bar segment for Gold medals for Australia",
+            "segmentNumber": 10
+        },
+        {
+            "description": "Stacked bar segment for Gold medals for Japan",
+            "segmentNumber": 11
+        },
+        {
+            "description": "Stacked bar segment for Gold medals for U.S.A.",
+            "segmentNumber": 12
+        },
+        {
+            "description": "y-axis",
+            "segmentNumber": 13
+        },
+        {
+            "description": "x-axis",
+            "segmentNumber": 14
+        },
+        {
+            "description": "title",
+            "segmentNumber": 15
+        },
+        {
+            "description": "x-axis legend",
+            "segmentNumber": 16
+        },
+        {
+            "description": "y-axis legend",
+            "segmentNumber": 17
+        },
+        {
+            "description": "series legend item for Gold medals",
+            "segmentNumber": 18
+        },
+        {
+            "description": "series legend item for Silver medals",
+            "segmentNumber": 19
+        },
+        {
+            "description": "series legend item for Bronze medals",
+            "segmentNumber": 20
+        }
+    ]
+}

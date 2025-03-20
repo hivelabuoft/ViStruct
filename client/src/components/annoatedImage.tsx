@@ -31,7 +31,7 @@ interface Region {
       width: 1,
       height: 1,
     });
-  
+    
     // On image load, get rendered size
     useEffect(() => {
       const img = imageRef.current;
@@ -80,7 +80,7 @@ interface Region {
                 top,
                 width,
                 height,
-                borderColor: color || "#00f",
+                borderColor: "#00f",
               }}
               title={`Region ${index + 1}`}
             >

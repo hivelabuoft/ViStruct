@@ -39,7 +39,6 @@
   
   .runButton {
     border: none;
-    height: 100%;
     padding: 0.25rem 0.75rem;
     border-radius: 6px;
     cursor: pointer;
@@ -47,24 +46,22 @@
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    transition: background 0.2s, transform 0.1s;
-    cursor: pointer;
-    height: 40px;
-    width: 200px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 10;
-    transition: background 0.2s ease;
+    gap: 0.4rem;
     background-color: var(--primary-blue);
-    position: absolute;
-    top: calc(48px);
-    right: calc(2rem + 8px);
     color: white;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top: 48px; /* Adjust as needed */
+    right: calc(2rem + 8px); /* Adjust as needed */
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.1s;
+    background-color: #4776db;
   }
   
   .runButton:hover {
-    background-color: #2563eb; /* darker blue on hover */
+    background-color: #2563eb;
   }
+  
   
