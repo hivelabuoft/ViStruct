@@ -46,6 +46,8 @@ export default function BreakdownComponent({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasStop, setHasStop] = useState<boolean>(true);
   const [screenshotCaptured, setScreenshotCaptured] = useState<boolean>(false);
+  const [isMappingLoading, setIsMappingLoading] = useState<boolean>(false);
+  const [mappedRegions, setMappedRegions] = useState<any[]>([]);
 
   // Construct dynamic API path
   const getAPIEndpointForChart = (chartName: string): string => {
@@ -123,6 +125,8 @@ export default function BreakdownComponent({
   const handleNextClick = async () => {
     const mode = process.env.NEXT_PUBLIC_SPLIT_MODE || "simulation";
     try {
+      setIsMappingLoading(true);
+      
       if (mode === "simulation") {
         await simulateMapping();
       } else if (mode === "generate") {
@@ -135,11 +139,16 @@ export default function BreakdownComponent({
       setHasStop(false);
     } catch (error) {
       console.error("Error handling Next click:", error);
+    } finally {
+      setIsMappingLoading(false);
     }
   };
 
   const simulateMapping = async () => {
     try {
+        // Set a delay of 2 seconds to simulate loading
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
         const response = await axios.post("/api/simulatedMapping", {
             chart,
             questionId,
@@ -170,8 +179,6 @@ export default function BreakdownComponent({
         console.error("Error in fetchMapping:", error);
       }
   };
-
-  const [mappedRegions, setMappedRegions] = useState<any[]>([]);
 
 const fetchMapping = async () => {
   try {
@@ -227,6 +234,8 @@ const fetchMapping = async () => {
                 <h2>OpenCV Output</h2>
                 {isLoading ? (
                 <p>Loading analysis...</p>
+                ) : isMappingLoading ? (
+                <p>Loading mapping data...</p>
                 ) : analysisOutput ? (
                 <pre>{JSON.stringify(analysisOutput, null, 2)}</pre>
                 ) : (
@@ -241,23 +250,27 @@ const fetchMapping = async () => {
             )}
 
             {analysisOutput && analysisOutput["regions"]?.length > 1 && (
-            <button
-            className={`${styles.runButton} ${(hasStop && !screenshotCaptured) ? styles.disabledCloseButton : ""}`}
-            onClick={handleNextClick}
-            disabled={!screenshotCaptured || !hasStop} // Disable if screenshot not done OR mapping is done
-          >
-            {(!screenshotCaptured && hasStop) ? (
-              "Loading..."
-            ) : hasStop ? (
-              <>
-                <FaPlay /> &nbsp; Start Mapping
-              </>
-            ) : (
-              <>
-                Mapped
-              </>
-            )}
-            </button>
+              hasStop ? (
+                <button
+                  className={`${styles.runButton} ${(!screenshotCaptured) ? styles.disabledCloseButton : ""}`}
+                  onClick={handleNextClick}
+                  disabled={!screenshotCaptured || isMappingLoading} // Disable if screenshot not done or mapping in progress
+                >
+                  {!screenshotCaptured ? (
+                    "Loading..."
+                  ) : isMappingLoading ? (
+                    "Processing..."
+                  ) : (
+                    <>
+                      <FaPlay /> &nbsp; Start Mapping
+                    </>
+                  )}
+                </button>
+              ) : (
+                <div className={styles.mappedStatus}>
+                  Mapped
+                </div>
+              )
             )}
         </div>
         </div>

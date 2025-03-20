@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Editor from "@monaco-editor/react";
-import { FaSave, FaRedo, FaPlay  } from "react-icons/fa";
+import { FaSave, FaRedo, FaPlay } from "react-icons/fa";
 import styles from "../../../styles/Question.module.css";
 import ChartImageContainer from "../../../components/chartImageContainer";
 import typeColors from "../../../utils/typeColor";
@@ -126,118 +126,123 @@ export default function QuestionPage({
   return (
     <div className={styles.mainContainer}>
       {/* Loading Overlay */}
-      {isWaiting && (
+      {isWaiting ? (
         <div className={styles.loadingOverlay}>
           <div className={styles.loadingSpinner}></div>
         </div>
-      )}
-      {/* Header Section (reduced vertical space) */}
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1>
-            {chartType.toUpperCase()} -{" "}
-            <span className={styles.questionIndex}>Question {questionId}:</span>{" "}
-            <span className={styles.questionContent}>{question}</span>
-          </h1>
-        </div>
-      </header>
-
-      {/* Display Area */}
-      <div className={styles.displayArea}>
-        {/* Left Panel: Editor with floating Save/Redo buttons */}
-        <div className={styles.leftPanel}>
-          <div className={styles.chartImageContainerWrapper}>
-            <ChartImageContainer src={`/studyProblem/${chart}.png`} alt={chartType} />
-          </div>
-          <div className={styles.editorContainer}>
-            <div className={styles.editorFloatingButtons}>
-              <button className={styles.saveButton} onClick={handleSave}>
-                <FaSave /> Save
-              </button>
-              <button
-                className={styles.redoButton}
-                onClick={handleRedo}
-                disabled={editorValue === originalValue}
-              >
-                <FaRedo /> Redo
-              </button>
+      ) : (
+        <>
+          {/* Header Section (reduced vertical space) */}
+          <header className={styles.header}>
+            <div className={styles.headerContent}>
+              <h1>
+                <span className={styles.chartTitle}>{chartType.toUpperCase()}</span> -{" "}
+                <span className={styles.questionIndex}>Question {questionId}:</span>{" "}
+                <span className={styles.questionContent}>{question}</span>
+              </h1>
             </div>
-            <Editor
-              height="100%"
-              defaultLanguage="json"
-              theme="vs-light"
-              value={editorValue || "Editor content here..."}
-              onChange={(value) => setEditorValue(value || "")}
-              options={{
-                readOnly: false,
-                minimap: { enabled: false },
-                scrollBeyondLastLine: false,
-                wordWrap: "on",
-                lineNumbersMinChars: 2,
-                fontSize: 14,
-                fontFamily: "monospace",
-              }}
-            />
-          </div>
-        </div>
+          </header>
 
-        {/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */}
-        <div className={styles.rightPanel}>
-          {/* Left Sub-panel: Top for chart image with zoom, bottom for decomposition cards */}
-          <div className={styles.decompositionLeft}>
-            <div className={styles.decompositionCards}>
-              <h2 className={styles.panelTitle}>Low-Level Component Task Breakdown</h2>
-              {generatedJSON && generatedJSON.components ? (
-                generatedJSON.components.map((comp: any, index: number) => (
-                  <div key={index} className={styles.decompositionCard}>
-                    <div
-                      className={styles.decompositionCardHeader}
-                      style={{
-                        backgroundColor:
-                          typeColors[comp.type] || "rgba(229, 231, 235, 0.8)",
-                      }}
-                    >
-                      <span className={styles.cardIndex}>#{comp.index}</span>
-                      <span className={styles.cardType}>{comp.type}</span>
-                    </div>
-                    <div className={styles.decompositionCardBody}>
-                      {comp.taskName}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p>No decomposition available</p>
+          {/* Display Area */}
+          <div className={styles.displayArea}>
+            {/* Left Panel: Editor with floating Save/Redo buttons */}
+            <div className={styles.leftPanel}>
+              <div className={styles.chartImageContainerWrapper}>
+                <ChartImageContainer src={`/studyProblem/${chart}.png`} alt={chartType} />
+              </div>
+              <div className={styles.editorContainer}>
+                <div className={styles.editorFloatingButtons}>
+                  <button className={styles.saveButton} onClick={handleSave}>
+                    <FaSave /> <span>Save</span>
+                  </button>
+                  <button
+                    className={styles.redoButton}
+                    onClick={handleRedo}
+                    disabled={editorValue === originalValue}
+                  >
+                    <FaRedo /> <span>Reset</span>
+                  </button>
+                </div>
+                <Editor
+                  height="100%"
+                  defaultLanguage="json"
+                  theme="vs-light"
+                  value={editorValue || "Editor content here..."}
+                  onChange={(value) => setEditorValue(value || "")}
+                  options={{
+                    readOnly: false,
+                    minimap: { enabled: false },
+                    scrollBeyondLastLine: false,
+                    wordWrap: "on",
+                    lineNumbersMinChars: 2,
+                    fontSize: 14,
+                    fontFamily: "monospace",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */}
+            <div className={styles.rightPanel}>
+              {/* Left Sub-panel: Top for chart image with zoom, bottom for decomposition cards */}
+              <div className={styles.decompositionLeft}>
+                <div className={styles.decompositionCards}>
+                  <h2 className={styles.panelTitle}>Low-Level Component Task Breakdown</h2>
+                  {generatedJSON && generatedJSON.components ? (
+                    generatedJSON.components.map((comp: any, index: number) => (
+                      <div key={index} className={styles.decompositionCard}>
+                        <div
+                          className={styles.decompositionCardHeader}
+                          style={{
+                            backgroundColor:
+                              typeColors[comp.type] || "rgba(229, 231, 235, 0.8)",
+                          }}
+                        >
+                          <span className={styles.cardIndex}>#{comp.index}</span>
+                          <span className={styles.cardType}>{comp.type}</span>
+                        </div>
+                        <div className={styles.decompositionCardBody}>
+                          {comp.taskName}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No decomposition available</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Sub-panel: Full JSON output */}
+              <div className={styles.decompositionRight}>
+                <div className={styles.flowChartHeader}>
+                  <h2 className={styles.panelTitle}>Task Flow Chart</h2>
+                  <button className={styles.runButton} onClick={() => setShowModal(true)}>
+                    <FaPlay /> <span>Run</span>
+                  </button>
+                </div>
+                <div className={styles.flowChart}>
+                  <pre>
+                    {generatedJSON
+                      ? JSON.stringify(generatedJSON, null, 2)
+                      : "JSON output here..."}
+                  </pre>
+                </div>
+              </div>
+              {showModal && (
+                <div className={styles.modalWrapper}>
+                  <BreakdownComponent
+                    chart={chart}
+                    questionId={questionId.toString()}
+                    chartDescription={chartDescription}
+                    onClose={() => setShowModal(false)}
+                  />
+                  <button className={styles.closeModalButton} onClick={() => setShowModal(false)}>Close</button>
+                </div>
               )}
             </div>
           </div>
-
-          {/* Right Sub-panel: Full JSON output */}
-          <div className={styles.decompositionRight}>
-            <h2 className={styles.panelTitle}>Task Flow Chart</h2>
-            <div className={styles.flowChart}>
-              <button className={styles.runButton} onClick={() => setShowModal(true)}>
-                <FaPlay /> Run
-              </button>
-              <pre>
-                {generatedJSON
-                  ? JSON.stringify(generatedJSON, null, 2)
-                  : "JSON output here..."}
-              </pre>
-            </div>
-          </div>
-          {showModal && (
-            <div className="modalWrapper">
-            <BreakdownComponent
-              chart={chart}
-              questionId={questionId.toString()}
-              chartDescription={chartDescription}
-              onClose={() => setShowModal(false)}
-            />
-            <button onClick={() => setShowModal(false)}>Close</button>
-            </div>
-          )}
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }

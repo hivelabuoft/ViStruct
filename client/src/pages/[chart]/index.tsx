@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import fs from "fs";
 import styles from "../../styles/Chart.module.css";
+import ChartImageContainer from "../../components/chartImageContainer";
 
 interface QuestionObject {
   question: string;
@@ -20,20 +21,30 @@ interface ChartPageProps {
 
 export default function ChartPage({ chart, questions }: ChartPageProps) {
   return (
-    <div className={styles.container}>
-      <h1>{chart.toUpperCase()} Questions</h1>
-      <ul className={styles.questionList}>
-        {questions.map((q, index) => (
-          <li key={index}>
-            <Link legacyBehavior href={`/${chart}/${index + 1}`}>
-              <a>
-                {typeof q.question === 'string' ? q.question : JSON.stringify(q.question)}
-              </a>
-            </Link>
-
-          </li>
-        ))}
-      </ul>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>{chart.toUpperCase()}</h1>
+      <div className={styles.contentWrapper}>
+        <div className={styles.questionsSection}>
+          <h2>Questions</h2>
+          <ul className={styles.questionList}>
+            {questions.map((q, index) => (
+              <li key={index}>
+                <Link legacyBehavior href={`/${chart}/${index + 1}`}>
+                  <a>
+                    {typeof q.question === 'string' ? q.question : JSON.stringify(q.question)}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.chartSection}>
+          <ChartImageContainer 
+            src={`/studyProblem/${chart}.png`} 
+            alt={`${chart} chart`} 
+          />
+        </div>
+      </div>
     </div>
   );
 }

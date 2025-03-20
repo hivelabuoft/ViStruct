@@ -22,14 +22,14 @@ body {
   background-color: var(--blue-lighter);
 }
 
-/* Header Section: Reduced vertical space; one line with chart type and question */
+/* Header Section: Refined styling */
 .header {
   height: 5%;
   padding: 0.5rem 1.5rem;
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
 }
@@ -45,10 +45,17 @@ body {
   gap: 0.5rem;
 }
 
+.chartTitle {
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.5px;
+}
+
 .questionIndex {
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-color);
+  opacity: 0.8;
 }
 
 .headerContent p {
@@ -73,16 +80,18 @@ body {
   flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
+  gap: 1rem;
 }
 
 .editorContainer {
-  margin-top: 0.5rem;
   height: calc(60% - 7rem);
   position: relative;
   padding: 0.5rem;
   overflow: hidden;
   background: white;
   border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Floating buttons inside the editor container */
@@ -95,18 +104,19 @@ body {
   z-index: 10;
 }
 
-.saveButton, .redoButton, .runButton {
+.saveButton, .redoButton {
   border: none;
   height: 100%;
-  padding: 0.25rem 0.75rem;
-  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  transition: background 0.2s, transform 0.1s;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .saveButton {
@@ -114,28 +124,36 @@ body {
   color: white;
 }
 
+/* Improved Run button styling and positioning */
+.flowChartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .runButton {
-  position: absolute;
-  top: calc(10% + 48px);
-  right: calc(2rem + 8px);
   background-color: var(--primary-blue);
   color: white;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  max-height: 40px;
-  width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  transition: background 0.2s ease;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 36px;
 }
 
 .runButton:hover {
-  background-color: #2563eb; /* darker blue on hover */
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .redoButton {
@@ -145,20 +163,25 @@ body {
 
 .saveButton:hover {
   background-color: #2563eb;
-  transform: scale(1.02);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .redoButton:hover {
   background-color: #dc2626;
-  transform: scale(1.02);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .redoButton:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
 }
 
-/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */
+/* Right Panel: Split into Left (45%) and Right (55%) sub-panels */
 .rightPanel {
   width: 70%;
   display: flex;
@@ -166,7 +189,7 @@ body {
   overflow: hidden;
 }
 
-/* Left Sub-panel (65% of right panel): Chart image and decomposition cards */
+/* Left Sub-panel: Chart image and decomposition cards */
 .decompositionLeft {
   width: 45%;
   display: flex;
@@ -184,8 +207,9 @@ body {
   justify-content: center;
   background: white;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .zoomButtons {
@@ -205,11 +229,13 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .zoomButton:hover {
   background-color: #2563eb;
+  transform: translateY(-1px);
 }
 
 /* Bottom part: Decomposition cards */
@@ -217,22 +243,29 @@ body {
   flex: 1;
   padding: 0.75rem;
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
   overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Decomposition Card styling */
 .decompositionCard {
   border: 1px solid var(--border-color);
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.decompositionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .decompositionCardHeader {
-  padding: 0.5rem;
+  padding: 0.6rem;
   font-size: 0.85rem;
   font-weight: 500;
   display: flex;
@@ -244,6 +277,7 @@ body {
 .cardIndex {
   font-size: 0.75rem;
   color: var(--text-color);
+  font-weight: 600;
 }
 
 .cardType {
@@ -257,28 +291,30 @@ body {
   font-weight: 500;
 }
 
-/* Right Sub-panel (35% of right panel): Full JSON output */
+/* Right Sub-panel: Full JSON output */
 .decompositionRight {
   width: 55%;
   padding: 0.75rem;
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
   overflow-y: auto;
   font-family: monospace;
   font-size: 1rem;
   white-space: pre-wrap;
   word-wrap: break-word;
-  border-left: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .questionContent {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-color);
-  background-color: #91aae04d;
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
+  background-color: rgba(145, 170, 224, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .panelTitle {
@@ -286,12 +322,18 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-color);
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px dashed var(--border-color);
-  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
+/* Flow chart styles */
+.flowChart {
+  margin-top: 0.5rem;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
 /* Loading Overlay */
 .loadingOverlay {
@@ -300,7 +342,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #91aae0;
+  background-color: rgba(145, 170, 224, 0.4);
+  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,6 +357,39 @@ body {
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
+}
+
+/* Modal styling */
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.closeModalButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeModalButton:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
 }
 
 @keyframes spin {
