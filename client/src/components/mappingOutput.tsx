@@ -16,13 +16,19 @@ interface MappingItem {
 
 interface MappingOutputProps {
   data: MappingItem[];
+  onSegmentSelect?: (segmentNumber: number | null) => void;
+  selectedSegment: number | null;
 }
 
-const MappingOutput: React.FC<MappingOutputProps> = ({ data }) => {
+const MappingOutput: React.FC<MappingOutputProps> = ({ data, onSegmentSelect, selectedSegment }) => {
   return (
     <div className={styles.mappingOutputContainer}>
       {data.map((item) => (
-        <div key={item.segmentNumber} className={styles.mappingCard}>
+        <div 
+          key={item.segmentNumber} 
+          className={`${styles.mappingCard} ${selectedSegment === item.segmentNumber ? styles.selectedCard : ''}`}
+          onClick={() => onSegmentSelect && onSegmentSelect(item.segmentNumber === selectedSegment ? null : item.segmentNumber)}
+        >
           <div
             className={styles.cardHeader}
             style={{ backgroundColor: item.color }}
@@ -30,6 +36,9 @@ const MappingOutput: React.FC<MappingOutputProps> = ({ data }) => {
             <span className={styles.segmentNumber}>
               Segment {item.segmentNumber}
             </span>
+            {selectedSegment === item.segmentNumber && (
+              <span className={styles.selectedIndicator}>Selected</span>
+            )}
           </div>
           <div className={styles.cardBody}>
             <p className={styles.description}>{item.description}</p>

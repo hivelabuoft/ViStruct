@@ -93,3 +93,224 @@
   cursor: pointer;
   z-index: 10;
 }
+
+/* Add these styles for the Guidance component */
+.guidanceModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.guidanceContent {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.guidanceHeader {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 20px;
+}
+
+.guidanceHeader h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin: 0;
+  padding-right: 40px;
+}
+
+.taskType {
+  display: inline-block;
+  background-color: #ebf5ff;
+  color: #0066cc;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.guidanceBody {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.imageContainer {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.chartImage {
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.guidanceOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.highlightRect {
+  animation: pulse 2s infinite;
+}
+
+.highlightCenter {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.guidanceInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.taskDescription h3,
+.labelInfo h3,
+.regionInfo h3,
+.guidanceTips h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.taskDescription p,
+.labelInfo p,
+.regionInfo p {
+  margin: 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+.regionDetails {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #0066cc;
+}
+
+.regionLabel {
+  margin-top: 8px !important;
+  font-weight: 500;
+}
+
+.noRegionMessage {
+  color: #888 !important;
+  font-style: italic;
+}
+
+.guidanceTips ul {
+  margin: 10px 0 0 0;
+  padding-left: 25px;
+}
+
+.guidanceTips li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: #444;
+}
+
+.guidanceFooter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  border-top: 1px solid #eaeaea;
+}
+
+.okButton {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.okButton:hover {
+  background-color: #0052a3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .guidanceBody {
+    flex-direction: column;
+  }
+  
+  .imageWrapper {
+    height: 350px;
+  }
+}

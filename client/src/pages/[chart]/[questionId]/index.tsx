@@ -4,11 +4,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Editor from "@monaco-editor/react";
-import { FaSave, FaRedo, FaPlay } from "react-icons/fa";
+import { FaSave, FaRedo, FaPlay, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 import styles from "../../../styles/Question.module.css";
 import ChartImageContainer from "../../../components/chartImageContainer";
 import typeColors from "../../../utils/typeColor";
-
+import BreakdownComponent from "@/src/components/breakdown";
+import Guidance from "@/src/components/guidance";
 
 interface ChartDescription {
   chartType: string;
@@ -33,12 +34,16 @@ export default function QuestionPage({
   const [editorValue, setEditorValue] = useState<string>("");
   const [originalValue, setOriginalValue] = useState<string>("");
   const [zoom, setZoom] = useState<number>(1);
+  const [isMapped, setIsMapped] = useState<boolean>(false);
+  const [selectedStep, setSelectedStep] = useState<number | null>(null);
+  const [showMappingHint, setShowMappingHint] = useState<boolean>(false);
+  const [showGuidanceButton, setShowGuidanceButton] = useState<boolean>(false);
+  const [mappedRegions, setMappedRegions] = useState<any[]>([]);
+  const [showGuidanceModal, setShowGuidanceModal] = useState<boolean>(false);
 
   // Destructure chart description values.
   const { chartType, description } = chartDescription;
   const [showModal, setShowModal] = useState(false);
-
-  
 
   // useEffect(() => {console.log(isWaiting)}, [isWaiting]);
 
@@ -122,6 +127,45 @@ export default function QuestionPage({
   const handleZoomOut = () => {
     setZoom((prev) => (prev > 0.2 ? prev - 0.1 : prev));
   };
+  
+  const handleRunMapping = () => {
+    setIsMapped(true);
+    setShowModal(true);
+  };
+  
+  const handleStepClick = (index: number) => {
+    if (!isMapped) {
+      // Show hint that mapping is required first
+      setShowMappingHint(true);
+      setTimeout(() => setShowMappingHint(false), 3000); // Hide hint after 3 seconds
+      return;
+    }
+    
+    setSelectedStep(selectedStep === index ? null : index);
+    setShowGuidanceButton(selectedStep !== index);
+  };
+  
+  const handleMappingComplete = (regions: any[]) => {
+    setMappedRegions(regions);
+    console.log("Mapping completed with regions:", regions);
+  };
+  
+  const navigateToGuidance = (event: React.MouseEvent) => {
+    // Prevent event propagation to parent elements
+    event.stopPropagation();
+    
+    // Show the guidance modal immediately when clicking the Run Guidance button
+    if (selectedStep !== null && generatedJSON && generatedJSON.example) {
+      const exampleStep = generatedJSON.example[selectedStep];
+      const componentInfo = generatedJSON.components.find(
+        (comp: any) => comp.index === exampleStep.step
+      );
+      
+      if (componentInfo) {
+        setShowGuidanceModal(true);
+      }
+    }
+  };
 
   return (
     <div className={styles.mainContainer}>
@@ -170,7 +214,7 @@ export default function QuestionPage({
                   value={editorValue || "Editor content here..."}
                   onChange={(value) => setEditorValue(value || "")}
                   options={{
-                    readOnly: false,
+                    readOnly: false, // set to false later
                     minimap: { enabled: false },
                     scrollBeyondLastLine: false,
                     wordWrap: "on",
@@ -215,19 +259,84 @@ export default function QuestionPage({
               {/* Right Sub-panel: Full JSON output */}
               <div className={styles.decompositionRight}>
                 <div className={styles.flowChartHeader}>
-                  <h2 className={styles.panelTitle}>Task Flow Chart</h2>
-                  <button className={styles.runButton} onClick={() => setShowModal(true)}>
-                    <FaPlay /> <span>Run</span>
+                  <h2 className={styles.panelTitle}>Example Task Flow Chart</h2>
+                  <button 
+                    className={styles.runButton} 
+                    onClick={handleRunMapping}
+                    data-mapped={isMapped ? "true" : "false"}
+                  >
+                    <FaPlay /> <span>{isMapped ? "Mapped" : "Map"}</span>
                   </button>
                 </div>
+                
+                {!isMapped && (
+                  <div className={styles.workflowStatus}>
+                    <FaPlay /> Click the Map button to begin mapping chart coordinates to task components
+                  </div>
+                )}
+                
                 <div className={styles.flowChart}>
-                  <pre>
-                    {generatedJSON
-                      ? JSON.stringify(generatedJSON, null, 2)
-                      : "JSON output here..."}
-                  </pre>
+                  {generatedJSON ? (
+                    <div className={styles.flowChartContainer}>
+                      {generatedJSON.example && generatedJSON.example.map((item: any, index: number) => {
+                        const componentInfo = generatedJSON.components.find(
+                          (comp: any) => comp.index === item.step
+                        );
+                        
+                        return componentInfo ? (
+                          <div 
+                            key={index} 
+                            className={styles.flowChartStep} 
+                            onClick={() => handleStepClick(index)}
+                            data-selected={selectedStep === index ? "true" : "false"}
+                          >
+                            <div 
+                              className={styles.flowChartStepContent}
+                              style={{
+                                backgroundColor: typeColors[componentInfo.type] || "rgba(229, 231, 235, 0.8)"
+                              }}
+                            >
+                              <div className={styles.flowChartStepHeader}>
+                                <span className={styles.flowChartStepNumber}>Step {index + 1}</span>
+                                <span className={styles.flowChartStepType}>{componentInfo.type}</span>
+                              </div>
+                              <div className={styles.flowChartStepTask}>
+                                <strong>Task {item.step}:</strong> {componentInfo.taskName}
+                              </div>
+                              {item.labelName && (
+                                <div className={styles.flowChartStepVariable}>
+                                  <span className={styles.variableLabel}>Value:</span> {item.labelName}
+                                </div>
+                              )}
+                            </div>
+                            {selectedStep === index && (
+                              <button className={styles.guidanceButton} onClick={(e) => navigateToGuidance(e)}>
+                                <FaArrowRight /> Run Guidance
+                              </button>
+                            )}
+                            {index < generatedJSON.example.length - 1 && (
+                              <div className={styles.flowChartConnector}>
+                                <div className={styles.flowChartConnectorLine}></div>
+                                <div className={styles.flowChartConnectorArrow}></div>
+                              </div>
+                            )}
+                          </div>
+                        ) : null;
+                      })}
+                    </div>
+                  ) : (
+                    "JSON output here..."
+                  )}
                 </div>
+                
+                {showMappingHint && (
+                  <div className={styles.mappingHint}>
+                    <FaPlay /> Please click "Map" first to map chart regions
+                  </div>
+                )}
               </div>
+              
+              {/* Breakdown Modal */}
               {showModal && (
                 <div className={styles.modalWrapper}>
                   <BreakdownComponent
@@ -235,8 +344,28 @@ export default function QuestionPage({
                     questionId={questionId.toString()}
                     chartDescription={chartDescription}
                     onClose={() => setShowModal(false)}
+                    onMappingComplete={handleMappingComplete}
                   />
-                  <button className={styles.closeModalButton} onClick={() => setShowModal(false)}>Close</button>
+                </div>
+              )}
+              
+              {/* Guidance Modal */}
+              {showGuidanceModal && selectedStep !== null && generatedJSON && generatedJSON.example && (
+                <div className={styles.modalWrapper}>
+                  <Guidance
+                    chartImage={`/studyProblem/${chart}.png`}
+                    stepNumber={selectedStep + 1}
+                    taskName={generatedJSON.components.find(
+                      (comp: any) => comp.index === generatedJSON.example[selectedStep].step
+                    )?.taskName || ""}
+                    type={generatedJSON.components.find(
+                      (comp: any) => comp.index === generatedJSON.example[selectedStep].step
+                    )?.type || ""}
+                    chartType={chartType}
+                    labelName={generatedJSON.example[selectedStep].labelName || ""}
+                    mappedRegions={mappedRegions}
+                    onClose={() => setShowGuidanceModal(false)}
+                  />
                 </div>
               )}
             </div>
@@ -252,7 +381,6 @@ export default function QuestionPage({
 
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import BreakdownComponent from "@/src/components/breakdown";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const fs = require("fs");

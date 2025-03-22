@@ -19,137 +19,306 @@
   overflow: auto;
   position: relative;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Instruction elements */
+.pageInstructions {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.instructionBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #f0f9ff;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.instructionsTextContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.instructionIcon {
+  font-size: 1.2rem;
+  color: #3b82f6;
+}
+
+.instructionBox p {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+/* Exit banner */
+.exitBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  text-align: center;
+  padding: 0.5rem;
+  z-index: 1000;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease;
+}
+
+.exitBanner p {
+  margin: 0;
 }
 
 .closeButton {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: transparent;
-  color: #666;
+  background: rgba(255, 240, 240, 0.95);
+  color: #e53e3e;
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index: 1100;
 }
 
 .closeButton:hover {
-  background-color: #f3f4f6;
-  color: #111;
+  background-color: #e53e3e;
+  color: white;
   transform: scale(1.05);
 }
 
 .container {
-    display: flex;
-    height: 94vh;
-    width: 94vw;
-    gap: 1rem;
-    padding: 1rem;
-    box-sizing: border-box;
-    background-color: #f9fafb;
+  display: flex;
+  height: 94vh;
+  width: 94vw;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  position: relative;
+}
+
+/* Section titles and descriptions */
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.sectionDescription {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.interactionTip {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  color: #3b82f6;
+  background-color: #f0f9ff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+}
+
+.leftDiv {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  height: calc(100% - 2rem);
+}
+
+.chartImage {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.rightDiv {
+  width: 50%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-y: auto;
+  position: relative;
+  height: calc(100% - 2rem);
+}
+
+/* Action button - updated positioning */
+.actionButton {
+  border: none;
+  padding: 0 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #4776db;
+  color: white;
+  width: auto;
+  min-width: 160px;
+  height: 40px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
+}
+
+.actionButton:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
+}
+
+.disabledButton {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.disabledButton:hover {
+  transform: none;
+  background-color: #e2e8f0;
+  box-shadow: none;
+}
+
+.mappedStatus {
+  border: none;
+  padding: 0 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #10b981;
+  color: white;
+  width: auto;
+  min-width: 180px;
+  height: 40px;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 10;
+  cursor: default;
+  box-shadow: 0 2px 5px rgba(16, 185, 129, 0.2);
+}
+
+.disabledCloseButton {
+  background: #f1f1f1;
+  color: #bbb;
+  cursor: not-allowed;
+  opacity: 0.8;
+  box-shadow: none;
+  transform: none;
+}
+
+.disabledCloseButton:hover {
+  background: #f1f1f1;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  
-  .leftDiv {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1rem;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .chartImage {
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .rightDiv {
-    width: 50%;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1rem;
-    overflow-y: auto;
-    position: relative;
+  to {
+    opacity: 1;
   }
-  
-  .runButton {
-    border: none;
-    padding: 0 1.25rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #4776db;
-    color: white;
-    width: auto;
-    min-width: 160px;
-    height: 40px;
-    position: absolute;
-    top: 48px;
-    right: calc(2rem + 8px);
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
-  }
-  
-  .runButton:hover {
-    background-color: #2563eb;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
-  }
-  
-  .mappedStatus {
-    border: none;
-    padding: 0 1.25rem;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #e2e8f0;
-    color: #64748b;
-    width: auto;
-    min-width: 160px;
-    height: 40px;
-    position: absolute;
-    top: 48px;
-    right: calc(2rem + 8px);
-    z-index: 10;
-    cursor: default;
-    box-shadow: none;
-    pointer-events: none;
-  }
-  
-  .disabledCloseButton {
-    background: #f1f1f1;
-    color: #bbb;
-    cursor: not-allowed;
-    opacity: 0.8;
-    box-shadow: none;
-    transform: none;
-  }
-  
-  .disabledCloseButton:hover {
-    background: #f1f1f1;
-    transform: none;
-    box-shadow: none;
-  }
+}
+
+/* JSON Display Styling */
+.jsonContainer {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-height: 500px;
+  overflow: auto;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.jsonKey {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.jsonValue {
+  color: #2563eb;
+}
+
+.jsonString {
+  color: #059669;
+}
+
+.jsonNumber {
+  color: #d97706;
+}
+
+.jsonBoolean {
+  color: #dc2626;
+}
+
+.jsonNull {
+  color: #9ca3af;
+  font-style: italic;
+}

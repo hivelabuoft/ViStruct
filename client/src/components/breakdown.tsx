@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaTimes, FaInfoCircle, FaCheckCircle, FaArrowRight, FaChartBar } from "react-icons/fa";
 import axios from "axios";
 import styles from "../styles/Breakdown.module.css";
 import AnnotateImage from "./annoatedImage";
-import { FaTimes } from "react-icons/fa";
 import MappingOutput from "./mappingOutput";
+import JSONFormatter from "./JSONFormatter";
 import html2canvas from "html2canvas";
 
 interface ChartDescription {
@@ -17,6 +17,7 @@ interface BreakdownComponentProps {
   questionId: string;
   chartDescription: ChartDescription;
   onClose: () => void;
+  onMappingComplete?: (mappedRegions: any[]) => void; // New callback prop
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -41,6 +42,7 @@ export default function BreakdownComponent({
   questionId,
   chartDescription,
   onClose,
+  onMappingComplete,
 }: BreakdownComponentProps) {
   const [analysisOutput, setAnalysisOutput] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -48,6 +50,7 @@ export default function BreakdownComponent({
   const [screenshotCaptured, setScreenshotCaptured] = useState<boolean>(false);
   const [isMappingLoading, setIsMappingLoading] = useState<boolean>(false);
   const [mappedRegions, setMappedRegions] = useState<any[]>([]);
+  const [selectedSegment, setSelectedSegment] = useState<number | null>(null);
 
   // Construct dynamic API path
   const getAPIEndpointForChart = (chartName: string): string => {
@@ -172,6 +175,12 @@ export default function BreakdownComponent({
     
         // Update state with combined regions
         setMappedRegions(combinedRegions);
+        
+        // Pass mapped regions back to parent component if callback exists
+        if (onMappingComplete) {
+            onMappingComplete(combinedRegions);
+        }
+        
         console.log("Combined Regions:", combinedRegions);
     
         setHasStop(false); // Disable the mapping button after mapping is done
@@ -217,44 +226,19 @@ const fetchMapping = async () => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <div className={styles.container}>
-        <button
-            className={`${styles.closeButton} ${hasStop ? styles.disabledCloseButton : ""}`}
-            onClick={onClose}
-            disabled={hasStop}
-            >
-            <FaTimes />
-            </button>
-        <div className={styles.leftDiv}>
-            <AnnotateImage imageUrl={`/studyProblem/${chart}.png`} annotations={analysisOutput} />
-        </div>
-        <div className={styles.rightDiv}>
-        {hasStop ? (
-            <>
-                <h2>OpenCV Output</h2>
-                {isLoading ? (
-                <p>Loading analysis...</p>
-                ) : isMappingLoading ? (
-                <p>Loading mapping data...</p>
-                ) : analysisOutput ? (
-                <pre>{JSON.stringify(analysisOutput, null, 2)}</pre>
-                ) : (
-                <p>No analysis available.</p>
-                )}
-            </>
-            ) : (
-            <>
-                <h2>Regions Coordinate Mapping</h2>
-                <MappingOutput data={mappedRegions} />
-              </>
-            )}
-
-            {analysisOutput && analysisOutput["regions"]?.length > 1 && (
+        <div className={styles.pageInstructions}>
+          {hasStop ? (
+            <div className={styles.instructionBox}>
+              <div className={styles.instructionsTextContainer}>
+                <FaInfoCircle className={styles.instructionIcon} />
+                <p>OpenCV has identified regions in this chart. Click "Start Mapping" to assign meaning to each region.</p>
+              </div>
+              {analysisOutput && analysisOutput["regions"]?.length > 1 && (
               hasStop ? (
                 <button
-                  className={`${styles.runButton} ${(!screenshotCaptured) ? styles.disabledCloseButton : ""}`}
+                  className={`${styles.actionButton} ${(!screenshotCaptured) ? styles.disabledButton : ""}`}
                   onClick={handleNextClick}
-                  disabled={!screenshotCaptured || isMappingLoading} // Disable if screenshot not done or mapping in progress
+                  disabled={!screenshotCaptured || isMappingLoading}
                 >
                   {!screenshotCaptured ? (
                     "Loading..."
@@ -268,11 +252,80 @@ const fetchMapping = async () => {
                 </button>
               ) : (
                 <div className={styles.mappedStatus}>
-                  Mapped
+                  <FaCheckCircle /> &nbsp; Mapping Complete
                 </div>
               )
             )}
+            </div>
+          ) : (
+            <div className={styles.instructionBox}>
+              <div className={styles.instructionsTextContainer}>
+                <FaCheckCircle className={styles.instructionIcon} />
+                <p>Mapping complete! Click on any segment card to highlight its position in the chart.</p>
+              </div>
+            </div>
+          )}
         </div>
+
+        <div className={styles.container}>
+          {/* Exit instructions banner at the top */}
+          {!hasStop && (
+            <div className={styles.exitBanner}>
+              <p>You may now exit this screen using the close button <FaTimes /> in the top-right corner</p>
+            </div>
+          )}
+          
+          <div className={styles.leftDiv}>
+            <h2 className={styles.sectionTitle}><FaChartBar /> Chart Segmentation</h2>
+            <AnnotateImage 
+              imageUrl={`/studyProblem/${chart}.png`} 
+              annotations={analysisOutput} 
+              selectedSegment={selectedSegment}
+            />
+          </div>
+          
+          <div className={styles.rightDiv}>
+            {hasStop ? (
+              <>
+                <h2 className={styles.sectionTitle}><FaInfoCircle /> Region Detection</h2>
+                <p className={styles.sectionDescription}>
+                  Computer vision has detected the following regions in the chart:
+                </p>
+                {isLoading ? (
+                  <p>Loading analysis...</p>
+                ) : isMappingLoading ? (
+                  <p>Loading mapping data...</p>
+                ) : analysisOutput ? (
+                  <JSONFormatter data={analysisOutput} />
+                ) : (
+                  <p>No analysis available.</p>
+                )}
+              </>
+            ) : (
+              <>
+                <h2 className={styles.sectionTitle}><FaCheckCircle /> Data Segment Mapping</h2>
+                <p className={styles.sectionDescription}>
+                  Each region has been mapped to a data component.
+                  <span className={styles.interactionTip}>
+                    <FaInfoCircle /> Click any card to highlight it on the chart
+                  </span>
+                </p>
+                <MappingOutput 
+                  data={mappedRegions} 
+                  onSegmentSelect={(segmentNumber) => setSelectedSegment(segmentNumber)}
+                  selectedSegment={selectedSegment}
+                />
+              </>
+            )}
+          </div>
+          
+          <button
+            className={`${styles.closeButton} ${hasStop ? styles.disabledCloseButton : ""}`}
+            onClick={onClose}
+            disabled={hasStop}
+          >
+            <FaTimes />
+          </button>
         </div>
       </div>
     </div>

@@ -120,7 +120,7 @@ the output json format should strictly be:
     ...
     ],
     "example": [
-     1(label name), 2, 1(label name), 3, etc <the workflow of how to use those low level component to combine and get the final visualization task, label name is optional, only include if you apply that task for different labels repeatly>
+     1(label name), 2, 1(label name), 3, etc <the workflow of how to use those low level component to combine and get the final visualization task, label name is optional, only include if you apply that task for different labels repeatly. Label name also required if the current task is based on the previous task about a specific label>.
     ]
    }
     if it is a repeated task, you should include the label name in the example array. and do not include the label name in the low level component task array, prevent (e.g.). 
@@ -172,7 +172,7 @@ the output json format should strictly be:
                   labelName: {
                     type: "string",
                     description:
-                      "Optional label name if the task is applied repeatedly for different labels.",
+                      "Optional label name if the task is applied repeatedly for different labels. Label name also required if the current task is based on the previous task about a specific label",
                   },
                 },
                 required: ["step"],
@@ -242,52 +242,64 @@ the output json format should strictly be:
       "labelName": "U.S.A."
     },
     {
-      "step": 3
+      "step": 3,
+      "labelName": "U.S.A."
     },
     {
-      "step": 4
+      "step": 4,
+      "labelName": "U.S.A."
     },
     {
-      "step": 5
+      "step": 5,
+      "labelName": "U.S.A."
     },
     {
       "step": 2,
       "labelName": "Great Britain"
     },
     {
-      "step": 3
+      "step": 3,
+      "labelName": "Great Britain"
     },
     {
-      "step": 4
+      "step": 4,
+      "labelName": "Great Britain"
     },
     {
-      "step": 5
+      "step": 5,
+      "labelName": "Great Britain"
     },
     {
       "step": 2,
       "labelName": "Japan"
     },
     {
-      "step": 3
+      "step": 3,
+      "labelName": "Japan"
     },
     {
-      "step": 4
+      "step": 4,
+      "labelName": "Japan"
     },
     {
-      "step": 5
+      "step": 5,
+      "labelName": "Japan"
     },
     {
       "step": 2,
       "labelName": "Australia"
     },
     {
-      "step": 3
+      "step": 3,
+      "labelName": "Australia"
     },
     {
-      "step": 4
+      "step": 4,
+      "labelName": "Australia"
     },
     {
-      "step": 5
+      "step": 5,
+      "labelName": "Australia"
     },
     {
       "step": 6

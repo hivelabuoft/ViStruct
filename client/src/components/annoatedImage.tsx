@@ -23,9 +23,10 @@ interface Region {
   interface AnnotateImageProps {
     imageUrl: string;
     annotations: AnnotationData;
+    selectedSegment?: number | null;
   }
   
-  export default function AnnotateImage({ imageUrl, annotations }: AnnotateImageProps) {
+  export default function AnnotateImage({ imageUrl, annotations, selectedSegment }: AnnotateImageProps) {
     const imageRef = useRef<HTMLImageElement>(null);
     const [imageSize, setImageSize] = useState<{ width: number; height: number }>({
       width: 1,
@@ -70,21 +71,28 @@ interface Region {
           const top = rectangular.ymin * scaleY;
           const width = (rectangular.xmax - rectangular.xmin) * scaleX;
           const height = (rectangular.ymax - rectangular.ymin) * scaleY;
+          
+          // Check if this segment is selected
+          const isSelected = selectedSegment !== undefined && selectedSegment === index + 1;
   
           return (
             <div
               key={index}
-              className={styles.annotationBox}
+              className={`${styles.annotationBox} ${isSelected ? styles.selectedAnnotation : ''}`}
               style={{
                 left,
                 top,
                 width,
                 height,
-                borderColor: "#00f",
+                borderColor: isSelected ? "#ff3e00" : "#00f",
+                borderWidth: isSelected ? "3px" : "1px",
+                boxShadow: isSelected ? "0 0 8px rgba(255, 62, 0, 0.7)" : "none"
               }}
               title={`Region ${index + 1}`}
             >
-              <span className={styles.annotationLabel}>{index + 1}</span>
+              <span className={`${styles.annotationLabel} ${isSelected ? styles.selectedLabel : ''}`}>
+                {index + 1}
+              </span>
             </div>
           );
         })}
