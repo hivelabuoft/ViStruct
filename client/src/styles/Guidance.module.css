@@ -89,17 +89,28 @@
   border-radius: 8px;
   overflow: hidden;
   background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 650px; /* Changed from fixed height to max-height */
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 650px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chartImage {
-  object-fit: contain;
   max-width: 100%;
+  max-height: 100%;
+  width: auto !important; /* Override Next.js Image inline width */
+  height: auto !important; /* Override Next.js Image inline height */
+  object-fit: contain; /* Maintain aspect ratio */
+  display: block;
 }
 
 .guidanceOverlay {
@@ -189,7 +200,7 @@
 }
 
 .guidanceFooter {
-  margin-top: 25px;
+  margin-top: auto; /* Push to bottom of container */
   display: flex;
   justify-content: flex-end;
   padding-top: 18px;
@@ -212,7 +223,27 @@
   background-color: #0052a3;
 }
 
+/* Split the finished button styles to enable/disable states */
 .finishedButton {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.finishedButton:hover {
+  background-color: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.finishedButtonDisabled {
   background-color: #ccc;
   color: white;
   border: none;
@@ -222,6 +253,71 @@
   font-weight: 500;
   cursor: not-allowed;
   transition: background-color 0.2s;
+}
+
+.stepCounter {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+  background-color: #f2f2f2;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.navButton {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px 20px; /* Increased padding for larger buttons */
+  border-radius: 6px; /* Slightly more rounded corners */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px; /* Larger font size */
+  font-weight: 500; /* Slightly bolder */
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  transform: translateY(-1px); /* Slight lift effect on hover */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow on hover */
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aoiGuidance {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  flex-shrink: 0; /* Prevent shrinking */
+  overflow-y: visible; /* Remove scrolling */
+}
+
+.stepDetails {
+  margin-bottom: 15px;
+}
+
+.calculations, .coordinates {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.error {
+  color: #e53e3e;
+  font-weight: 500;
 }
 
 /* Responsive adjustments */

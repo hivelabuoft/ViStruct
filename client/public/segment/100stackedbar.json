@@ -5,27 +5,27 @@
             "segmentNumber": 1
         },
         {
-            "description": "Stacked bar segment for Bronze medals for U.S.A.",
+            "description": "Stacked bar segment for Bronze medals for Great Britain",
             "segmentNumber": 2
         },
         {
-            "description": "Stacked bar segment for Bronze medals for Japan",
+            "description": "Stacked bar segment for Bronze medals for U.S.A.",
             "segmentNumber": 3
         },
         {
-            "description": "Stacked bar segment for Bronze medals for Great Britain",
+            "description": "Stacked bar segment for Bronze medals for Japan",
             "segmentNumber": 4
         },
         {
-            "description": "Stacked bar segment for Silver medals for Japan",
+            "description": "Stacked bar segment for Silver medals for U.S.A.",
             "segmentNumber": 5
         },
         {
-            "description": "Stacked bar segment for Silver medals for U.S.A.",
+            "description": "Stacked bar segment for Silver medals for Great Britain",
             "segmentNumber": 6
         },
         {
-            "description": "Stacked bar segment for Silver medals for Great Britain",
+            "description": "Stacked bar segment for Silver medals for Japan",
             "segmentNumber": 7
         },
         {
@@ -33,7 +33,7 @@
             "segmentNumber": 8
         },
         {
-            "description": "Stacked bar segment for Gold medals for Great Britain",
+            "description": "Stacked bar segment for Gold medals for Japan",
             "segmentNumber": 9
         },
         {
@@ -41,11 +41,11 @@
             "segmentNumber": 10
         },
         {
-            "description": "Stacked bar segment for Gold medals for Japan",
+            "description": "Stacked bar segment for Gold medals for U.S.A.",
             "segmentNumber": 11
         },
         {
-            "description": "Stacked bar segment for Gold medals for U.S.A.",
+            "description": "Stacked bar segment for Gold medals for Great Britain",
             "segmentNumber": 12
         },
         {

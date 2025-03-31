@@ -26,7 +26,7 @@ def read_root():
 
 # the LLM/VLM system is fed with DVL-FW Typology by Katy Börner, whenever there is a chart, is breaksdown the typology to map the chart
 # into 3 categories: Visualization Type, Graphic Symbols Used
-# for example 100% stacked bar would be Chart, Area, Rectangular
+# for example 100% stacked bar would be Chart, Surface, Rectangular
 # so if a chart that is chart, area, and rectangular, we put it with the below api
 
 async def analyze_chart_surface_rectangular(file: UploadFile) -> Dict:

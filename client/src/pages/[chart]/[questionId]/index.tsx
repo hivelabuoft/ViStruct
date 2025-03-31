@@ -40,6 +40,8 @@ export default function QuestionPage({
   const [showGuidanceButton, setShowGuidanceButton] = useState<boolean>(false);
   const [mappedRegions, setMappedRegions] = useState<any[]>([]);
   const [showGuidanceModal, setShowGuidanceModal] = useState<boolean>(false);
+  // Track which steps have been guided
+  const [guidedSteps, setGuidedSteps] = useState<number[]>([]);
 
   // Destructure chart description values.
   const { chartType, description } = chartDescription;
@@ -167,6 +169,18 @@ export default function QuestionPage({
     }
   };
 
+  const handleGuidanceComplete = (stepNumber: number) => {
+    if (selectedStep !== null) {
+      // Add this step to the list of guided steps if not already included
+      if (!guidedSteps.includes(selectedStep)) {
+        setGuidedSteps([...guidedSteps, selectedStep]);
+      }
+      
+      // Close the guidance modal
+      setShowGuidanceModal(false);
+    }
+  };
+
   return (
     <div className={styles.mainContainer}>
       {/* Loading Overlay */}
@@ -289,6 +303,7 @@ export default function QuestionPage({
                             className={styles.flowChartStep} 
                             onClick={() => handleStepClick(index)}
                             data-selected={selectedStep === index ? "true" : "false"}
+                            data-guided={guidedSteps.includes(index) ? "true" : "false"}
                           >
                             <div 
                               className={styles.flowChartStepContent}
@@ -365,6 +380,7 @@ export default function QuestionPage({
                     labelName={generatedJSON.example[selectedStep].labelName || ""}
                     mappedRegions={mappedRegions}
                     onClose={() => setShowGuidanceModal(false)}
+                    onGuidanceComplete={handleGuidanceComplete}
                   />
                 </div>
               )}
