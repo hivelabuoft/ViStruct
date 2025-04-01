@@ -1,0 +1,33 @@
+{
+    "chartType": "scatter",
+    "description": {
+      "title": "Weight and Height of 85 Individuals",
+      "x_axis": {
+        "label": "Height (cm)",
+        "categories": [
+          "155",
+          "160",
+          "165",
+          "170",
+          "175",
+          "180",
+          "185",
+          "190"
+        ]
+      },
+      "y_axis": {
+        "label": "Weight (kg),",
+        "range": [
+          "40",
+          "45",
+          "50",
+          "55",
+          "60",
+          "65",
+          "70",
+          "75"
+        ]
+      },
+      "legend": []
+    }
+  }

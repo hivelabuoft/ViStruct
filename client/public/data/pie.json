@@ -2,7 +2,148 @@
     "questions": [
       {
         "question": "What is the approximate global smartphone market share of Samsung?",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the pie chart to isolate the segment representing Samsung.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the market share percentage value associated with the Samsung segment.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Samsung"
+            },
+            {
+              "step": 2,
+              "labelName": "Samsung"
+            }
+          ]
+        }
+      },
+      {
+        "question": "In which company is the global smartphone market share the smallest?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the pie chart for the first company (e.g., Vivo).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the market share value for the current company from the pie chart.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Find the minimum market share among all retrieved values.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Vivo"
+            },
+            {
+              "step": 2,
+              "labelName": "Vivo"
+            },
+            {
+              "step": 1,
+              "labelName": "Oppo"
+            },
+            {
+              "step": 2,
+              "labelName": "Oppo"
+            },
+            {
+              "step": 1,
+              "labelName": "Apple"
+            },
+            {
+              "step": 2,
+              "labelName": "Apple"
+            },
+            {
+              "step": 1,
+              "labelName": "Xiaomi"
+            },
+            {
+              "step": 2,
+              "labelName": "Xiaomi"
+            },
+            {
+              "step": 1,
+              "labelName": "Samsung"
+            },
+            {
+              "step": 2,
+              "labelName": "Samsung"
+            },
+            {
+              "step": 1,
+              "labelName": "Others"
+            },
+            {
+              "step": 2,
+              "labelName": "Others"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question": "The global smartphone market share of Apple is larger than that of Oppo.",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the pie chart for a selected company (Apple/Oppo).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the market share value for the company from the pie chart.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compare the market share of Apple with that of Oppo.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Apple"
+            },
+            {
+              "step": 2,
+              "labelName": "Apple"
+            },
+            {
+              "step": 1,
+              "labelName": "Oppo"
+            },
+            {
+              "step": 2,
+              "labelName": "Oppo"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
       }
     ]
   }

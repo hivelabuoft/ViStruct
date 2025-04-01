@@ -1,0 +1,37 @@
+{
+    "chartType": "stacked area",
+    "description": {
+      "title": "Popular Girls' names in the UK",
+      "x_axis": {
+        "label": "Year",
+        "categories": [
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014"
+        ]
+      },
+      "y_axis": {
+        "label": "Number of Girls,",
+        "range": [
+          "0",
+          "2,000",
+          "4,000",
+          "6,000",
+          "8,000",
+          "10,000",
+          "12,000",
+          "14,000",
+          "16,000",
+          "18,000"
+        ]
+      },
+      "legend": [
+        "Olivia",
+        "Isla",
+        "Amelia"
+      ]
+    }
+  }

@@ -1,0 +1,48 @@
+{
+    "chartType": "stacked bar",
+    "description": {
+      "title": "Room Service Prices",
+      "x_axis": {
+        "label": "Cities",
+        "categories": [
+          "Helsinki",
+          "Oslo",
+          "Seoul",
+          "Zurich",
+          "Stockholm",
+          "Paris",
+          "N.Y.C.",
+          "Singapore",
+          "Toronto",
+          "Copenhagen"
+        ]
+      },
+      "y_axis": {
+        "label": "Cost ($),",
+        "range": [
+          "0",
+          "5",
+          "10",
+          "15",
+          "20",
+          "25",
+          "30",
+          "35",
+          "40",
+          "45",
+          "50",
+          "55",
+          "60",
+          "65",
+          "70"
+        ]
+      },
+      "legend": [
+        "Vodka",
+        "Soda",
+        "Peanut",
+        "Water",
+        "Sandwich"
+      ]
+    }
+  }

@@ -20,12 +20,27 @@ interface ChartPageProps {
 }
 
 export default function ChartPage({ chart, questions }: ChartPageProps) {
+  // Display the chart name in a more readable format
+  const formatChartName = (name: string) => {
+    if (name === "100stackedbar") return "100% Stacked Bar Chart";
+    if (name === "stackedArea") return "Stacked Area Chart";
+    if (name === "stackedBar") return "Stacked Bar Chart";
+    
+    return name
+      .split(/(?=[A-Z])/)
+      .join(" ")
+      .replace(/\b\w/g, (l) => l.toUpperCase()) + " Chart";
+  };
+
   return (
     <div className={styles.pageContainer}>
-      <h1 className={styles.pageTitle}>{chart.toUpperCase()}</h1>
+      <div className={styles.titleWrapper}>
+        <h1 className={styles.pageTitle}>{formatChartName(chart)}</h1>
+      </div>
+      
       <div className={styles.contentWrapper}>
         <div className={styles.questionsSection}>
-          <h2>Questions</h2>
+          <h2>Questions ({questions.length})</h2>
           <ul className={styles.questionList}>
             {questions.map((q, index) => (
               <li key={index}>
@@ -38,11 +53,24 @@ export default function ChartPage({ chart, questions }: ChartPageProps) {
             ))}
           </ul>
         </div>
+        
         <div className={styles.chartSection}>
-          <ChartImageContainer 
-            src={`/studyProblem/${chart}.png`} 
-            alt={`${chart} chart`} 
-          />
+          <div className={styles.chartImageWrapper}>
+            <ChartImageContainer 
+              src={`/studyProblem/${chart}.png`} 
+              alt={`${chart} chart`} 
+            />
+          </div>
+          
+          <div className={styles.sourceInfo}>
+            <p>
+              These chart visualization tasks are selected from the 
+              <a href="https://www.bckwon.com/publication/vlat/" className={styles.sourceLink} target="_blank" rel="noopener noreferrer"> VLAT </a> 
+              and 
+              <a href="https://washuvis.github.io/minivlat/" className={styles.sourceLink} target="_blank" rel="noopener noreferrer"> Mini-VLAT </a> 
+              visualization literacy assessment tools.
+            </p>
+          </div>
         </div>
       </div>
     </div>

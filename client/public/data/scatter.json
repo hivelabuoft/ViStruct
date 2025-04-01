@@ -1,8 +1,186 @@
   {
     "questions": [
       {
+        "question": "How many people have height shorter than 165 cm?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the scatter plot for data points with height less than 165 cm.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the data points between 155cm and 160cm",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Count the number of data points within 155cm-160cm range.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Filter the data points between 160cm and 165cm.",
+              "type": "Filter"
+            },
+            {
+              "index": 5,
+              "taskName": "Count the number of data points within 160cm-165cm range.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Compute the total number of people by summing the counts from each section.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1
+            },
+            {
+              "step": 2
+            },
+            {
+              "step": 3
+            },
+            {
+              "step": 4
+            },
+            {
+              "step": 5
+            },
+            {
+              "step": 6
+            }
+          ]
+        }
+      },
+      {
+        "question": "What is the height of the heaviest individual?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Find the maximum weight value on the y-axis.",
+              "type": "Find Extremum"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the scatter plot for the data point corresponding to the maximum weight.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the height of the filtered data point from the x-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1
+            },
+            {
+              "step": 2
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question": "What is the weight of the shortest invididual?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Find the minimum height value on the x-axis.",
+              "type": "Find Extremum"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the scatter plot for the data point corresponding to the minimum height.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the weight of the filtered data point from the y-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1
+            },
+            {
+              "step": 2
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question": "How many individuals are there with height of exactly 185 cm?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the scatter plot for data points with height equal to 185 cm.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Count the number of data points with height equal to 185 cm.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "185 cm"
+            },
+            {
+              "step": 2
+            }
+          ]
+        }
+      },
+      {
         "question": "There is a negative relationship between the height and the weight of the 85 males.",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Visually assess the general direction of the data points: as height increases, does weight tend to decrease?",
+              "type": "Correlate"
+            },
+            {
+              "index": 2,
+              "taskName": "Identify the overall pattern to observe if the data points generally slope downwards from left to right (negative relationship).",
+              "type": "Characterize Distribution"
+            },
+            {
+              "index": 3,
+              "taskName": "Assess the density of points along the trend line. Are the points closely clustered around a line or more scattered?",
+              "type": "Characterize Distribution"
+            }
+          ],
+          "example": [
+            {
+              "step": 1
+            },
+            {
+              "step": 2
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
       }
     ]
   }

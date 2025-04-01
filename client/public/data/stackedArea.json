@@ -1,8 +1,568 @@
   {
     "questions": [
       {
-        "question": "What was the ratio of girls named 'Isla' to girls named 'Amelia' in 2012 in the uk?",
-        "decomposition": null
+        "question": "What was the total number of girls named 'Isla' and girls named 'Amelia' in 2012 in the uk?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the stacked area chart to isolate the year 2012.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the stacked area representing the name <name>.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the <name> segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the <name> segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the number of girls named <name> in 2012 by subtracting the bottom value from the top value of the <name> segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Compute the sum of both names",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "2012"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 2,
+              "labelName": "Amelia"
+            },
+            {
+              "step": 3,
+              "labelName": "Amelia"
+            },
+            {
+              "step": 4,
+              "labelName": "Amelia"
+            },
+            {
+              "step": 5,
+              "labelName": "Amelia"
+            }
+          ]
+        }
+      },
+      {
+        "question": "Over the course of years between 2009 to 2014, when was the number of girls named ‘Amelia’ at the maximum?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the stacked area chart to isolate the stacked area representing the name 'Amelia'.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the stacked area chart to isolate the year <year>.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Amelia' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Amelia' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the number of girls named Amelia in <year> by subtracting the bottom value from the top value of the 'Amelia' segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Find the maximum number of girls named Amelia among all computed values for each year.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Amelia"
+            },
+            {
+              "step": 2,
+              "labelName": "2009"
+            },
+            {
+              "step": 3,
+              "labelName": "2009"
+            },
+            {
+              "step": 4,
+              "labelName": "2009"
+            },
+            {
+              "step": 5,
+              "labelName": "2009"
+            },
+            {
+              "step": 2,
+              "labelName": "2010"
+            },
+            {
+              "step": 3,
+              "labelName": "2010"
+            },
+            {
+              "step": 4,
+              "labelName": "2010"
+            },
+            {
+              "step": 5,
+              "labelName": "2010"
+            },
+            {
+              "step": 2,
+              "labelName": "2011"
+            },
+            {
+              "step": 3,
+              "labelName": "2011"
+            },
+            {
+              "step": 4,
+              "labelName": "2011"
+            },
+            {
+              "step": 5,
+              "labelName": "2011"
+            },
+            {
+              "step": 2,
+              "labelName": "2012"
+            },
+            {
+              "step": 3,
+              "labelName": "2012"
+            },
+            {
+              "step": 4,
+              "labelName": "2012"
+            },
+            {
+              "step": 5,
+              "labelName": "2012"
+            },
+            {
+              "step": 2,
+              "labelName": "2013"
+            },
+            {
+              "step": 3,
+              "labelName": "2013"
+            },
+            {
+              "step": 4,
+              "labelName": "2013"
+            },
+            {
+              "step": 5,
+              "labelName": "2013"
+            },
+            {
+              "step": 2,
+              "labelName": "2014"
+            },
+            {
+              "step": 3,
+              "labelName": "2014"
+            },
+            {
+              "step": 4,
+              "labelName": "2014"
+            },
+            {
+              "step": 5,
+              "labelName": "2014"
+            },
+            {
+              "step": 6
+            }
+          ]
+        }
+      },
+      {
+        "question": "What was the number of girls named 'Olivia' in 2010 in the uk?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the stacked area chart to isolate the year 2010.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the stacked area representing the name 'Olivia'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Olivia' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Olivia' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the number of girls named Olivia in 2010 by subtracting the bottom value from the top value of the 'Olivia' segment.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "2010"
+            },
+            {
+              "step": 2,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 3,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 4,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 5,
+              "labelName": "Olivia"
+            }
+          ]
+        }
+      },
+      {
+        "question": "Over the course of years between 2009 and 2014, the number of girls named ‘Isla’ was always more than ‘Olivia’.",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the stacked area chart to isolate the year <year>.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the stacked area chart to isolate the stacked area representing the name 'Isla'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Isla' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Isla' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the number of girls named Isla in <year> by subtracting the bottom value from the top value of the 'Isla' segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Filter the stacked area chart to isolate the stacked area representing the name 'Olivia'.",
+              "type": "Filter"
+            },
+            {
+              "index": 7,
+              "taskName": "Retrieve the value of the bottom of the 'Olivia' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 8,
+              "taskName": "Retrieve the value of the top of the 'Olivia' segment for <year>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 9,
+              "taskName": "Compute the number of girls named Olivia in <year> by subtracting the bottom value from the top value of the 'Olivia' segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 10,
+              "taskName": "Compare the number of girls named Isla with the number of girls named Olivia in <year>.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "2009"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            },
+            {
+              "step": 1,
+              "labelName": "2010"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            },
+            {
+              "step": 1,
+              "labelName": "2011"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            },
+            {
+              "step": 1,
+              "labelName": "2012"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            },
+            {
+              "step": 1,
+              "labelName": "2013"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            },
+            {
+              "step": 1,
+              "labelName": "2014"
+            },
+            {
+              "step": 2,
+              "labelName": "Isla"
+            },
+            {
+              "step": 3,
+              "labelName": "Isla"
+            },
+            {
+              "step": 4,
+              "labelName": "Isla"
+            },
+            {
+              "step": 5,
+              "labelName": "Isla"
+            },
+            {
+              "step": 6,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 7,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 8,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 9,
+              "labelName": "Olivia"
+            },
+            {
+              "step": 10
+            }
+          ]
+        }
       }
     ]
   }

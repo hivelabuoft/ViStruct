@@ -2,7 +2,196 @@
     "questions": [
       {
         "question": "What distance have customers traveled in the taxi the most?",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing a distance range (e.g., 10 km).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the number of customers for the selected distance range from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Find the maximum number of customers among all retrieved values.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "10 km"
+            },
+            {
+              "step": 2,
+              "labelName": "10 km"
+            },
+            {
+              "step": 1,
+              "labelName": "20 km"
+            },
+            {
+              "step": 2,
+              "labelName": "20 km"
+            },
+            {
+              "step": 1,
+              "labelName": "30 km"
+            },
+            {
+              "step": 2,
+              "labelName": "30 km"
+            },
+            {
+              "step": 1,
+              "labelName": "40 km"
+            },
+            {
+              "step": 2,
+              "labelName": "40 km"
+            },
+            {
+              "step": 1,
+              "labelName": "50 km"
+            },
+            {
+              "step": 2,
+              "labelName": "50 km"
+            },
+            {
+              "step": 1,
+              "labelName": "60 km"
+            },
+            {
+              "step": 2,
+              "labelName": "60 km"
+            },
+            {
+              "step": 1,
+              "labelName": "70 km"
+            },
+            {
+              "step": 2,
+              "labelName": "70 km"
+            },
+            {
+              "step": 1,
+              "labelName": "80 km"
+            },
+            {
+              "step": 2,
+              "labelName": "80 km"
+            },
+            {
+              "step": 1,
+              "labelName": "90 km"
+            },
+            {
+              "step": 2,
+              "labelName": "90 km"
+            },
+            {
+              "step": 1,
+              "labelName": "100 km"
+            },
+            {
+              "step": 2,
+              "labelName": "100 km"
+            },
+            {
+              "step": 1,
+              "labelName": "110 km"
+            },
+            {
+              "step": 2,
+              "labelName": "110 km"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question": "How many customers have traveled less than 20 miles?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bars representing distances less than or equal to 20 Km (10 Km and 20 Km).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the number of customers for the current distance range (10 Km or 20 Km).",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the number of customers for the current distance range.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Compute the total number of customers by adding the number of customers for the 10 Km and 20 Km distance ranges.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "<=20 Km"
+            },
+            {
+              "step": 2,
+              "labelName": "0-10 Km"
+            },
+            {
+              "step": 3,
+              "labelName": "0-10 Km"
+            },
+            {
+              "step": 2,
+              "labelName": "10-20 Km"
+            },
+            {
+              "step": 3,
+              "labelName": "10-20 Km"
+            },
+            {
+              "step": 4
+            }
+          ]
+        }
+      },
+      {
+        "question": "How many customers have traveled between 50 and 60 miles?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing the distance range '50-60 Km'.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the number of customers corresponding to the '50-60 Km' distance range from the y-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "50-60 Km"
+            },
+            {
+              "step": 2
+            }
+          ]
+        }
       }
     ]
   }

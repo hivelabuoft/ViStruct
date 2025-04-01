@@ -2,7 +2,77 @@
     "questions": [
       {
         "question": "eBay is nested in the Software category.",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the treemap to locate the 'Software' category.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Check if 'eBay' is a direct child (nested) within the 'Software' category.",
+              "type": "Filter"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Software"
+            },
+            {
+              "step": 2,
+              "labelName": "eBay"
+            }
+          ]
+        }
+      },
+      {
+        "question": "For which search/portal website is the number of unique visitors the highest?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the treemap to the 'Search/Portal' category.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Identify the region for <website> within the 'Search/Portal' category.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Visually estimate which of the identified regions has the largest area.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Search/Portal"
+            },
+            {
+              "step": 2,
+              "labelName": "Google"
+            },
+            {
+              "step": 2,
+              "labelName": "MSN/WindowsLive/Bing"
+            },
+            {
+              "step": 2,
+              "labelName": "Yahoo!"
+            },
+            {
+              "step": 2,
+              "labelName": "Ask"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
       }
     ]
   }

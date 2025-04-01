@@ -1,0 +1,22 @@
+{
+    "chartType": "pie chart",
+    "description": {
+      "title": "Global Smartphone Market Share in 2021",
+      "x_axis": {
+        "label": null,
+        "categories": []
+      },
+      "y_axis": {
+        "label": null,
+        "range": []
+      },
+      "legend": [
+        "Vivo",
+        "Oppo",
+        "Apple",
+        "Xiaomi",
+        "Samsung",
+        "Others"
+      ]
+    }
+  }

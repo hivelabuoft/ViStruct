@@ -2,7 +2,362 @@
     "questions": [
       {
         "question": "What was the price of a barrel of oil in February 2020?",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the data point representing February 2020 on the x-axis.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the corresponding oil price value from the y-axis for February 2020.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "February"
+            },
+            {
+              "step": 2,
+              "labelName": "February"
+            }
+          ]
+        }
+      },
+      {
+        "question": "What was the price of a barrel of oil in April 2020?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the data point representing April 2020 on the x-axis.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the oil price value for April 2020 from the y-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "April"
+            },
+            {
+              "step": 2,
+              "labelName": "April"
+            }
+          ]
+        }
+      },
+      {
+        "question": "What was the month with the cheapest oil price in 2020?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter a month on the x-axis.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the oil price for the filtered month from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Find the minimum oil price among all retrieved monthly prices.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "January"
+            },
+            {
+              "step": 2,
+              "labelName": "January"
+            },
+            {
+              "step": 1,
+              "labelName": "February"
+            },
+            {
+              "step": 2,
+              "labelName": "February"
+            },
+            {
+              "step": 1,
+              "labelName": "March"
+            },
+            {
+              "step": 2,
+              "labelName": "March"
+            },
+            {
+              "step": 1,
+              "labelName": "April"
+            },
+            {
+              "step": 2,
+              "labelName": "April"
+            },
+            {
+              "step": 1,
+              "labelName": "May"
+            },
+            {
+              "step": 2,
+              "labelName": "May"
+            },
+            {
+              "step": 1,
+              "labelName": "June"
+            },
+            {
+              "step": 2,
+              "labelName": "June"
+            },
+            {
+              "step": 1,
+              "labelName": "July"
+            },
+            {
+              "step": 2,
+              "labelName": "July"
+            },
+            {
+              "step": 1,
+              "labelName": "August"
+            },
+            {
+              "step": 2,
+              "labelName": "August"
+            },
+            {
+              "step": 1,
+              "labelName": "September"
+            },
+            {
+              "step": 2,
+              "labelName": "September"
+            },
+            {
+              "step": 1,
+              "labelName": "October"
+            },
+            {
+              "step": 2,
+              "labelName": "October"
+            },
+            {
+              "step": 1,
+              "labelName": "November"
+            },
+            {
+              "step": 2,
+              "labelName": "November"
+            },
+            {
+              "step": 1,
+              "labelName": "December"
+            },
+            {
+              "step": 2,
+              "labelName": "December"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question": "What was the price range of a barrel of oil in 2020?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter a month on the x-axis.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the oil price for the filtered month from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Find the minimum oil price among all retrieved monthly prices.",
+              "type": "Find Extremum"
+            },
+            {
+              "index": 4,
+              "taskName": "Find the maximum oil price among all retrieved monthly prices.",
+              "type": "Find Extremum"
+            },
+            {
+              "index": 5,
+              "taskName": "Determine the price range by identifying the difference between the maximum and minimum oil prices.",
+              "type": "Determine Range"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "January"
+            },
+            {
+              "step": 2,
+              "labelName": "January"
+            },
+            {
+              "step": 1,
+              "labelName": "February"
+            },
+            {
+              "step": 2,
+              "labelName": "February"
+            },
+            {
+              "step": 1,
+              "labelName": "March"
+            },
+            {
+              "step": 2,
+              "labelName": "March"
+            },
+            {
+              "step": 1,
+              "labelName": "April"
+            },
+            {
+              "step": 2,
+              "labelName": "April"
+            },
+            {
+              "step": 1,
+              "labelName": "May"
+            },
+            {
+              "step": 2,
+              "labelName": "May"
+            },
+            {
+              "step": 1,
+              "labelName": "June"
+            },
+            {
+              "step": 2,
+              "labelName": "June"
+            },
+            {
+              "step": 1,
+              "labelName": "July"
+            },
+            {
+              "step": 2,
+              "labelName": "July"
+            },
+            {
+              "step": 1,
+              "labelName": "August"
+            },
+            {
+              "step": 2,
+              "labelName": "August"
+            },
+            {
+              "step": 1,
+              "labelName": "September"
+            },
+            {
+              "step": 2,
+              "labelName": "September"
+            },
+            {
+              "step": 1,
+              "labelName": "October"
+            },
+            {
+              "step": 2,
+              "labelName": "October"
+            },
+            {
+              "step": 1,
+              "labelName": "November"
+            },
+            {
+              "step": 2,
+              "labelName": "November"
+            },
+            {
+              "step": 1,
+              "labelName": "December"
+            },
+            {
+              "step": 2,
+              "labelName": "December"
+            },
+            {
+              "step": 3
+            },
+            {
+              "step": 4
+            },
+            {
+              "step": 5
+            }
+          ]
+        }
+      },
+      {
+        "question": "How much did the price of oil increase from October to December 2020?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the data point for a specific month (October/December 2020).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the oil price value for the filtered month from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Compute the difference in oil price by subtracting the oil price in October from the oil price in December.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "October"
+            },
+            {
+              "step": 2,
+              "labelName": "October"
+            },
+            {
+              "step": 1,
+              "labelName": "December"
+            },
+            {
+              "step": 2,
+              "labelName": "December"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
       }
     ]
   }

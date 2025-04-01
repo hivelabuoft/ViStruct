@@ -1,0 +1,42 @@
+{
+    "chartType": "line chart",
+    "description": {
+      "title": "Oil Prices in 2020",
+      "x_axis": {
+        "label": "Month",
+        "categories": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ]
+      },
+      "y_axis": {
+        "label": "Oil Price ($),",
+        "range": [
+          "0",
+          "5",
+          "10",
+          "15",
+          "20",
+          "25",
+          "30",
+          "35",
+          "40",
+          "45",
+          "50",
+          "55",
+          "60"
+        ]
+      },
+      "legend": []
+    }
+  }

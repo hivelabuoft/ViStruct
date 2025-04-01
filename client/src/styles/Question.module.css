@@ -336,6 +336,7 @@ body {
   height: calc(100% - 2.5rem);
   overflow-y: auto;
   position: relative;
+  max-height: calc(100vh - 350px);
 }
 
 .flowChartContainer {

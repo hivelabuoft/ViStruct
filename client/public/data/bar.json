@@ -3,7 +3,239 @@
     "questions": [
       {
         "question":  "What is the average internet speed in Japan?",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing Japan.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the internet speed value for Japan from the y-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Japan"
+            },
+            {
+              "step": 2,
+              "labelName": "Japan"
+            }
+          ]
+        }
+      },
+      {
+        "question":  "What is the average internet speed in Thailand?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing Thailand.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the internet speed value for Thailand from the y-axis.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Thailand"
+            },
+            {
+              "step": 2,
+              "labelName": "Thailand"
+            }
+          ]
+        }
+      },
+      {
+        "question":  "What is the difference in average internet speed between China and India?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing a country.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the internet speed value for the selected country from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Compute the difference in internet speed by subtracting the internet speed of the second country from the internet speed of the first country.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "China"
+            },
+            {
+              "step": 2,
+              "labelName": "China"
+            },
+            {
+              "step": 1,
+              "labelName": "India"
+            },
+            {
+              "step": 2,
+              "labelName": "India"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
+      },
+      {
+        "question":  "Which country has the highest average internet speed?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing a country.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Retrieve the internet speed value for the selected country from the y-axis.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Find the maximum internet speed among all retrieved values.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Australia"
+            },
+            {
+              "step": 2,
+              "labelName": "Australia"
+            },
+            {
+              "step": 1,
+              "labelName": "China"
+            },
+            {
+              "step": 2,
+              "labelName": "China"
+            },
+            {
+              "step": 1,
+              "labelName": "Hong Kong"
+            },
+            {
+              "step": 2,
+              "labelName": "Hong Kong"
+            },
+            {
+              "step": 1,
+              "labelName": "India"
+            },
+            {
+              "step": 2,
+              "labelName": "India"
+            },
+            {
+              "step": 1,
+              "labelName": "Indonesia"
+            },
+            {
+              "step": 2,
+              "labelName": "Indonesia"
+            },
+            {
+              "step": 1,
+              "labelName": "Japan"
+            },
+            {
+              "step": 2,
+              "labelName": "Japan"
+            },
+            {
+              "step": 1,
+              "labelName": "Malaysia"
+            },
+            {
+              "step": 2,
+              "labelName": "Malaysia"
+            },
+            {
+              "step": 1,
+              "labelName": "New Zealand"
+            },
+            {
+              "step": 2,
+              "labelName": "New Zealand"
+            },
+            {
+              "step": 1,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 2,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 1,
+              "labelName": "South Korea"
+            },
+            {
+              "step": 2,
+              "labelName": "South Korea"
+            },
+            {
+              "step": 1,
+              "labelName": "Sri Lanka"
+            },
+            {
+              "step": 2,
+              "labelName": "Sri Lanka"
+            },
+            {
+              "step": 1,
+              "labelName": "Taiwan"
+            },
+            {
+              "step": 2,
+              "labelName": "Taiwan"
+            },
+            {
+              "step": 1,
+              "labelName": "Thailand"
+            },
+            {
+              "step": 2,
+              "labelName": "Thailand"
+            },
+            {
+              "step": 1,
+              "labelName": "Vietnam"
+            },
+            {
+              "step": 2,
+              "labelName": "Vietnam"
+            },
+            {
+              "step": 3
+            }
+          ]
+        }
       }
     ]
   }

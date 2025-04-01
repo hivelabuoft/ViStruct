@@ -108,6 +108,135 @@
           }
         ]
       }
+    },
+    {
+      "question": "How many percentage of silver medals did Australia won?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bar representing Australia.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Filter the segment within the bar that represents 'Silver' medals.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Retrieve the value of the bottom of the 'Silver' segment.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 4,
+            "taskName": "Retrieve the value of the top of the 'Silver' segment.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 5,
+            "taskName": "Compute the proportion of Silver medals for Australia by subtracting the bottom value from the top value of the 'Silver' segment.",
+            "type": "Compute Derived Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "Australia"
+          },
+          {
+            "step": 2,
+            "labelName": "Silver"
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          }
+        ]
+      }
+    },
+    {
+      "question": "How many percentage of silver and bronze mendal combined did Japan won?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bar representing a country.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Filter the segment within the bar that represents a medal type.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Retrieve the value of the bottom of the medal segment.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 4,
+            "taskName": "Retrieve the value of the top of the medal segment.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 5,
+            "taskName": "Compute the proportion of the medal type for the country by subtracting the bottom value from the top value.",
+            "type": "Compute Derived Value"
+          },
+          {
+            "index": 6,
+            "taskName": "Compute the combined proportion of two medal types by adding their individual proportions.",
+            "type": "Compute Derived Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "Japan"
+          },
+          {
+            "step": 2,
+            "labelName": "Silver"
+          },
+          {
+            "step": 3,
+            "labelName": "Silver"
+          },
+          {
+            "step": 4,
+            "labelName": "Silver"
+          },
+          {
+            "step": 5,
+            "labelName": "Silver"
+          },
+          {
+            "step": 2,
+            "labelName": "Bronze"
+          },
+          {
+            "step": 3,
+            "labelName": "Bronze"
+          },
+          {
+            "step": 4,
+            "labelName": "Bronze"
+          },
+          {
+            "step": 5,
+            "labelName": "Bronze"
+          },
+          {
+            "step": 6
+          }
+        ]
+      }
     }
   ]
 }

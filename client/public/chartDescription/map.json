@@ -1,0 +1,62 @@
+{
+    "chartType": "choleth map",
+    "description": {
+      "title": null,
+      "x_axis": {
+        "label": "states",
+        "categories": [
+          "WA",
+          "OR",
+          "CA",
+          "NV",
+          "AZ",
+          "NM",
+          "TX",
+          "OK",
+          "KS",
+          "CO",
+          "UT",
+          "ID",
+          "MT",
+          "WY",
+          "NE",
+          "SD",
+          "ND",
+          "MN",
+          "IA",
+          "MO",
+          "AR",
+          "LA",
+          "MS",
+          "AL",
+          "GA",
+          "FL",
+          "SC",
+          "NC",
+          "VA",
+          "WV",
+          "OH",
+          "KY",
+          "TN",
+          "IL",
+          "IN",
+          "MI",
+          "WI",
+          "PN",
+          "NY",
+          "VT",
+          "ME",
+          "AK",
+          "HI"
+        ]
+      },
+      "y_axis": {
+        "label": "color gradient,",
+        "range": [
+          "darkest blue",
+          "white"
+        ]
+      },
+      "legend": ["12%", "10%", "8%", "6%", "4%"]
+    }
+  }

@@ -2,7 +2,121 @@
   "questions": [
     {
       "question": "What was the average price of pound of coffee beans in October 2019?",
-      "decomposition": null
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the data to include only the data points from October 2019.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Retrieve the price of coffee beans in October 2019 from the filtered data.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "October 2019"
+          },
+          {
+            "step": 2
+          }
+        ]
+      }
+    },
+    {
+      "question": "What was the range of average price of pound of coffee beans from October 2018 to October 2019?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the data to the data point from October 2018.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Filter the data to the data point from October 2019.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Determine the range on the X axis between October 2018 and October 2019.",
+            "type": "Determine Range"
+          },
+          {
+            "index": 4,
+            "taskName": "Filter the data to include data points within the determined date range.",
+            "type": "Filter"
+          },
+          {
+            "index": 5,
+            "taskName": "Find the maximum coffee price within the filtered date range.",
+            "type": "Find Extremum"
+          },
+          {
+            "index": 6,
+            "taskName": "Find the minimum coffee price within the filtered date range.",
+            "type": "Find Extremum"
+          },
+          {
+            "index": 7,
+            "taskName": "Determine the price range by using the minimum and maximum price identified.",
+            "type": "Determine Range"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "October 2018"
+          },
+          {
+            "step": 2,
+            "labelName": "October 2019"
+          },
+          {
+            "step": 3
+          },
+          {
+            "step": 4
+          },
+          {
+            "step": 5
+          },
+          {
+            "step": 6
+          },
+          {
+            "step": 7
+          }
+        ]
+      }
+    },
+    {
+      "question": "When was the average price of a pound of coffee beans at maximum?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Identify the highest price point on the y-axis (Coffee Price).",
+            "type": "Find Extremum"
+          },
+          {
+            "index": 2,
+            "taskName": "Map the maximum price point to the corresponding date on the x-axis.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1
+          },
+          {
+            "step": 2
+          }
+        ]
+      }
     }
   ]
 }

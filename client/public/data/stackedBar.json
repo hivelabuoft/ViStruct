@@ -2,7 +2,435 @@
     "questions": [
       {
         "question": "What is the cost of peanuts in Seoul?",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing Seoul.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the segment within the bar that represents 'Peanut'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Peanut' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Peanut' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the cost of peanuts in Seoul by subtracting the bottom value from the top value of the 'Peanut' segment.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Seoul"
+            },
+            {
+              "step": 2,
+              "labelName": "Peanut"
+            },
+            {
+              "step": 3,
+              "labelName": "Peanut"
+            },
+            {
+              "step": 4,
+              "labelName": "Peanut"
+            },
+            {
+              "step": 5,
+              "labelName": "Peanut"
+            }
+          ]
+        }
+      },
+      {
+        "question": "What is the cost of water in Paris?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing Paris.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the segment within the bar that represents 'Water'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Water' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Water' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the cost of water in Paris by subtracting the bottom value from the top value of the 'Water' segment.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Paris"
+            },
+            {
+              "step": 2,
+              "labelName": "Water"
+            },
+            {
+              "step": 3,
+              "labelName": "Water"
+            },
+            {
+              "step": 4,
+              "labelName": "Water"
+            },
+            {
+              "step": 5,
+              "labelName": "Water"
+            }
+          ]
+        }
+      },
+      {
+        "question": "In which city the cost of soda is the highest?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing the first city (e.g., Helsinki).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the segment within the bar that represents 'Soda'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Soda' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Soda' segment.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the cost of soda for the current city by subtracting the bottom value from the top value of the 'Soda' segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Find the maximum cost of soda among all computed costs.",
+              "type": "Find Extremum"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Helsinki"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Helsinki"
+            },
+            {
+              "step": 4,
+              "labelName": "Helsinki"
+            },
+            {
+              "step": 5,
+              "labelName": "Helsinki"
+            },
+            {
+              "step": 1,
+              "labelName": "Oslo"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Oslo"
+            },
+            {
+              "step": 4,
+              "labelName": "Oslo"
+            },
+            {
+              "step": 5,
+              "labelName": "Oslo"
+            },
+            {
+              "step": 1,
+              "labelName": "Seoul"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Seoul"
+            },
+            {
+              "step": 4,
+              "labelName": "Seoul"
+            },
+            {
+              "step": 5,
+              "labelName": "Seoul"
+            },
+            {
+              "step": 1,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 4,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 5,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 1,
+              "labelName": "Stockholm"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Stockholm"
+            },
+            {
+              "step": 4,
+              "labelName": "Stockholm"
+            },
+            {
+              "step": 5,
+              "labelName": "Stockholm"
+            },
+            {
+              "step": 1,
+              "labelName": "Paris"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Paris"
+            },
+            {
+              "step": 4,
+              "labelName": "Paris"
+            },
+            {
+              "step": 5,
+              "labelName": "Paris"
+            },
+            {
+              "step": 1,
+              "labelName": "N.Y.C."
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "N.Y.C."
+            },
+            {
+              "step": 4,
+              "labelName": "N.Y.C."
+            },
+            {
+              "step": 5,
+              "labelName": "N.Y.C."
+            },
+            {
+              "step": 1,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 4,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 5,
+              "labelName": "Singapore"
+            },
+            {
+              "step": 1,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 4,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 5,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 1,
+              "labelName": "Copenhagen"
+            },
+            {
+              "step": 2,
+              "labelName": "Soda"
+            },
+            {
+              "step": 3,
+              "labelName": "Copenhagen"
+            },
+            {
+              "step": 4,
+              "labelName": "Copenhagen"
+            },
+            {
+              "step": 5,
+              "labelName": "Copenhagen"
+            },
+            {
+              "step": 6
+            }
+          ]
+        }
+      },
+      {
+        "question": "The cost of vodka in Zurich is less than the cost of vodka in Toronto?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the bar representing <city>.",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Filter the segment within the bar that represents 'Vodka'.",
+              "type": "Filter"
+            },
+            {
+              "index": 3,
+              "taskName": "Retrieve the value of the bottom of the 'Vodka' segment in <city>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Retrieve the value of the top of the 'Vodka' segment in <city>.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compute the cost of vodka in <city> by subtracting the bottom value from the top value of the 'Vodka' segment.",
+              "type": "Compute Derived Value"
+            },
+            {
+              "index": 6,
+              "taskName": "Compare the cost of vodka in Zurich with the cost of vodka in Toronto.",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 2,
+              "labelName": "Vodka"
+            },
+            {
+              "step": 3,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 4,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 5,
+              "labelName": "Zurich"
+            },
+            {
+              "step": 1,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 2,
+              "labelName": "Vodka"
+            },
+            {
+              "step": 3,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 4,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 5,
+              "labelName": "Toronto"
+            },
+            {
+              "step": 6
+            }
+          ]
+        }
       }
     ]
   }

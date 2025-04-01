@@ -1,0 +1,35 @@
+{
+    "chartType": "area chart",
+    "description": {
+      "title": "Robusta Coffee Price",
+      "x_axis": {
+        "label": null,
+        "categories": [
+          "2018",
+          "April",
+          "July",
+          "October",
+          "2019",
+          "April",
+          "July",
+          "October",
+          "2020"
+        ]
+      },
+      "y_axis": {
+        "label": "Coffee Price ($/lb),",
+        "range": [
+          "0.50",
+          "0.55",
+          "0.60",
+          "0.65",
+          "0.70",
+          "0.75",
+          "0.80",
+          "0.85",
+          "0.90"
+        ]
+      },
+      "legend": []
+    }
+  }

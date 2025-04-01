@@ -1,0 +1,43 @@
+{
+    "chartType": "bubble chart",
+    "description": {
+      "title": "Metro Systems of the World",
+      "x_axis": {
+        "label": "Number of Stations",
+        "categories": [
+          "150",
+          "200",
+          "250",
+          "300",
+          "350",
+          "400",
+          "450",
+          "500",
+          "550",
+          "600",
+          "650",
+          "700",
+          "750",
+          "800"
+        ]
+      },
+      "y_axis": {
+        "label": "Total System Length (Km),",
+        "range": [
+          "150",
+          "200",
+          "250",
+          "300",
+          "350",
+          "400",
+          "450",
+          "500"
+        ]
+      },
+      "legend": [
+        "3.5",
+        "2.5",
+        "1.5"
+      ]
+    }
+  }

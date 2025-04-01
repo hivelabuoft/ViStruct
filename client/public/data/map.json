@@ -2,7 +2,101 @@
     "questions": [
       {
         "question": "In 2020, the unemployment rate for Washington (WA) was higher than that of Wisconsin (WI).",
-        "decomposition": null
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Identify the color corresponding to Washington (WA) on the map.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 2,
+              "taskName": "Determine the unemployment rate associated with the color of Washington (WA) based on the legend.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Identify the color corresponding to Wisconsin (WI) on the map.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 4,
+              "taskName": "Determine the unemployment rate associated with the color of Wisconsin (WI) based on the legend.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 5,
+              "taskName": "Compare the unemployment rate of Washington (WA) with that of Wisconsin (WI).",
+              "type": "Compute Derived Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "WA"
+            },
+            {
+              "step": 2,
+              "labelName": "WA"
+            },
+            {
+              "step": 3,
+              "labelName": "WI"
+            },
+            {
+              "step": 4,
+              "labelName": "WI"
+            },
+            {
+              "step": 5
+            }
+          ]
+        }
+      },
+      {
+        "question": "What is the unemployment rate for California (CA) in 2020?",
+        "decomposition": {
+          "components": [
+            {
+              "index": 1,
+              "taskName": "Filter the map for California (CA).",
+              "type": "Filter"
+            },
+            {
+              "index": 2,
+              "taskName": "Identify the color corresponding to California (CA) on the map.",
+              "type": "Retrieve Value"
+            },
+            {
+              "index": 3,
+              "taskName": "Filter the legend to find the color scale.",
+              "type": "Filter"
+            },
+            {
+              "index": 4,
+              "taskName": "Determine the unemployment rate associated with the color of California (CA) based on the filtered legend.",
+              "type": "Retrieve Value"
+            }
+          ],
+          "example": [
+            {
+              "step": 1,
+              "labelName": "CA"
+            },
+            {
+              "step": 2,
+              "labelName": "CA"
+            },
+            {
+              "step": 3,
+              "labelName": "CA"
+            },
+            {
+              "step": 4,
+              "labelName": "CA"
+            }
+          ]
+        }
       }
     ]
   }

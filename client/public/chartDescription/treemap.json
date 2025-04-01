@@ -1,0 +1,49 @@
+{
+    "chartType": "treemap",
+    "description": {
+      "title": "The Number of Unique Visitors for Websites",
+      "hierarchical_levels": {
+        "level_1": [
+          "Search/Portal",
+          "Software",
+          "Retail",
+          "Social Network",
+          "Computer"
+        ],
+        "level_2": {
+          "Search/Portal": [
+            "Google",
+            "MSN/WindowsLive/Bing",
+            "Yahoo!",
+            "Ask"
+          ],
+          "Software": [
+            "Mozilla",
+            "Adobe",
+            "Real Network",
+            "Videolan",
+            "Conduit"
+          ],
+          "Retail": [
+            "eBay",
+            "Amazon",
+            "Wal-Mart",
+            "Craigslist",
+            "Target"
+          ],
+          "Social Network": [
+            "Facebook",
+            "Twitter",
+            "Orkut",
+            "LinkedIn"
+          ],
+          "Computer": [
+            "Apple",
+            "Dell",
+            "HP"
+          ]
+        }
+      },
+      "legend": []
+    }
+  }
