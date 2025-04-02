@@ -60,8 +60,12 @@ interface Region {
             }
           }}
         />
-  
         {annotations?.regions?.map((region, index) => {
+          // Skip regions that don't have rectangular coordinates
+          if (!region.rectangular) return null;
+          
+          // console.log("Region", region);
+
           const { rectangular, color } = region;
   
           const scaleX = imageSize.width / (imageRef.current?.naturalWidth || 1);
@@ -99,3 +103,4 @@ interface Region {
       </div>
     );
   }
+

@@ -63,6 +63,31 @@ def unify_component_bounding_box(groups, label_name: str):
         "color": "#000000"
     }
 
+def detect_title(img: np.ndarray):
+    """
+    Detects the chart title in an image.
+    
+    Parameters:
+      - img: NumPy array containing the image
+      
+    Returns:
+      - A dictionary with "regions" key containing the title region information
+    """
+    text_boxes = detect_text_boxes(img)
+    height, width = img.shape[:2]
+    
+    # Detect title (usually in the top 15% of the image)
+    top_boxes = [(x, y, w, h) for (x, y, w, h) in text_boxes if y < height * 0.15]
+    title_groups = group_boxes_by_alignment(top_boxes, alignment='horizontal', y_delta=20)
+    
+    # Create the unified title bounding box
+    title_box = unify_component_bounding_box(title_groups, "title")
+    
+    # Return the same structure as detect_axes_and_title_with_legends
+    return {
+        "regions": [title_box]
+    }
+
 def detect_axes_and_title_with_legends(img: np.ndarray):
     text_boxes = detect_text_boxes(img)
     height, width = img.shape[:2]
@@ -77,10 +102,9 @@ def detect_axes_and_title_with_legends(img: np.ndarray):
     horizontal_groups = group_boxes_by_alignment(bottom_boxes, alignment='horizontal', y_delta=20)
     x_axis_box = unify_component_bounding_box(horizontal_groups, "x-axis")
 
-    # Detect title
-    top_boxes = [(x, y, w, h) for (x, y, w, h) in text_boxes if y < height * 0.15]
-    title_groups = group_boxes_by_alignment(top_boxes, alignment='horizontal', y_delta=20)
-    title_box = unify_component_bounding_box(title_groups, "title")
+    # Detect title using the dedicated function
+    title_result = detect_title(img)
+    title_box = title_result["regions"][0]
 
     # Adjust bottom of y-axis to top of x-axis for perfect boundary
     if "error" not in y_axis_box and "error" not in x_axis_box:

@@ -1,5 +1,5 @@
 {
-  "name": "visaware",
+  "name": "vistruct",
   "version": "1.0.0",
   "description": "how to setup:",
   "main": "index.js",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hivelabuoft/VisAware.git"
+    "url": "git+https://github.com/hivelabuoft/ViStruct.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hivelabuoft/VisAware/issues"
+    "url": "https://github.com/hivelabuoft/ViStruct/issues"
   },
-  "homepage": "https://github.com/hivelabuoft/VisAware#readme"
+  "homepage": "https://github.com/hivelabuoft/ViStruct#readme"
 }

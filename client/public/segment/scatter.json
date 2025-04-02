@@ -1,0 +1,344 @@
+{
+  "mapping": [
+    {
+      "segmentNumber": 1,
+      "description": "Data point for individual 1"
+    },
+    {
+      "segmentNumber": 2,
+      "description": "Data point for individual 2"
+    },
+    {
+      "segmentNumber": 3,
+      "description": "Data point for individual 3"
+    },
+    {
+      "segmentNumber": 4,
+      "description": "Data point for individual 4"
+    },
+    {
+      "segmentNumber": 5,
+      "description": "Data point for individual 5"
+    },
+    {
+      "segmentNumber": 6,
+      "description": "Data point for individual 6"
+    },
+    {
+      "segmentNumber": 7,
+      "description": "Data point for individual 7"
+    },
+    {
+      "segmentNumber": 8,
+      "description": "Data point for individual 8"
+    },
+    {
+      "segmentNumber": 9,
+      "description": "Data point for individual 9"
+    },
+    {
+      "segmentNumber": 10,
+      "description": "Data point for individual 10"
+    },
+    {
+      "segmentNumber": 11,
+      "description": "Data point for individual 11"
+    },
+    {
+      "segmentNumber": 12,
+      "description": "Data point for individual 12"
+    },
+    {
+      "segmentNumber": 13,
+      "description": "Data point for individual 13"
+    },
+    {
+      "segmentNumber": 14,
+      "description": "Data point for individual 14"
+    },
+    {
+      "segmentNumber": 15,
+      "description": "Data point for individual 15"
+    },
+    {
+      "segmentNumber": 16,
+      "description": "Data point for individual 16"
+    },
+    {
+      "segmentNumber": 17,
+      "description": "Data point for individual 17"
+    },
+    {
+      "segmentNumber": 18,
+      "description": "Data point for individual 18"
+    },
+    {
+      "segmentNumber": 19,
+      "description": "Data point for individual 19"
+    },
+    {
+      "segmentNumber": 20,
+      "description": "Data point for individual 20"
+    },
+    {
+      "segmentNumber": 21,
+      "description": "Data point for individual 21"
+    },
+    {
+      "segmentNumber": 22,
+      "description": "Data point for individual 22"
+    },
+    {
+      "segmentNumber": 23,
+      "description": "Data point for individual 23"
+    },
+    {
+      "segmentNumber": 24,
+      "description": "Data point for individual 24"
+    },
+    {
+      "segmentNumber": 25,
+      "description": "Data point for individual 25"
+    },
+    {
+      "segmentNumber": 26,
+      "description": "Data point for individual 26"
+    },
+    {
+      "segmentNumber": 27,
+      "description": "Data point for individual 27"
+    },
+    {
+      "segmentNumber": 28,
+      "description": "Data point for individual 28"
+    },
+    {
+      "segmentNumber": 29,
+      "description": "Data point for individual 29"
+    },
+    {
+      "segmentNumber": 30,
+      "description": "Data point for individual 30"
+    },
+    {
+      "segmentNumber": 31,
+      "description": "Data point for individual 31"
+    },
+    {
+      "segmentNumber": 32,
+      "description": "Data point for individual 32"
+    },
+    {
+      "segmentNumber": 33,
+      "description": "Data point for individual 33"
+    },
+    {
+      "segmentNumber": 34,
+      "description": "Data point for individual 34"
+    },
+    {
+      "segmentNumber": 35,
+      "description": "Data point for individual 35"
+    },
+    {
+      "segmentNumber": 36,
+      "description": "Data point for individual 36"
+    },
+    {
+      "segmentNumber": 37,
+      "description": "Data point for individual 37"
+    },
+    {
+      "segmentNumber": 38,
+      "description": "Data point for individual 38"
+    },
+    {
+      "segmentNumber": 39,
+      "description": "Data point for individual 39"
+    },
+    {
+      "segmentNumber": 40,
+      "description": "Data point for individual 40"
+    },
+    {
+      "segmentNumber": 41,
+      "description": "Data point for individual 41"
+    },
+    {
+      "segmentNumber": 42,
+      "description": "Data point for individual 42"
+    },
+    {
+      "segmentNumber": 43,
+      "description": "Data point for individual 43"
+    },
+    {
+      "segmentNumber": 44,
+      "description": "Data point for individual 44"
+    },
+    {
+      "segmentNumber": 45,
+      "description": "Data point for individual 45"
+    },
+    {
+      "segmentNumber": 46,
+      "description": "Data point for individual 46"
+    },
+    {
+      "segmentNumber": 47,
+      "description": "Data point for individual 47"
+    },
+    {
+      "segmentNumber": 48,
+      "description": "Data point for individual 48"
+    },
+    {
+      "segmentNumber": 49,
+      "description": "Data point for individual 49"
+    },
+    {
+      "segmentNumber": 50,
+      "description": "Data point for individual 50"
+    },
+    {
+      "segmentNumber": 51,
+      "description": "Data point for individual 51"
+    },
+    {
+      "segmentNumber": 52,
+      "description": "Data point for individual 52"
+    },
+    {
+      "segmentNumber": 53,
+      "description": "Data point for individual 53"
+    },
+    {
+      "segmentNumber": 54,
+      "description": "Data point for individual 54"
+    },
+    {
+      "segmentNumber": 55,
+      "description": "Data point for individual 55"
+    },
+    {
+      "segmentNumber": 56,
+      "description": "Data point for individual 56"
+    },
+    {
+      "segmentNumber": 57,
+      "description": "Data point for individual 57"
+    },
+    {
+      "segmentNumber": 58,
+      "description": "Data point for individual 58"
+    },
+    {
+      "segmentNumber": 59,
+      "description": "Data point for individual 59"
+    },
+    {
+      "segmentNumber": 60,
+      "description": "Data point for individual 60"
+    },
+    {
+      "segmentNumber": 61,
+      "description": "Data point for individual 61"
+    },
+    {
+      "segmentNumber": 62,
+      "description": "Data point for individual 62"
+    },
+    {
+      "segmentNumber": 63,
+      "description": "Data point for individual 63"
+    },
+    {
+      "segmentNumber": 64,
+      "description": "Data point for individual 64"
+    },
+    {
+      "segmentNumber": 65,
+      "description": "Data point for individual 65"
+    },
+    {
+      "segmentNumber": 66,
+      "description": "Data point for individual 66"
+    },
+    {
+      "segmentNumber": 67,
+      "description": "Data point for individual 67"
+    },
+    {
+      "segmentNumber": 68,
+      "description": "Data point for individual 68"
+    },
+    {
+      "segmentNumber": 69,
+      "description": "Data point for individual 69"
+    },
+    {
+      "segmentNumber": 70,
+      "description": "Data point for individual 70"
+    },
+    {
+      "segmentNumber": 71,
+      "description": "Data point for individual 71"
+    },
+    {
+      "segmentNumber": 72,
+      "description": "Data point for individual 72"
+    },
+    {
+      "segmentNumber": 73,
+      "description": "Data point for individual 73"
+    },
+    {
+      "segmentNumber": 74,
+      "description": "Data point for individual 74"
+    },
+    {
+      "segmentNumber": 75,
+      "description": "Data point for individual 75"
+    },
+    {
+      "segmentNumber": 76,
+      "description": "Data point for individual 76"
+    },
+    {
+      "segmentNumber": 77,
+      "description": "Data point for individual 77"
+    },
+    {
+      "segmentNumber": 78,
+      "description": "Data point for individual 78"
+    },
+    {
+      "segmentNumber": 79,
+      "description": "Data point for individual 79"
+    },
+    {
+      "segmentNumber": 80,
+      "description": "Data point for individual 80"
+    },
+    {
+      "segmentNumber": 81,
+      "description": "y-axis"
+    },
+    {
+      "segmentNumber": 82,
+      "description": "x-axis"
+    },
+    {
+      "segmentNumber": 83,
+      "description": "Chart title: Weight and Height of 85 Individuals"
+    },
+    {
+      "segmentNumber": 84,
+      "description": "X-axis label: Height (cm)"
+    },
+    {
+      "segmentNumber": 85,
+      "description": "Y-axis label: Weight (kg)"
+    }
+  ]
+}

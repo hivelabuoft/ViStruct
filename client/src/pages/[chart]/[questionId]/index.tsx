@@ -10,6 +10,7 @@ import ChartImageContainer from "../../../components/chartImageContainer";
 import typeColors from "../../../utils/typeColor";
 import BreakdownComponent from "@/src/components/breakdown";
 import Guidance from "@/src/components/guidance";
+import Head from "next/head";
 
 interface ChartDescription {
   chartType: string;
@@ -181,214 +182,232 @@ export default function QuestionPage({
     }
   };
 
+  // Format chart name for the title
+  const formatChartName = (name: string) => {
+    if (name === "100stackedbar") return "100% Stacked Bar Chart";
+    if (name === "stackedArea") return "Stacked Area Chart";
+    if (name === "stackedBar") return "Stacked Bar Chart";
+    
+    return name
+      .split(/(?=[A-Z])/)
+      .join(" ")
+      .replace(/\b\w/g, (l) => l.toUpperCase()) + " Chart";
+  };
+
   return (
-    <div className={styles.mainContainer}>
-      {/* Loading Overlay */}
-      {isWaiting ? (
-        <div className={styles.loadingOverlay}>
-          <div className={styles.loadingSpinner}></div>
-        </div>
-      ) : (
-        <>
-          {/* Header Section (reduced vertical space) */}
-          <header className={styles.header}>
-            <div className={styles.headerContent}>
-              <h1>
-                <span className={styles.chartTitle}>{chartType.toUpperCase()}</span> -{" "}
-                <span className={styles.questionIndex}>Question {questionId}:</span>{" "}
-                <span className={styles.questionContent}>{question}</span>
-              </h1>
-            </div>
-          </header>
-
-          {/* Display Area */}
-          <div className={styles.displayArea}>
-            {/* Left Panel: Editor with floating Save/Redo buttons */}
-            <div className={styles.leftPanel}>
-              <div className={styles.chartImageContainerWrapper}>
-                <ChartImageContainer src={`/studyProblem/${chart}.png`} alt={chartType} />
+    <>
+      <Head>
+        <title>ViStruct - {formatChartName(chart)} - Question {questionId}</title>
+        <meta name="description" content={`${question} - ${formatChartName(chart)} visualization task`} />
+      </Head>
+      <div className={styles.mainContainer}>
+        {/* Loading Overlay */}
+        {isWaiting ? (
+          <div className={styles.loadingOverlay}>
+            <div className={styles.loadingSpinner}></div>
+          </div>
+        ) : (
+          <>
+            {/* Header Section (reduced vertical space) */}
+            <header className={styles.header}>
+              <div className={styles.headerContent}>
+                <h1>
+                  <span className={styles.chartTitle}>{chartType.toUpperCase()}</span> -{" "}
+                  <span className={styles.questionIndex}>Question {questionId}:</span>{" "}
+                  <span className={styles.questionContent}>{question}</span>
+                </h1>
               </div>
-              <div className={styles.editorContainer}>
-                <div className={styles.editorFloatingButtons}>
-                  <button className={styles.saveButton} onClick={handleSave}>
-                    <FaSave /> <span>Save</span>
-                  </button>
-                  <button
-                    className={styles.redoButton}
-                    onClick={handleRedo}
-                    disabled={editorValue === originalValue}
-                  >
-                    <FaRedo /> <span>Reset</span>
-                  </button>
-                </div>
-                <Editor
-                  height="100%"
-                  defaultLanguage="json"
-                  theme="vs-light"
-                  value={editorValue || "Editor content here..."}
-                  onChange={(value) => setEditorValue(value || "")}
-                  options={{
-                    readOnly: false, // set to false later
-                    minimap: { enabled: false },
-                    scrollBeyondLastLine: false,
-                    wordWrap: "on",
-                    lineNumbersMinChars: 2,
-                    fontSize: 14,
-                    fontFamily: "monospace",
-                  }}
-                />
-              </div>
-            </div>
+            </header>
 
-            {/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */}
-            <div className={styles.rightPanel}>
-              {/* Left Sub-panel: Top for chart image with zoom, bottom for decomposition cards */}
-              <div className={styles.decompositionLeft}>
-                <div className={styles.decompositionCards}>
-                  <h2 className={styles.panelTitle}>Low-Level Component Task Breakdown</h2>
-                  {generatedJSON && generatedJSON.components ? (
-                    generatedJSON.components.map((comp: any, index: number) => (
-                      <div key={index} className={styles.decompositionCard}>
-                        <div
-                          className={styles.decompositionCardHeader}
-                          style={{
-                            backgroundColor:
-                              typeColors[comp.type] || "rgba(229, 231, 235, 0.8)",
-                          }}
-                        >
-                          <span className={styles.cardIndex}>#{comp.index}</span>
-                          <span className={styles.cardType}>{comp.type}</span>
-                        </div>
-                        <div className={styles.decompositionCardBody}>
-                          {comp.taskName}
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No decomposition available</p>
-                  )}
+            {/* Display Area */}
+            <div className={styles.displayArea}>
+              {/* Left Panel: Editor with floating Save/Redo buttons */}
+              <div className={styles.leftPanel}>
+                <div className={styles.chartImageContainerWrapper}>
+                  <ChartImageContainer src={`/studyProblem/${chart}.png`} alt={chartType} />
                 </div>
-              </div>
-
-              {/* Right Sub-panel: Full JSON output */}
-              <div className={styles.decompositionRight}>
-                <div className={styles.flowChartHeader}>
-                  <h2 className={styles.panelTitle}>Example Task Flow Chart</h2>
-                  <button 
-                    className={styles.runButton} 
-                    onClick={handleRunMapping}
-                    data-mapped={isMapped ? "true" : "false"}
-                  >
-                    <FaPlay /> <span>{isMapped ? "Mapped" : "Map"}</span>
-                  </button>
-                </div>
-                
-                {!isMapped && (
-                  <div className={styles.workflowStatus}>
-                    <FaPlay /> Click the Map button to begin mapping chart coordinates to task components
+                <div className={styles.editorContainer}>
+                  <div className={styles.editorFloatingButtons}>
+                    <button className={styles.saveButton} onClick={handleSave}>
+                      <FaSave /> <span>Save</span>
+                    </button>
+                    <button
+                      className={styles.redoButton}
+                      onClick={handleRedo}
+                      disabled={editorValue === originalValue}
+                    >
+                      <FaRedo /> <span>Reset</span>
+                    </button>
                   </div>
-                )}
-                
-                <div className={styles.flowChart}>
-                  {generatedJSON ? (
-                    <div className={styles.flowChartContainer}>
-                      {generatedJSON.example && generatedJSON.example.map((item: any, index: number) => {
-                        const componentInfo = generatedJSON.components.find(
-                          (comp: any) => comp.index === item.step
-                        );
-                        
-                        return componentInfo ? (
-                          <div 
-                            key={index} 
-                            className={styles.flowChartStep} 
-                            onClick={() => handleStepClick(index)}
-                            data-selected={selectedStep === index ? "true" : "false"}
-                            data-guided={guidedSteps.includes(index) ? "true" : "false"}
+                  <Editor
+                    height="100%"
+                    defaultLanguage="json"
+                    theme="vs-light"
+                    value={editorValue || "Editor content here..."}
+                    onChange={(value) => setEditorValue(value || "")}
+                    options={{
+                      readOnly: false, // set to false later
+                      minimap: { enabled: false },
+                      scrollBeyondLastLine: false,
+                      wordWrap: "on",
+                      lineNumbersMinChars: 2,
+                      fontSize: 14,
+                      fontFamily: "monospace",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Right Panel: Split into Left (65%) and Right (35%) sub-panels */}
+              <div className={styles.rightPanel}>
+                {/* Left Sub-panel: Top for chart image with zoom, bottom for decomposition cards */}
+                <div className={styles.decompositionLeft}>
+                  <div className={styles.decompositionCards}>
+                    <h2 className={styles.panelTitle}>Low-Level Component Task Breakdown</h2>
+                    {generatedJSON && generatedJSON.components ? (
+                      generatedJSON.components.map((comp: any, index: number) => (
+                        <div key={index} className={styles.decompositionCard}>
+                          <div
+                            className={styles.decompositionCardHeader}
+                            style={{
+                              backgroundColor:
+                                typeColors[comp.type] || "rgba(229, 231, 235, 0.8)",
+                            }}
                           >
+                            <span className={styles.cardIndex}>#{comp.index}</span>
+                            <span className={styles.cardType}>{comp.type}</span>
+                          </div>
+                          <div className={styles.decompositionCardBody}>
+                            {comp.taskName}
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No decomposition available</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Sub-panel: Full JSON output */}
+                <div className={styles.decompositionRight}>
+                  <div className={styles.flowChartHeader}>
+                    <h2 className={styles.panelTitle}>Example Task Flow Chart</h2>
+                    <button 
+                      className={styles.runButton} 
+                      onClick={handleRunMapping}
+                      data-mapped={isMapped ? "true" : "false"}
+                    >
+                      <FaPlay /> <span>{isMapped ? "Mapped" : "Map"}</span>
+                    </button>
+                  </div>
+                  
+                  {!isMapped && (
+                    <div className={styles.workflowStatus}>
+                      <FaPlay /> Click the Map button to begin mapping chart coordinates to task components
+                    </div>
+                  )}
+                  
+                  <div className={styles.flowChart}>
+                    {generatedJSON ? (
+                      <div className={styles.flowChartContainer}>
+                        {generatedJSON.example && generatedJSON.example.map((item: any, index: number) => {
+                          const componentInfo = generatedJSON.components.find(
+                            (comp: any) => comp.index === item.step
+                          );
+                          
+                          return componentInfo ? (
                             <div 
-                              className={styles.flowChartStepContent}
-                              style={{
-                                backgroundColor: typeColors[componentInfo.type] || "rgba(229, 231, 235, 0.8)"
-                              }}
+                              key={index} 
+                              className={styles.flowChartStep} 
+                              onClick={() => handleStepClick(index)}
+                              data-selected={selectedStep === index ? "true" : "false"}
+                              data-guided={guidedSteps.includes(index) ? "true" : "false"}
                             >
-                              <div className={styles.flowChartStepHeader}>
-                                <span className={styles.flowChartStepNumber}>Step {index + 1}</span>
-                                <span className={styles.flowChartStepType}>{componentInfo.type}</span>
+                              <div 
+                                className={styles.flowChartStepContent}
+                                style={{
+                                  backgroundColor: typeColors[componentInfo.type] || "rgba(229, 231, 235, 0.8)"
+                                }}
+                              >
+                                <div className={styles.flowChartStepHeader}>
+                                  <span className={styles.flowChartStepNumber}>Step {index + 1}</span>
+                                  <span className={styles.flowChartStepType}>{componentInfo.type}</span>
+                                </div>
+                                <div className={styles.flowChartStepTask}>
+                                  <strong>Task {item.step}:</strong> {componentInfo.taskName}
+                                </div>
+                                {item.labelName && (
+                                  <div className={styles.flowChartStepVariable}>
+                                    <span className={styles.variableLabel}>Value:</span> {item.labelName}
+                                  </div>
+                                )}
                               </div>
-                              <div className={styles.flowChartStepTask}>
-                                <strong>Task {item.step}:</strong> {componentInfo.taskName}
-                              </div>
-                              {item.labelName && (
-                                <div className={styles.flowChartStepVariable}>
-                                  <span className={styles.variableLabel}>Value:</span> {item.labelName}
+                              {selectedStep === index && (
+                                <button className={styles.guidanceButton} onClick={(e) => navigateToGuidance(e)}>
+                                  <FaArrowRight /> Run Guidance
+                                </button>
+                              )}
+                              {index < generatedJSON.example.length - 1 && (
+                                <div className={styles.flowChartConnector}>
+                                  <div className={styles.flowChartConnectorLine}></div>
+                                  <div className={styles.flowChartConnectorArrow}></div>
                                 </div>
                               )}
                             </div>
-                            {selectedStep === index && (
-                              <button className={styles.guidanceButton} onClick={(e) => navigateToGuidance(e)}>
-                                <FaArrowRight /> Run Guidance
-                              </button>
-                            )}
-                            {index < generatedJSON.example.length - 1 && (
-                              <div className={styles.flowChartConnector}>
-                                <div className={styles.flowChartConnectorLine}></div>
-                                <div className={styles.flowChartConnectorArrow}></div>
-                              </div>
-                            )}
-                          </div>
-                        ) : null;
-                      })}
+                          ) : null;
+                        })}
+                      </div>
+                    ) : (
+                      "JSON output here..."
+                    )}
+                  </div>
+                  
+                  {showMappingHint && (
+                    <div className={styles.mappingHint}>
+                      <FaPlay /> Please click "Map" first to map chart regions
                     </div>
-                  ) : (
-                    "JSON output here..."
                   )}
                 </div>
                 
-                {showMappingHint && (
-                  <div className={styles.mappingHint}>
-                    <FaPlay /> Please click "Map" first to map chart regions
+                {/* Breakdown Modal */}
+                {showModal && (
+                  <div className={styles.modalWrapper}>
+                    <BreakdownComponent
+                      chart={chart}
+                      questionId={questionId.toString()}
+                      chartDescription={chartDescription}
+                      onClose={() => setShowModal(false)}
+                      onMappingComplete={handleMappingComplete}
+                    />
+                  </div>
+                )}
+                
+                {/* Guidance Modal */}
+                {showGuidanceModal && selectedStep !== null && generatedJSON && generatedJSON.example && (
+                  <div className={styles.modalWrapper}>
+                    <Guidance
+                      chartImage={`/studyProblem/${chart}.png`}
+                      stepNumber={selectedStep + 1}
+                      taskName={generatedJSON.components.find(
+                        (comp: any) => comp.index === generatedJSON.example[selectedStep].step
+                      )?.taskName || ""}
+                      type={generatedJSON.components.find(
+                        (comp: any) => comp.index === generatedJSON.example[selectedStep].step
+                      )?.type || ""}
+                      chartType={chartType}
+                      labelName={generatedJSON.example[selectedStep].labelName || ""}
+                      mappedRegions={mappedRegions}
+                      onClose={() => setShowGuidanceModal(false)}
+                      onGuidanceComplete={handleGuidanceComplete}
+                    />
                   </div>
                 )}
               </div>
-              
-              {/* Breakdown Modal */}
-              {showModal && (
-                <div className={styles.modalWrapper}>
-                  <BreakdownComponent
-                    chart={chart}
-                    questionId={questionId.toString()}
-                    chartDescription={chartDescription}
-                    onClose={() => setShowModal(false)}
-                    onMappingComplete={handleMappingComplete}
-                  />
-                </div>
-              )}
-              
-              {/* Guidance Modal */}
-              {showGuidanceModal && selectedStep !== null && generatedJSON && generatedJSON.example && (
-                <div className={styles.modalWrapper}>
-                  <Guidance
-                    chartImage={`/studyProblem/${chart}.png`}
-                    stepNumber={selectedStep + 1}
-                    taskName={generatedJSON.components.find(
-                      (comp: any) => comp.index === generatedJSON.example[selectedStep].step
-                    )?.taskName || ""}
-                    type={generatedJSON.components.find(
-                      (comp: any) => comp.index === generatedJSON.example[selectedStep].step
-                    )?.type || ""}
-                    chartType={chartType}
-                    labelName={generatedJSON.example[selectedStep].labelName || ""}
-                    mappedRegions={mappedRegions}
-                    onClose={() => setShowGuidanceModal(false)}
-                    onGuidanceComplete={handleGuidanceComplete}
-                  />
-                </div>
-              )}
             </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

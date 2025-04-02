@@ -22,20 +22,21 @@ interface BreakdownComponentProps {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-const simulatedChartTaxonomy = {
-  "100stackedbar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
-  "bar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
-  "stackedBar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
-  "histogram": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
-  "line": { visualizationType: "chart", graphicSymbol: "line", shape: "line" },
-  "area": { visualizationType: "chart", graphicSymbol: "area", shape: "vary" },
-  "stackedArea": { visualizationType: "chart", graphicSymbol: "area", shape: "vary" },
-  "scatter": { visualizationType: "chart", graphicSymbol: "point", shape: "circle" },
-  "bubble": { visualizationType: "chart", graphicSymbol: "area", shape: "circle" },
-  "treemap": { visualizationType: "chart", graphicSymbol: "area", shape: "rectangular" },
-  "pie": { visualizationType: "chart", graphicSymbol: "area", shape: "sector" },
-  "map": { visualizationType: "map", graphicSymbol: "area", shape: "vary" },
-};
+// const simulatedChartTaxonomy = {
+//   "100stackedbar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
+//   "bar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
+//   "stackedBar": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
+//   "histogram": { visualizationType: "chart", graphicSymbol: "surface", shape: "rectangular" },
+//   "line": { visualizationType: "chart", graphicSymbol: "line", shape: "line" },
+//   "area": { visualizationType: "chart", graphicSymbol: "area", shape: "vary" },
+//   "stackedArea": { visualizationType: "chart", graphicSymbol: "area", shape: "vary" },
+//   "100stackedArea": { visualizationType: "chart", graphicSymbol: "area", shape: "vary" },
+//   "scatter": { visualizationType: "chart", graphicSymbol: "point", shape: "circle" },
+//   "bubble": { visualizationType: "chart", graphicSymbol: "area", shape: "circle" },
+//   "treemap": { visualizationType: "chart", graphicSymbol: "area", shape: "rectangular" },
+//   "pie": { visualizationType: "chart", graphicSymbol: "area", shape: "sector" },
+//   "map": { visualizationType: "map", graphicSymbol: "area", shape: "vary" },
+// };
 
 export default function BreakdownComponent({
   chart,
@@ -54,10 +55,29 @@ export default function BreakdownComponent({
 
   // Construct dynamic API path
   const getAPIEndpointForChart = (chartName: string): string => {
-    const taxonomy = simulatedChartTaxonomy[chartName as keyof typeof simulatedChartTaxonomy];
-    const { visualizationType, graphicSymbol, shape } = taxonomy;
-    const endpoint = `/breakdown_image_for_${visualizationType}_${graphicSymbol}_${shape}`;
-    return `${API_URL}${endpoint}`;
+    const chartEndpoints: Record<string, string> = {
+      "100stackedbar": "/analyze/100_stacked_bar_chart",
+      "bar": "/analyze/bar_chart",
+      "stackedBar": "/analyze/stacked_bar_chart",
+      "histogram": "/analyze/histogram",
+      "line": "/analyze/line_chart",
+      "area": "/analyze/area_chart",
+      "stackedArea": "/analyze/stacked_area_chart",
+      "scatter": "/analyze/scatter_plot",
+      "bubble": "/analyze/bubble_chart",
+      "treemap": "/analyze/treemap",
+      "pie": "/analyze/pie_chart",
+      "map": "/analyze/map",
+    };
+
+    // Use the specific endpoint for the chart type, or fallback to a default
+    if (chartEndpoints[chartName]) {
+      return `${API_URL}${chartEndpoints[chartName]}`;
+    } else {
+      // Default fallback endpoint if chart type not found in mapping
+      console.warn(`No endpoint mapping found for chart type: ${chartName}`);
+      return `${API_URL}/analyze/bar_chart`; // Default fallback endpoint
+    }
   };
 
   const analyzeImage = async (file: File, apiEndpoint: string) => {
@@ -66,7 +86,13 @@ export default function BreakdownComponent({
     const response = await axios.post(apiEndpoint, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    return response.data;
+    let filteredRegions = response.data;
+    
+    filteredRegions = response.data.regions.filter((region: { rectangular: any; }) => region.rectangular);
+    console.log("Regions from Python backend:", filteredRegions);
+    return {
+      "regions": filteredRegions,
+    };
   };
 
 
@@ -172,16 +198,17 @@ export default function BreakdownComponent({
             color: region.color, // Optional: preserve original color
           };
         });
-    
-        // Update state with combined regions
-        setMappedRegions(combinedRegions);
+  
         
-        // Pass mapped regions back to parent component if callback exists
-        if (onMappingComplete) {
-            onMappingComplete(combinedRegions);
+        let filteredRegions = combinedRegions;
+        if (['bar', 'histogram', '100stackedbar', 'stackedBar', 'treemap'].includes(chart)) {
+          console.log("Filtering out non-rectangular elements for bar-type chart");
+          filteredRegions = combinedRegions.filter((region: { rectangular: any; }) => region.rectangular);
         }
-        
-        console.log("Combined Regions:", combinedRegions);
+    
+        // Update state with filtered regions
+        setMappedRegions(filteredRegions);
+        console.log("Filtered Regions:", filteredRegions);
     
         setHasStop(false); // Disable the mapping button after mapping is done
       } catch (error) {
@@ -212,9 +239,16 @@ const fetchMapping = async () => {
       };
     });
 
-    // Update state with combined regions
-    setMappedRegions(combinedRegions);
-    console.log("Combined Regions:", combinedRegions);
+    // Filter out elements without the "rectangular" property for bar-type charts
+    let filteredRegions = combinedRegions;
+    if (['bar', 'histogram', '100stackedbar', 'stackedBar', 'treemap'].includes(chart)) {
+      console.log("Filtering out non-rectangular elements for bar-type chart");
+      filteredRegions = combinedRegions.filter((region: { rectangular: any; }) => region.rectangular);
+    }
+
+    // Update state with filtered regions
+    setMappedRegions(filteredRegions);
+    console.log("Filtered Regions:", filteredRegions);
 
     setHasStop(false); // Disable the mapping button after mapping is done
   } catch (error) {

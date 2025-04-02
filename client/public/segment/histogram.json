@@ -1,0 +1,68 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Bar representing the number of customers at a distance of 20 to 30 km"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Bar representing the number of customers at a distance of 10 to 20 km"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Bar representing the number of customers at a distance of 30 to 40 km"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "Bar representing the number of customers at a distance of 0 to 10 km"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "Bar representing the number of customers at a distance of 60 to 70 km"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "Bar representing the number of customers at a distance of 70 to 80 km"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "Bar representing the number of customers at a distance of 80 to 90 km"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "Bar representing the number of customers at a distance of 100 to 110 km"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "Bar representing the number of customers at a distance of 70 to 80 km"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "Bar representing the number of customers at a distance of 0 to 10 km"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "Bar representing the number of customers at a distance of 90 to 100 km"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "y-axis"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "x-axis"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "Chart title: Trip Distance and Customers"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "X-axis label: Distance (in Km)"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "Y-axis label: Number of Customers"
+      }
+    ]
+  }

@@ -1,0 +1,76 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Bar for Singapore internet speed"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Bar for New Zealand internet speed"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Bar for Australia internet speed"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "Bar for China internet speed"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "Bar for Singapore internet speed"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "Bar for Taiwan internet speed"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "Bar for Hong Kong internet speed"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "Bar for Japan internet speed"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "Bar for Vietnam internet speed"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "Bar for Thailand internet speed"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "Bar for Malaysia internet speed"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "Bar for Indonesia internet speed"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "Bar for India internet speed"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "Bar for Sri Lanka internet speed"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "Y-axis"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "X-axis"
+      },
+      {
+        "segmentNumber": 17,
+        "description": "Chart title: Global Internet Speed (Mbps)"
+      },
+      {
+        "segmentNumber": 18,
+        "description": "Y-axis label: Internet Speed (Mbps)"
+      }
+    ]
+  }

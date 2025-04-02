@@ -1,0 +1,32 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Pie slice representing market share of Others"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Pie slice representing market share of Samsung"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Pie slice representing market share of Xiaomi"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "Pie slice representing market share of Apple"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "Pie slice representing market share of Oppo"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "Pie slice representing market share of Vivo"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "Chart title: Global Smartphone Market Share in 2021"
+      }
+    ]
+  }

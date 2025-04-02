@@ -1,0 +1,244 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Vodka price in Seoul"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Vodka price in Toronto"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Vodka price in NYC"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "Vodka price in Paris"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "Vodka price in Singapore"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "Vodka price in Inki"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "Vodka price in Oslo"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "Vodka price in Stockholm"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "Vodka legend"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "Vodka price in Zurich"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "Vodka price in Copenhagen"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "Soda price in Seoul"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "Soda price in Oslo"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "Soda price in Paris"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "Soda price in Singapore"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "Soda price in Inki"
+      },
+      {
+        "segmentNumber": 17,
+        "description": "Soda price in Zurich"
+      },
+      {
+        "segmentNumber": 18,
+        "description": "Soda price in Copenhagen"
+      },
+      {
+        "segmentNumber": 19,
+        "description": "Soda legend"
+      },
+      {
+        "segmentNumber": 20,
+        "description": "Soda price in Toronto"
+      },
+      {
+        "segmentNumber": 21,
+        "description": "Soda price in NYC"
+      },
+      {
+        "segmentNumber": 22,
+        "description": "Peanut price in Toronto"
+      },
+      {
+        "segmentNumber": 23,
+        "description": "Peanut legend"
+      },
+      {
+        "segmentNumber": 24,
+        "description": "Peanut price in NYC"
+      },
+      {
+        "segmentNumber": 25,
+        "description": "Peanut price in Oslo"
+      },
+      {
+        "segmentNumber": 26,
+        "description": "Peanut price in Singapore"
+      },
+      {
+        "segmentNumber": 27,
+        "description": "Peanut price in Paris"
+      },
+      {
+        "segmentNumber": 28,
+        "description": "Peanut price in Inki"
+      },
+      {
+        "segmentNumber": 29,
+        "description": "Peanut price in Stockholm"
+      },
+      {
+        "segmentNumber": 30,
+        "description": "Peanut price in Zurich"
+      },
+      {
+        "segmentNumber": 31,
+        "description": "Peanut price in Copenhagen"
+      },
+      {
+        "segmentNumber": 32,
+        "description": "Water price in Seoul"
+      },
+      {
+        "segmentNumber": 33,
+        "description": "Peanut Legend"
+      },
+      {
+        "segmentNumber": 34,
+        "description": "Water price in Oslo"
+      },
+      {
+        "segmentNumber": 35,
+        "description": "Water legend"
+      },
+      {
+        "segmentNumber": 36,
+        "description": "Water price in Paris"
+      },
+      {
+        "segmentNumber": 37,
+        "description": "Water price in Inki"
+      },
+      {
+        "segmentNumber": 38,
+        "description": "Water price in Zurich"
+      },
+      {
+        "segmentNumber": 39,
+        "description": "Water price in Toronto"
+      },
+      {
+        "segmentNumber": 40,
+        "description": "Water price in Singapore"
+      },
+      {
+        "segmentNumber": 41,
+        "description": "Water Legend"
+      },
+      {
+        "segmentNumber": 42,
+        "description": "Water price in Stockholm"
+      },
+      {
+        "segmentNumber": 43,
+        "description": "Water price in NYC"
+      },
+      {
+        "segmentNumber": 44,
+        "description": "Water price in Copenhagen"
+      },
+      {
+        "segmentNumber": 45,
+        "description": "Sandwich price in Inki"
+      },
+      {
+        "segmentNumber": 46,
+        "description": "Sandwich price in Zurich"
+      },
+      {
+        "segmentNumber": 47,
+        "description": "Sandwich price in Oslo"
+      },
+      {
+        "segmentNumber": 48,
+        "description": "Sandwich price in Stockholm"
+      },
+      {
+        "segmentNumber": 49,
+        "description": "Sandwich price in Seoul"
+      },
+      {
+        "segmentNumber": 50,
+        "description": "Sandwich price in NYC"
+      },
+      {
+        "segmentNumber": 51,
+        "description": "Sandwich price in Copenhagen"
+      },
+      {
+        "segmentNumber": 52,
+        "description": "Sandwich price in Paris"
+      },
+      {
+        "segmentNumber": 53,
+        "description": "Sandwich price in Toronto"
+      },
+      {
+        "segmentNumber": 54,
+        "description": "Sandwich price in Singapore"
+      },
+      {
+        "segmentNumber": 55,
+        "description": "Sandwich legend"
+      },
+      {
+        "segmentNumber": 56,
+        "description": "y-axis"
+      },
+      {
+        "segmentNumber": 57,
+        "description": "x-axis"
+      },
+      {
+        "segmentNumber": 58,
+        "description": "Title"
+      },
+      {
+        "segmentNumber": 59,
+        "description": "x-label"
+      },
+      {
+        "segmentNumber": 60,
+        "description": "y-label"
+      }
+    ]
+  }
