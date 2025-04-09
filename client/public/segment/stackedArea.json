@@ -1,0 +1,160 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Chart title: Popular Girls' names in the UK"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Y-axis title: Number of Girls"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Y-axis tick for 2000"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "X-axis tick for 2009"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "X-axis tick for 2010"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "X-axis tick for 2011"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "X-axis tick for 2012"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "X-axis tick for 2013"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "X-axis tick for 2014"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "y-axis"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "Y-axis tick for 4000"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "Y-axis tick for 6000"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "Y-axis tick for 8000"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "Y-axis tick for 10000"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "Y-axis tick for 12000"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 17,
+        "description": "Y-axis tick for 14000"
+      },
+      {
+        "segmentNumber": 18,
+        "description": "Y-axis tick for 16000"
+      },
+      {
+        "segmentNumber": 19,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 20,
+        "description": "X-axis"
+      },
+      {
+        "segmentNumber": 21,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 22,
+        "description": "Number of girls with name Amelia in 2009"
+      },
+      {
+        "segmentNumber": 23,
+        "description": "Number of girls with name Isla in 2009"
+      },
+      {
+        "segmentNumber": 24,
+        "description": "Number of girls with name Olivia in 2009"
+      },
+      {
+        "segmentNumber": 25,
+        "description": "X axis"
+      },
+      {
+        "segmentNumber": 26,
+        "description": "Number of girls with name Isla in 2010"
+      },
+      {
+        "segmentNumber": 27,
+        "description": "Number of girls with name Olivia in 2010"
+      },
+      {
+        "segmentNumber": 28,
+        "description": "Amelia"
+      },
+      {
+        "segmentNumber": 29,
+        "description": "Isla"
+      },
+      {
+        "segmentNumber": 30,
+        "description": "Olivia"
+      },
+      {
+        "segmentNumber": 31,
+        "description": "Number of girls with name Olivia in 2011"
+      },
+      {
+        "segmentNumber": 32,
+        "description": "Isla name"
+      },
+      {
+        "segmentNumber": 33,
+        "description": "Olivia legend "
+      },
+      {
+        "segmentNumber": 34,
+        "description": "X legend"
+      },
+      {
+        "segmentNumber": 35,
+        "description": "Isla legend"
+      },
+      {
+        "segmentNumber": 36,
+        "description": "Isla name legend"
+      },
+      {
+        "segmentNumber": 37,
+        "description": "x_axis"
+      },
+      {
+        "segmentNumber": 38,
+        "description": "Y-axis legend"
+      },
+      {
+        "segmentNumber": 39,
+        "description": "Y axsis legend"
+      }
+    ]
+  }

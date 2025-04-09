@@ -1,0 +1,116 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Chart title: Robusta Coffee Price"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Y-axis title: Price ($/lb)"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Y-axis tick for 0.5"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "X-axis tick for Apr 18"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "X-axis tick for Jul 18"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "X-axis tick for Oct 18"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "X-axis tick for Jan 19"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "X-axis tick for Apr 19"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "X-axis tick for Jun 19"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "X-axis tick for Oct 19"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "X-axis tick for Jan 20"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "Y-axis tick for 0.9"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "Y-axis tick for 0.85"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "Y-axis tick for 0.80"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "Y-axis tick for 0.75"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "Y-axis tick for 0.70"
+      },
+      {
+        "segmentNumber": 17,
+        "description": "Y-axis tick for 0.65"
+      },
+      {
+        "segmentNumber": 18,
+        "description": "Y-axis tick for 0.6"
+      },
+      {
+        "segmentNumber": 19,
+        "description": "Y-axis tick for 0.55"
+      },
+      {
+        "segmentNumber": 20,
+        "description": "Price at the first data point"
+      },
+      {
+        "segmentNumber": 21,
+        "description": "Price at the second data point"
+      },
+      {
+        "segmentNumber": 22,
+        "description": "Price at the third data point"
+      },
+      {
+        "segmentNumber": 23,
+        "description": "Price at the fourth data point"
+      },
+      {
+        "segmentNumber": 24,
+        "description": "Price at the fifth data point"
+      },
+      {
+        "segmentNumber": 25,
+        "description": "Price at the sixth data point"
+      },
+      {
+        "segmentNumber": 26,
+        "description": "Price at the seventh data point"
+      },
+      {
+        "segmentNumber": 27,
+        "description": "Price at the eighth data point"
+      },
+      {
+        "segmentNumber": 28,
+        "description": "Price at the ninth data point"
+      }
+    ]
+  }

@@ -1,0 +1,152 @@
+{
+    "mapping": [
+      {
+        "segmentNumber": 1,
+        "description": "Chart title: Oil Price in 2020"
+      },
+      {
+        "segmentNumber": 2,
+        "description": "Y-axis title: Oil Price"
+      },
+      {
+        "segmentNumber": 3,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 4,
+        "description": "X-axis tick for January"
+      },
+      {
+        "segmentNumber": 5,
+        "description": "X-axis tick for February"
+      },
+      {
+        "segmentNumber": 6,
+        "description": "X-axis tick for March"
+      },
+      {
+        "segmentNumber": 7,
+        "description": "X-axis tick for April"
+      },
+      {
+        "segmentNumber": 8,
+        "description": "X-axis tick for May"
+      },
+      {
+        "segmentNumber": 9,
+        "description": "X-axis tick for June"
+      },
+      {
+        "segmentNumber": 10,
+        "description": "X-axis tick for July"
+      },
+      {
+        "segmentNumber": 11,
+        "description": "X-axis tick for August"
+      },
+      {
+        "segmentNumber": 12,
+        "description": "X-axis tick for September"
+      },
+      {
+        "segmentNumber": 13,
+        "description": "X-axis tick for October"
+      },
+      {
+        "segmentNumber": 14,
+        "description": "X-axis tick for November"
+      },
+      {
+        "segmentNumber": 15,
+        "description": "X-axis tick for December"
+      },
+      {
+        "segmentNumber": 16,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 17,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 18,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 19,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 20,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 21,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 22,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 23,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 24,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 25,
+        "description": "Y-axis tick"
+      },
+      {
+        "segmentNumber": 26,
+        "description": "Oil price in January"
+      },
+      {
+        "segmentNumber": 27,
+        "description": "Oil price in February"
+      },
+      {
+        "segmentNumber": 28,
+        "description": "Oil price in March"
+      },
+      {
+        "segmentNumber": 29,
+        "description": "Oil price in April"
+      },
+      {
+        "segmentNumber": 30,
+        "description": "Oil price in May"
+      },
+      {
+        "segmentNumber": 31,
+        "description": "Oil price in June"
+      },
+      {
+        "segmentNumber": 32,
+        "description": "Oil price in July"
+      },
+      {
+        "segmentNumber": 33,
+        "description": "Oil price in August"
+      },
+      {
+        "segmentNumber": 34,
+        "description": "Oil price in September"
+      },
+      {
+        "segmentNumber": 35,
+        "description": "Oil price in October"
+      },
+      {
+        "segmentNumber": 36,
+        "description": "Oil price in November"
+      },
+      {
+        "segmentNumber": 37,
+        "description": "Oil price in December"
+      }
+    ]
+  }

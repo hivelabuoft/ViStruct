@@ -7,7 +7,10 @@ from openCVdetectComponent import detect_treemap_labels, detect_chart_title, det
 from openCVdetectDots import detect_scatterplot_dots, detect_colored_bubbles, detect_bubble_labels, detect_bubble_legend_items
 import cv2
 import numpy as np
+from openCVmapContinous import extract_specific_axis_labels, find_intersection_bounding_boxes
 from openCVdetectShape import detect_pie_slices
+from openCVmapIrregular import detect_legend_colors,detect_stacked_boundaries, detect_abbreviations
+from typing import Dict, List, Tuple, Optional
 
 app = FastAPI()
 
@@ -39,7 +42,7 @@ async def analyze_100_stacked_bar_chart(file: UploadFile) -> Dict:
 
     # 1. Detect area segments by color
     colors = ['#cd7f32', '#bec36f', '#feb24c']
-    color_result = detect_multiple_colors(image, "vary", colors, expected_count=4)
+    color_result = detect_multiple_colors(image, "rectangular", colors, expected_count=4)
 
     # 2. Detect axes and title
     axes_title_result = detect_axes_and_title_with_legends(image)
@@ -167,27 +170,16 @@ async def analyze_line_chart(file: UploadFile) -> Dict:
     np_arr = np.frombuffer(contents, np.uint8)
     image = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
-    # 1. Detect bar segments by color
-    colors = ['#cd7f32', '#bec36f', '#feb24c']
-    color_result = detect_multiple_colors(image, "rectangular", colors, expected_count=4)
+    combined_regions = extract_specific_axis_labels(image)
 
-    # 2. Detect axes and title
-    axes_title_result = detect_axes_and_title_with_legends(image)
+    middle_x = get_x_axis_tick_centers(combined_regions)
 
-    # 3. Detect legend items
-    legend_items_result = detect_legend_items(image)
+    intersection_regions = find_intersection_bounding_boxes(image, middle_x)
 
-    # Combine all regions from the results
-    combined_regions = []
-    if "regions" in color_result:
-        combined_regions.extend(color_result["regions"])
-    if "regions" in axes_title_result:
-        combined_regions.extend(axes_title_result["regions"])
-    if "regions" in legend_items_result:
-        combined_regions.extend(legend_items_result["regions"])
     return {
-        "regions": combined_regions
+        "regions": combined_regions + intersection_regions
     }
+    
 
 async def analyze_histogram(file: UploadFile) -> Dict:
     contents = await file.read()
@@ -219,53 +211,59 @@ async def analyze_area_chart(file: UploadFile) -> Dict:
     np_arr = np.frombuffer(contents, np.uint8)
     image = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
-    # 1. Detect bar segments by color
-    colors = ['#cd7f32', '#bec36f', '#feb24c']
-    color_result = detect_multiple_colors(image, "rectangular", colors, expected_count=4)
+    combined_regions = extract_specific_axis_labels(image)
 
-    # 2. Detect axes and title
-    axes_title_result = detect_axes_and_title_with_legends(image)
+    middle_x = get_x_axis_tick_centers(combined_regions)
 
-    # 3. Detect legend items
-    legend_items_result = detect_legend_items(image)
+    intersection_regions = find_intersection_bounding_boxes(image, middle_x)
 
-    # Combine all regions from the results
-    combined_regions = []
-    if "regions" in color_result:
-        combined_regions.extend(color_result["regions"])
-    if "regions" in axes_title_result:
-        combined_regions.extend(axes_title_result["regions"])
-    if "regions" in legend_items_result:
-        combined_regions.extend(legend_items_result["regions"])
     return {
-        "regions": combined_regions
+        "regions": combined_regions + intersection_regions
     }
+
+def get_x_axis_tick_centers(regions: List[Dict]) -> List[int]:
+
+    centers = []
+    for region in regions:
+        if region.get("label") == "x_axis_tick":
+            rect = region.get("rectangular", {})
+            xmin = rect.get("xmin", 0)
+            xmax = rect.get("xmax", 0)
+            center_x = (xmin + xmax) / 2
+            centers.append(int(center_x))
+    return centers
+
+
 
 async def analyze_stacked_area_chart(file: UploadFile) -> Dict:
     contents = await file.read()
     np_arr = np.frombuffer(contents, np.uint8)
     image = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+    H, W, _ = image.shape
+    
+    # Define the areas:
+    # Axis detection: left 80% of the image.
+    axis_area = image[:, :int(0.8 * W)]
+    # Legend detection: right 20% of the image.
+    legend_area = image[:, int(0.8 * W):]
+    
+    # 1) Process the axis area (ensuring that the right 20% is NOT considered).
+    axis_regions = extract_specific_axis_labels(axis_area)
 
-    # 1. Detect bar segments by color
-    colors = ['#cd7f32', '#bec36f', '#feb24c']
-    color_result = detect_multiple_colors(image, "rectangular", colors, expected_count=4)
+    target_colors = ["#3282bd", "#9ecae1", "#deebf7"] 
+    
+    # legend_regions = detect_legend_colors(image, target_colors, x_extend=80, color_tol=20)
+    
 
-    # 2. Detect axes and title
-    axes_title_result = detect_axes_and_title_with_legends(image)
+    middle_x = get_x_axis_tick_centers(axis_regions)
+    for x in middle_x:
+        axis_regions.extend(detect_stacked_boundaries(image, x, target_colors, tolerance=30, white_thresh=240, box_offset=20))
 
-    # 3. Detect legend items
-    legend_items_result = detect_legend_items(image)
 
-    # Combine all regions from the results
-    combined_regions = []
-    if "regions" in color_result:
-        combined_regions.extend(color_result["regions"])
-    if "regions" in axes_title_result:
-        combined_regions.extend(axes_title_result["regions"])
-    if "regions" in legend_items_result:
-        combined_regions.extend(legend_items_result["regions"])
+    # intersection_regions = find_intersection_bounding_boxes(image, middle_x)
+
     return {
-        "regions": combined_regions
+        "regions": axis_regions
     }
 
 async def analyze_pie_chart(file: UploadFile) -> Dict:
@@ -300,26 +298,10 @@ async def analyze_map(file: UploadFile) -> Dict:
     np_arr = np.frombuffer(contents, np.uint8)
     image = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
-    # 1. Detect bar segments by color
-    colors = ['#cd7f32', '#bec36f', '#feb24c']
-    color_result = detect_multiple_colors(image, "rectangular", colors, expected_count=4)
+    regions = detect_abbreviations(image)
 
-    # 2. Detect axes and title
-    axes_title_result = detect_axes_and_title_with_legends(image)
-
-    # 3. Detect legend items
-    legend_items_result = detect_legend_items(image)
-
-    # Combine all regions from the results
-    combined_regions = []
-    if "regions" in color_result:
-        combined_regions.extend(color_result["regions"])
-    if "regions" in axes_title_result:
-        combined_regions.extend(axes_title_result["regions"])
-    if "regions" in legend_items_result:
-        combined_regions.extend(legend_items_result["regions"])
     return {
-        "regions": combined_regions
+        "regions": regions
     }
 
 async def analyze_treemap(file) -> Dict:
