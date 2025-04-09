@@ -397,6 +397,8 @@ export default function QuestionPage({
                       chartType={chartType}
                       labelName={generatedJSON.example[selectedStep].labelName || ""}
                       mappedRegions={mappedRegions}
+                      questionId={questionId}
+                      chartName={chart}
                       onClose={() => setShowGuidanceModal(false)}
                       onGuidanceComplete={handleGuidanceComplete}
                     />

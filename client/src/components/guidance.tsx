@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import styles from '../styles/Guidance.module.css';
 import Image from 'next/image';
@@ -8,7 +8,7 @@ interface Step {
   stepNumber: number;
   stepName: string;
   aoiDescription: string;
-  calculations: string;
+  calculations?: string;
   coordinates: {
     xmin: number;
     ymin: number;
@@ -19,12 +19,14 @@ interface Step {
 
 interface GuidanceProps {
   chartImage: string; // Path to chart image
-  stepNumber: number; // Current step number
+  stepNumber: number; // Current step number (1-indexed)
   taskName: string; // Task description
   type: string; // Component type (e.g., "retrieve", "compute")
   chartType: string; // Type of chart (e.g., "bar", "line")
   labelName?: string; // Optional label name
   mappedRegions: any[]; // Mapped regions from breakdown component
+  questionId: number;
+  chartName: string; // Name of the chart
   onClose: () => void; // Close callback
   onGuidanceComplete?: (stepNumber: number) => void; // Callback when guidance is completed
 }
@@ -37,6 +39,8 @@ export default function Guidance({
   chartType,
   labelName,
   mappedRegions,
+  questionId,
+  chartName,
   onClose,
   onGuidanceComplete,
 }: GuidanceProps) {
@@ -51,9 +55,8 @@ export default function Guidance({
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const actualImageRef = useRef<HTMLImageElement | null>(null);
-  const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
-  // Fetch AOI guidance on initial load for supported task types
+  // Modified: Try to get guidance from a local JSON file in public folder first.
   useEffect(() => {
     const fetchAOIGuidance = async () => {
       // Only fetch for supported task types
@@ -68,9 +71,41 @@ export default function Guidance({
       
       setLoading(true);
       setError(null);
-      
+
+      // Derive questionId from chartImage.
+      // Assumes chartImage is something like "/studyProblem/someId.png"
+
       try {
-        // Determine which API endpoint to use based on the task type
+        // Attempt to fetch the local JSON file
+        const localUrl = `/data/${chartName}/${questionId}.json`;
+        const localResponse = await fetch(localUrl);
+        if (localResponse.ok) {
+          const jsonData = await localResponse.json();
+          console.log('Local JSON data:', jsonData);
+          // Assume the JSON structure has a tasks array
+          // Try to find the task based on labelName or taskName
+          let selectedTask = jsonData.tasks.find((task: any) => task.label === labelName);
+          if (!selectedTask) {
+            // Fallback: try matching taskName against description (you can adjust the logic as needed)
+            selectedTask = jsonData.tasks.find((task: any) => task.description.includes(taskName));
+          }
+          // If still not found, take the first task (or you can set an error)
+          if (!selectedTask && jsonData.tasks.length > 0) {
+            selectedTask = jsonData.tasks[0];
+          }
+          if (selectedTask && selectedTask.steps) {
+            setAoiGuidance(selectedTask.steps);
+            // Optionally, set the current step based on stepNumber prop (converted from 1-indexed to 0-indexed)
+            setCurrentStep(stepNumber > 0 && stepNumber <= selectedTask.steps.length ? stepNumber - 1 : 0);
+            setLoading(false);
+            return; // Exit early if local JSON is used
+          } else {
+            setError('Local guidance file found but no valid task/steps data available.');
+          }
+        }
+        // If the file is not found or the structure is not as expected, fall back to the API call.
+
+        // Determine API endpoint based on the task type if needed.
         let apiEndpoint = '';
         if (lowerCaseType === 'filter') {
           apiEndpoint = '/api/filterAOIs';
@@ -82,7 +117,7 @@ export default function Guidance({
           apiEndpoint = '/api/findExtremum';
         }
         
-        // Make API call to get AOIs
+        // API call as fallback
         const response = await axios.post(apiEndpoint, {
           chartType,
           currentTaskName: taskName,
@@ -92,7 +127,6 @@ export default function Guidance({
         
         if (response.data && response.data.steps) {
           setAoiGuidance(response.data.steps);
-          // Set current step to the first step
           setCurrentStep(0);
         } else {
           setError('Invalid response format from API');
@@ -106,7 +140,9 @@ export default function Guidance({
     };
     
     fetchAOIGuidance();
-  }, [chartType, taskName, type, labelName, mappedRegions]);
+  }, [chartType, taskName, type, labelName, mappedRegions, chartImage, stepNumber]);
+
+  // (The remaining code is unchanged)
 
   // Get original image dimensions on load
   useEffect(() => {
@@ -117,6 +153,11 @@ export default function Guidance({
           width: img.width,
           height: img.height
         });
+        console.log('Original image dimensions:', {
+          width: img.width,
+          height: img.height,
+          aspectRatio: img.width / img.height
+        });
       };
       img.src = chartImage;
     }
@@ -125,46 +166,28 @@ export default function Guidance({
   // Update actual rendered image measurements
   useEffect(() => {
     const updateActualImageDimensions = () => {
-      // Find the actual img element rendered by Next.js Image component
       if (imageRef.current) {
         const imgElement = imageRef.current.querySelector('img');
         if (imgElement) {
           actualImageRef.current = imgElement;
           const rect = imgElement.getBoundingClientRect();
-          
           setImageDimensions({
             width: rect.width,
             height: rect.height
           });
-          
-          // Calculate position relative to container with more precision
           if (imageContainerRef.current) {
             const containerRect = imageContainerRef.current.getBoundingClientRect();
-            
-            // Get the exact offset position of the image within its container
             setImagePosition({
               left: rect.left - containerRect.left,
               top: rect.top - containerRect.top
             });
-            
-            // Log for debugging
-            console.log('Image position within container:', {
-              left: rect.left - containerRect.left,
-              top: rect.top - containerRect.top,
-              imageWidth: rect.width,
-              containerWidth: containerRect.width
-            });
           }
-          
           setImageReady(true);
         }
       }
     };
     
-    // Initial update
     updateActualImageDimensions();
-    
-    // Set up observer to track resize events
     const resizeObserver = new ResizeObserver(() => {
       updateActualImageDimensions();
     });
@@ -172,26 +195,21 @@ export default function Guidance({
     if (imageRef.current) {
       resizeObserver.observe(imageRef.current);
     }
-    
-    // Set up window resize listener
     window.addEventListener('resize', updateActualImageDimensions);
-    
     return () => {
-      if (resizeObserverRef.current) {
-        resizeObserverRef.current.disconnect();
-      }
+      resizeObserver.disconnect();
       window.removeEventListener('resize', updateActualImageDimensions);
     };
   }, [imageReady]);
 
-  // Calculate AOI position relative to the rendered image with more precise calculations
   const calculateAoiPosition = (coordinates: any) => {
-    if (!imageReady || 
-        !actualImageRef.current ||
-        !originalImageDimensions.width || 
-        !originalImageDimensions.height ||
-        !imageDimensions.width ||
-        !imageDimensions.height) {
+    // Ensure required values are present:
+    if (
+      !originalImageDimensions.width ||
+      !originalImageDimensions.height ||
+      !imageContainerRef.current ||
+      !actualImageRef.current
+    ) {
       return {
         top: 0,
         left: 0,
@@ -200,94 +218,85 @@ export default function Guidance({
         display: 'none'
       };
     }
-    
-    // Get the actual image element's dimensions and position
-    const actualImageRect = actualImageRef.current.getBoundingClientRect();
-    const containerRect = imageContainerRef.current?.getBoundingClientRect() || { left: 0, top: 0, width: 0, height: 0 };
-    
-    // Calculate the actual horizontal offset of the image within its container
-    // This accounts for the fact that the image might not take up 100% of the container width
-    const horizontalOffset = actualImageRect.left - containerRect.left;
-    const verticalOffset = actualImageRect.top - containerRect.top;
-    
-    // Calculate the scale factors between original and actual rendered image
-    const scaleX = actualImageRect.width / originalImageDimensions.width;
-    const scaleY = actualImageRect.height / originalImageDimensions.height;
-    
-    // Ensure correct coordinate ordering for x and y values
+  
+    // Get the container dimensions (the div that holds the image)
+    const containerRect = imageContainerRef.current.getBoundingClientRect();
+    const containerWidth = containerRect.width;
+    const containerHeight = containerRect.height;
+  
+    // Get the displayed image dimensions from the actual image element
+    const imgRect = actualImageRef.current.getBoundingClientRect();
+    const displayedWidth = imgRect.width;
+    const displayedHeight = imgRect.height;
+
+    console.log('Container dimensions:', { containerWidth, containerHeight });
+    console.log('Displayed image dimensions:', { originalImageDimensions });
+  
+    // Use the displayed dimensions and the natural dimensions to calculate the scale.
+    // (For an image rendered via object-fit: contain, these factors should be identical.)
+    const scaleX = displayedWidth / originalImageDimensions.width;
+    const scaleY = displayedHeight / originalImageDimensions.height;
+
+    console.log('Scale factors:', { scaleX, scaleY });
+  
+    // Calculate letterbox offsets: determine how much the image is inset inside the container.
+    const offsetLeft = (containerWidth - displayedWidth) / 2;
+    const offsetTop = (containerHeight - displayedHeight) / 2;
+  
+    // Validate coordinates ordering in case they come reversed from the JSON
     const validCoords = {
       xmin: Math.min(coordinates.xmin, coordinates.xmax),
       xmax: Math.max(coordinates.xmin, coordinates.xmax),
       ymin: Math.min(coordinates.ymin, coordinates.ymax),
       ymax: Math.max(coordinates.ymin, coordinates.ymax)
     };
-    
-    // Log for debugging
-    console.log('AOI calculation:', {
-      horizontalOffset,
-      verticalOffset,
-      scaleX,
-      scaleY,
-      originalCoords: coordinates,
-      validatedCoords: validCoords,
-      calculatedLeft: horizontalOffset + (validCoords.xmin * scaleX),
-      calculatedTop: verticalOffset + (validCoords.ymin * scaleY)
-    });
-    
-    // Calculate the positioned coordinates using the actual image position and scale
+  
     return {
-      top: verticalOffset + (validCoords.ymin * scaleY),
-      left: horizontalOffset + (validCoords.xmin * scaleX),
+      left: offsetLeft + validCoords.xmin * scaleX,
+      top: offsetTop + validCoords.ymin * scaleY,
       width: (validCoords.xmax - validCoords.xmin) * scaleX,
       height: (validCoords.ymax - validCoords.ymin) * scaleY,
       display: 'block'
     };
   };
+  
 
-  // Get the current step to display
   const currentAoiStep = aoiGuidance.length > 0 && currentStep < aoiGuidance.length
     ? aoiGuidance[currentStep]
     : null;
 
-  // Move to next step
   const handleNextStep = () => {
     if (currentStep < aoiGuidance.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
 
-  // Move to previous step
   const handlePrevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
   };
 
-  // Handle finished button click
   const handleFinished = () => {
-    // Notify parent component that guidance is complete
     if (onGuidanceComplete) {
       onGuidanceComplete(stepNumber);
     }
-    // Close the guidance modal
     onClose();
   };
 
-  // For debugging
   useEffect(() => {
     if (imageReady && actualImageRef.current) {
       const rect = actualImageRef.current.getBoundingClientRect();
       console.log('Rendered image dimensions:', {
         width: rect.width,
         height: rect.height,
-        aspectRatio: rect.width/rect.height,
+        aspectRatio: rect.width / rect.height,
         intrinsicSize: originalImageDimensions,
-        intrinsicAspectRatio: originalImageDimensions.width/originalImageDimensions.height
+        intrinsicAspectRatio: originalImageDimensions.width / originalImageDimensions.height
       });
     }
   }, [imageReady, originalImageDimensions, imageDimensions]);
 
-  // Check if the current task type supports AOI guidance
   const supportsAoiGuidance = () => {
     const lowerCaseType = type.toLowerCase();
     return (
@@ -305,9 +314,10 @@ export default function Guidance({
         <button className={styles.closeButton} onClick={onClose}>
           <FaTimes />
         </button>
+        
         <div className={styles.guidanceHeader}>
           <h2>
-            Step {stepNumber} Guidance: <span className={styles.taskType}>{type}</span>
+            Step {stepNumber}: <span className={styles.taskType}>{type}</span>
           </h2>
           {supportsAoiGuidance() && aoiGuidance.length > 0 && (
             <div className={styles.stepCounter}>
@@ -315,20 +325,18 @@ export default function Guidance({
             </div>
           )}
         </div>
-        
+
         <div className={styles.guidanceBody}>
+          {/* Left side - Image container (70%) */}
           <div className={styles.imageContainer} ref={imageContainerRef}>
-            <div 
-              ref={imageRef}
-              className={styles.imageWrapper}
-            >
+            <div ref={imageRef} className={styles.imageWrapper}>
               <Image
                 src={chartImage}
                 alt={`${chartType} chart`}
                 className={styles.chartImage}
                 width={originalImageDimensions.width || 1000}
                 height={originalImageDimensions.height || 800}
-                style={{ 
+                style={{
                   maxWidth: '100%',
                   maxHeight: '100%',
                   objectFit: 'contain',
@@ -337,16 +345,14 @@ export default function Guidance({
                 }}
                 onLoadingComplete={(img) => {
                   if (img.naturalWidth && img.naturalHeight) {
-                    setOriginalImageDimensions({
-                      width: img.naturalWidth,
-                      height: img.naturalHeight
-                    });
+                    // setOriginalImageDimensions({
+                    //   width: img.naturalWidth,
+                    //   height: img.naturalHeight
+                    // });
                     setTimeout(() => setImageReady(true), 100);
                   }
                 }}
               />
-              
-              {/* Overlay highlight for the current AOI step */}
               {currentAoiStep && imageReady && (
                 <div 
                   className={styles.aoiHighlight}
@@ -361,67 +367,66 @@ export default function Guidance({
               )}
             </div>
           </div>
+
+          {/* Right side - AOI Guidance (30%) */}
+          {supportsAoiGuidance() && (
+            <div className={styles.aoiGuidance}>
+              {loading ? (
+                <p>Loading guidance...</p>
+              ) : error ? (
+                <p className={styles.error}>{error}</p>
+              ) : currentAoiStep ? (
+                <>
+                  <div className={styles.stepDetails}>
+                    <h3>{currentAoiStep.stepName}</h3>
+                    <p>{currentAoiStep.aoiDescription}</p>
+                    {currentAoiStep.calculations && (
+                      <div className={styles.calculations}>
+                        <h4>Calculations:</h4>
+                        <p>{currentAoiStep.calculations}</p>
+                      </div>
+                    )}
+                    <div className={styles.coordinates}>
+                      <h4>Region Coordinates:</h4>
+                      <p>
+                        X: {currentAoiStep.coordinates.xmin} to {currentAoiStep.coordinates.xmax}<br />
+                        Y: {currentAoiStep.coordinates.ymin} to {currentAoiStep.coordinates.ymax}
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.navigationButtons}>
+                    <button 
+                      onClick={handlePrevStep} 
+                      disabled={currentStep <= 0}
+                      className={styles.navButton}
+                    >
+                      Previous
+                    </button>
+                    <button 
+                      onClick={handleNextStep} 
+                      disabled={currentStep >= aoiGuidance.length - 1}
+                      className={styles.navButton}
+                    >
+                      Next
+                    </button>
+                  </div>
+                </>
+              ) : aoiGuidance.length === 0 && !loading ? (
+                <p>No guidance available for this task.</p>
+              ) : null}
+            </div>
+          )}
         </div>
-        
-        {/* Show AOI guidance for supported task types */}
-        {supportsAoiGuidance() && (
-          <div className={styles.aoiGuidance}>
-            {loading ? (
-              <p>Loading guidance...</p>
-            ) : error ? (
-              <p className={styles.error}>{error}</p>
-            ) : currentAoiStep ? (
-              <div className={styles.stepDetails}>
-                <h3>{currentAoiStep.stepName}</h3>
-                <p>{currentAoiStep.aoiDescription}</p>
-                <div className={styles.coordinates}>
-                  <h4>Coordinates:</h4>
-                  <p>
-                    xmin: {currentAoiStep.coordinates.xmin}, 
-                    ymin: {currentAoiStep.coordinates.ymin}, 
-                    xmax: {currentAoiStep.coordinates.xmax}, 
-                    ymax: {currentAoiStep.coordinates.ymax}
-                  </p>
-                </div>
-              </div>
-            ) : aoiGuidance.length === 0 && !loading ? (
-              <p>No guidance available for this task.</p>
-            ) : null}
-            
-            {aoiGuidance.length > 0 && (
-              <div className={styles.navigationButtons}>
-                <button 
-                  onClick={handlePrevStep} 
-                  disabled={currentStep <= 0}
-                  className={styles.navButton}
-                >
-                  Previous
-                </button>
-                <button 
-                  onClick={handleNextStep} 
-                  disabled={currentStep >= aoiGuidance.length - 1}
-                  className={styles.navButton}
-                >
-                  Next
-                </button>
-              </div>
-            )}
-          </div>
-        )}
-        
+
         <div className={styles.guidanceFooter}>
           <button 
             className={
-              supportsAoiGuidance() && 
-              currentStep < aoiGuidance.length - 1
+              supportsAoiGuidance() && currentStep < aoiGuidance.length - 1
                 ? styles.finishedButtonDisabled 
                 : styles.finishedButton
             }
             onClick={handleFinished}
-            disabled={
-              supportsAoiGuidance() && 
-              currentStep < aoiGuidance.length - 1
-            }
+            disabled={supportsAoiGuidance() && currentStep < aoiGuidance.length - 1}
           >
             Finished
           </button>
@@ -430,4 +435,3 @@ export default function Guidance({
     </div>
   );
 }
-
