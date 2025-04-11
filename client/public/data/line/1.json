@@ -36,27 +36,50 @@
             "label": "February",
             "steps": [
                 {
-                    "stepName": "X-axis Area AOI",
+                    "stepName": "Vertical Alignment AOI",
                     "stepNumber": 1,
-                    "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+                    "aoiDescription": "Trace a vertical line upward from the February label until you reach the corresponding oil price data point.",
                     "coordinates": {
-                      "xmin": 119,
-                      "xmax": 1052,
-                      "ymin": 1009,
-                      "ymax": 1100
+                      "xmin": 212,
+                      "xmax": 212,
+                      "ymin": 209,
+                      "ymax": 1079
                     }
                 },
                 {
-                    "stepName": "Specific X-axis Label AOI (February)",
+                    "stepName": "Data Point AOI (February)",
                     "stepNumber": 2,
-                    "aoiDescription": "Precisely identify the x-axis label for 'February' within the axis labels area.",
+                    "aoiDescription": "Locate the rectangular area representing the oil price data point for February 2020.",
                     "coordinates": {
-                      "xmin": 206,
-                      "xmax": 241,
-                      "ymin": 1079,
-                      "ymax": 1096
+                      "xmin": 186,
+                      "xmax": 243,
+                      "ymin": 209,
+                      "ymax": 249
                     }
-                }
+                },
+                {
+                    "stepName": "Horizontal Mapping to Y-axis AOI",
+                    "stepNumber": 3,
+                    "aoiDescription": "Visually scan horizontally from the February data point toward the y-axis to read the corresponding oil price value.",
+                    "coordinates": {
+                      "xmin": 89,
+                      "xmax": 243,
+                      "ymin": 230,
+                      "ymax": 230
+                    }
+                  },
+                  {
+                    "stepName": "Y-axis Tick AOI",
+                    "stepNumber": 4,
+                    "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for February.",
+                    "coordinates": {
+                      "xmin": 70,
+                      "xmax": 113,
+                      "ymin": 227,
+                      "ymax": 235
+                    }
+                  }                  
+                  
                   
             ]
         }

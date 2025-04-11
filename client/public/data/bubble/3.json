@@ -1,0 +1,115 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bubble representing the metro system in Beijing.",
+            "label": "Beijing",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Beijing)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and highlight the bubble representing the Beijing metro system.",
+                "coordinates": {
+                  "xmin": 640,
+                  "xmax": 665,
+                  "ymin": 309,
+                  "ymax": 328
+                }
+              }
+            ]
+        },
+        {
+            "id": 2,
+            "description": "Filter the legend to find the ridership value that corresponds to the size of Beijing's bubble.",
+            "label": "",
+            "steps": [
+              {
+                "stepName": "Legend Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire legend area that displays all three bubble sizes, each representing a different ridership level.",
+      "coordinates": [
+        {
+          "xmin": 722,
+          "xmax": 799,
+          "ymin": 52,
+          "ymax": 123
+        },
+        {
+          "xmin": 731,
+          "xmax": 790,
+          "ymin": 123,
+          "ymax": 176
+        },
+        {
+          "xmin": 740,
+          "xmax": 781,
+          "ymin": 173,
+          "ymax": 208
+        }
+      ]
+              },
+              {
+                "stepName": "Legend Entry AOI (1.5B Ridership)",
+                "stepNumber": 2,
+                "aoiDescription": "Highlight the specific legend entry that visually matches the size of Beijing’s bubble, indicating less than 1.5 billion riders per year.",
+                "coordinates": [{
+                    "xmin": 740,
+                    "xmax": 781,
+                    "ymin": 173,
+                    "ymax": 208
+                    },
+                {
+                    "xmin": 640,
+                    "xmax": 665,
+                    "ymin": 309,
+                    "ymax": 328
+                }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "description": "Retrieve the ridership value from the filtered legend entry. Note that Beijing's bubble appears smaller than the 1.5 billion ridership example.",
+            "label": "Beijing",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Beijing)",
+                "stepNumber": 1,
+                "aoiDescription": "Re-identify the Beijing bubble on the chart to evaluate its size.",
+                "coordinates": {
+                  "xmin": 640,
+                  "xmax": 665,
+                  "ymin": 309,
+                  "ymax": 328
+                }
+              },
+              {
+                "stepName": "Legend Entry AOI (1.5B Bubble Reference)",
+                "stepNumber": 2,
+                "aoiDescription": "Observe the smallest bubble in the legend (1.5 billion riders) and compare it to Beijing’s bubble to determine if it's smaller.",
+                "coordinates": {
+                  "xmin": 740,
+                  "xmax": 781,
+                  "ymin": 173,
+                  "ymax": 208
+                }
+              },
+              {
+                "stepName": "Visual Conclusion AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Based on the size comparison, conclude that the ridership for Beijing is less than 1.5 billion riders per year.",
+                "coordinates": {
+                  "xmin": 640,
+                  "xmax": 665,
+                  "ymin": 309,
+                  "ymax": 328
+                }
+              }
+            ]
+          }
+          
+          
+            
+    ]
+}

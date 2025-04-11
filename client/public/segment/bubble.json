@@ -1,76 +1,104 @@
 {
-    "mapping": [
-      {
-        "segmentNumber": 1,
-        "description": "Bubble representing Mexico City"
-      },
-      {
-        "segmentNumber": 2,
-        "description": "Bubble representing Moscow"
-      },
-      {
-        "segmentNumber": 3,
-        "description": "Bubble representing Delhi"
-      },
-      {
-        "segmentNumber": 4,
-        "description": "Bubble representing Guangzhou"
-      },
-      {
-        "segmentNumber": 5,
-        "description": "Bubble representing Tokyo"
-      },
-      {
-        "segmentNumber": 6,
-        "description": "Bubble representing Paris"
-      },
-      {
-        "segmentNumber": 7,
-        "description": "Bubble representing London"
-      },
-      {
-        "segmentNumber": 8,
-        "description": "Bubble representing Beijing"
-      },
-      {
-        "segmentNumber": 9,
-        "description": "Bubble representing Shanghai"
-      },
-      {
-        "segmentNumber": 10,
-        "description": "Bubble representing Seoul"
-      },
-      {
-        "segmentNumber": 11,
-        "description": "Bubble representing N.Y.C."
-      },
-      {
-        "segmentNumber": 12,
-        "description": "Y-axis"
-      },
-      {
-        "segmentNumber": 13,
-        "description": "X-axis"
-      },
-      {
-        "segmentNumber": 14,
-        "description": "Chart title: Metro Systems of the World"
-      },
-      {
-        "segmentNumber": 15,
-        "description": "Y-axis label: Total System Length (Km)"
-      },
-      {
-        "segmentNumber": 16,
-        "description": "Series legend item for ridership 3.5 (bn per year)"
-      },
-      {
-        "segmentNumber": 17,
-        "description": "Series legend item for ridership 2.5 (bn per year)"
-      },
-      {
-        "segmentNumber": 18,
-        "description": "Series legend item for ridership 1.5 (bn per year)"
-      }
-    ]
-  }
+  "mapping": [
+    {
+      "segmentNumber": 1,
+      "description": "Bubble representing Mexico City"
+    },
+    {
+      "segmentNumber": 2,
+      "description": "Bubble representing Moscow"
+    },
+    {
+      "segmentNumber": 3,
+      "description": "Bubble representing Delhi"
+    },
+    {
+      "segmentNumber": 4,
+      "description": "Bubble representing Guangzhou"
+    },
+    {
+      "segmentNumber": 5,
+      "description": "Bubble representing Tokyo"
+    },
+    {
+      "segmentNumber": 6,
+      "description": "Bubble representing Paris"
+    },
+    {
+      "segmentNumber": 7,
+      "description": "Bubble representing London"
+    },
+    {
+      "segmentNumber": 8,
+      "description": "Bubble representing Beijing"
+    },
+    {
+      "segmentNumber": 9,
+      "description": "Bubble representing Shanghai"
+    },
+    {
+      "segmentNumber": 10,
+      "description": "Bubble representing Seoul"
+    },
+    {
+      "segmentNumber": 11,
+      "description": "Bubble representing N.Y.C."
+    },
+    {
+      "segmentNumber": 12,
+      "description": "Chart title: Metro Systems of the World"
+    },
+    {
+      "segmentNumber": 13,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 14,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 15,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 16,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 17,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 18,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 19,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 20,
+      "description": "y_axis_tick"
+    },
+    {
+      "segmentNumber": 21,
+      "description": "x_axis_title"
+    },
+    {
+      "segmentNumber": 22,
+      "description": "x_axis_tick"
+    },
+    {
+      "segmentNumber": 23,
+      "description": "Series legend item for ridership 3.5 (bn per year)"
+    },
+    {
+      "segmentNumber": 24,
+      "description": "Series legend item for ridership 2.5 (bn per year)"
+    },
+    {
+      "segmentNumber": 25,
+      "description": "Series legend item for ridership 1.5 (bn per year)"
+    }
+  ]
+}

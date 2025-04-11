@@ -1,0 +1,302 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Identify that the bubble size represents ridership from the legend.",
+            "label": "Bubble Size = Ridership",
+            "steps": [
+              {
+                "stepName": "Legend Area AOI (All Bubble Sizes)",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the legend area that displays different bubble sizes, which visually represent various ridership levels.",
+                "coordinates": {
+                  "xmin": 722,
+                  "xmax": 799,
+                  "ymin": 52,
+                  "ymax": 208
+                }
+              },
+              {
+                "stepName": "Legend Bubble Comparisons",
+                "stepNumber": 2,
+                "aoiDescription": "Examine all three legend bubbles (3.5B, 2.5B, 1.5B) to understand the size difference and how they encode increasing ridership.",
+                "coordinates": [
+                  {
+                    "xmin": 722,
+                    "xmax": 799,
+                    "ymin": 52,
+                    "ymax": 123
+                  },
+                  {
+                    "xmin": 731,
+                    "xmax": 790,
+                    "ymin": 123,
+                    "ymax": 176
+                  },
+                  {
+                    "xmin": 740,
+                    "xmax": 781,
+                    "ymin": 173,
+                    "ymax": 208
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Filter the bubble representing the metro system in Shanghai.",
+            "label": "Shanghai",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Shanghai)",
+                "stepNumber": 2,
+                "aoiDescription": "Identify and isolate the bubble that represents the Shanghai metro system.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "description": "Retrieve the bubble size (ridership value) for Shanghai by comparing it to legend entries.",
+            "label": "Shanghai",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Shanghai)",
+                "stepNumber": 1,
+                "aoiDescription": "Identify the bubble representing Shanghai to begin the visual comparison.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              },
+              {
+                "stepName": "Compare with 3.5B Legend AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Compare Shanghai’s bubble to the largest legend bubble (3.5B riders). Conclude that it appears smaller.",
+                "coordinates": [
+                  {
+                    "xmin": 637,
+                    "xmax": 699,
+                    "ymin": 241,
+                    "ymax": 297
+                  },
+                  {
+                    "xmin": 722,
+                    "xmax": 799,
+                    "ymin": 52,
+                    "ymax": 123
+                  }
+                ]
+              },
+              {
+                "stepName": "Compare with 2.5B Legend AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Now compare Shanghai’s bubble to the 2.5B legend bubble. Conclude that it appears larger.",
+                "coordinates": [
+                  {
+                    "xmin": 637,
+                    "xmax": 699,
+                    "ymin": 241,
+                    "ymax": 297
+                  },
+                  {
+                    "xmin": 731,
+                    "xmax": 790,
+                    "ymin": 123,
+                    "ymax": 176
+                  }
+                ]
+              },
+              {
+                "stepName": "Visual Conclusion AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Based on the comparisons, conclude that Shanghai’s ridership is between 2.5 and 3.5 billion per year.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "description": "Filter the bubble representing the metro system in London.",
+            "label": "London",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (London)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and highlight the bubble that represents the London metro system.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "description": "Retrieve the bubble size (ridership value) for London by comparing it to legend entries.",
+            "label": "London",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (London)",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing London to begin visually estimating its ridership.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              },
+              {
+                "stepName": "Compare with 3.5B Legend AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Compare London’s bubble with the 3.5B ridership legend bubble. London appears smaller.",
+                "coordinates": [
+                  {
+                    "xmin": 359,
+                    "xmax": 377,
+                    "ymin": 358,
+                    "ymax": 370
+                  },
+                  {
+                    "xmin": 722,
+                    "xmax": 799,
+                    "ymin": 52,
+                    "ymax": 123
+                  }
+                ]
+              },
+              {
+                "stepName": "Compare with 2.5B Legend AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Now compare London’s bubble with the 2.5B legend bubble. London appears noticeably smaller.",
+                "coordinates": [
+                  {
+                    "xmin": 359,
+                    "xmax": 377,
+                    "ymin": 358,
+                    "ymax": 370
+                  },
+                  {
+                    "xmin": 731,
+                    "xmax": 790,
+                    "ymin": 123,
+                    "ymax": 176
+                  }
+                ]
+              },
+              {
+                "stepName": "Compare with 1.5B Legend AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Finally, compare London’s bubble with the 1.5B legend bubble. London appears about the same or slightly smaller.",
+                "coordinates": [
+                  {
+                    "xmin": 359,
+                    "xmax": 377,
+                    "ymin": 358,
+                    "ymax": 370
+                  },
+                  {
+                    "xmin": 740,
+                    "xmax": 781,
+                    "ymin": 173,
+                    "ymax": 208
+                  }
+                ]
+              },
+              {
+                "stepName": "Visual Conclusion AOI",
+                "stepNumber": 5,
+                "aoiDescription": "Conclude that London’s ridership is around or just below 1.5 billion riders per year, based on the size comparison.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "description": "Determine if the ridership value of Shanghai is greater than the ridership value of London.",
+            "label": "Shanghai vs. London",
+            "steps": [
+              {
+                "stepName": "Locate Bubble AOI (Shanghai)",
+                "stepNumber": 1,
+                "aoiDescription": "Identify the bubble representing Shanghai on the chart.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              },
+              {
+                "stepName": "Locate Bubble AOI (London)",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the bubble representing London on the chart.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              },
+              {
+                "stepName": "Visual Comparison AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually compare the sizes of the Shanghai and London bubbles. Shanghai’s bubble appears significantly larger.",
+                "coordinates": [
+                  {
+                    "xmin": 637,
+                    "xmax": 699,
+                    "ymin": 241,
+                    "ymax": 297
+                  },
+                  {
+                    "xmin": 359,
+                    "xmax": 377,
+                    "ymin": 358,
+                    "ymax": 370
+                  }
+                ]
+              },
+              {
+                "stepName": "Conclusion AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Conclude that Shanghai has a higher ridership value than London based on bubble size.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              }
+            ]
+          }
+          
+          
+          
+          
+          
+
+          
+    ]
+}

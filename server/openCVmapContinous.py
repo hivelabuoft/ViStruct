@@ -360,3 +360,156 @@ def find_last_boundary_upward(
     if boundary_y is None:
         boundary_y = default_y
     return boundary_y
+
+def group_by_y_overlap(detections: List[Dict], y_gap_threshold: int = 20) -> List[Dict]:
+    """
+    Groups boxes that overlap vertically or have a small vertical gap.
+    Returns a list of combined boxes.
+    """
+    if not detections:
+        return []
+    # Sort detections by y (top of the box)
+    detections.sort(key=lambda d: d["box"][1])
+    groups = []
+    current_group = [detections[0]]
+    # Track the current group's maximum y (bottom)
+    current_ymax = detections[0]["box"][1] + detections[0]["box"][3]
+    
+    for d in detections[1:]:
+        d_ymin = d["box"][1]
+        # If the gap is small (or boxes overlap), add to current group.
+        if d_ymin - current_ymax <= y_gap_threshold:
+            current_group.append(d)
+            # Update the group's bottom
+            current_ymax = max(current_ymax, d["box"][1] + d["box"][3])
+        else:
+            groups.append(current_group)
+            current_group = [d]
+            current_ymax = d["box"][1] + d["box"][3]
+    groups.append(current_group)
+    
+    # Combine each group into one bounding box.
+    combined_groups = [combine_boxes(g) for g in groups if combine_boxes(g) is not None]
+    return combined_groups
+
+def group_ticks_by_horizontal_and_vertical(detections: List[Dict], x_center_threshold: float = 40, y_gap_threshold: int = 20) -> List[Dict]:
+    """
+    Partitions the tick detections (assumed to be narrow boxes) into two sets based on their x-center—
+    for example, one set with centers left of x_center_threshold and another to the right.
+    Then, within each set, groups boxes by vertical overlap.
+    """
+    # Partition by x-center
+    left_group = [d for d in detections if (d["box"][0] + d["box"][2] / 2) < x_center_threshold]
+    right_group = [d for d in detections if (d["box"][0] + d["box"][2] / 2) >= x_center_threshold]
+    groups = []
+    groups.extend(group_by_y_overlap(left_group, y_gap_threshold))
+    groups.extend(group_by_y_overlap(right_group, y_gap_threshold))
+    return groups
+
+def extract_axis_labels_advanced(img: np.ndarray) -> List[Dict]:
+    """
+    Extracts axis labels with the following logic:
+    
+    1. Detections in the top 10% are combined into a single bounding box and labeled "title".
+    
+    2. For the left margin (left 20%):
+       - Detections with narrow bounding boxes (width < 60 px) are assumed to be tick labels.
+         They are partitioned by x-center (e.g. using a cutoff such as 40 px) and then grouped
+         by vertical overlap. Each resulting group is labeled "y_axis_tick".
+       - Detections with wider boxes are assumed to form the y-axis title and are combined
+         into one region labeled "y_axis_title".
+    
+    3. Detections in the bottom 15% are grouped vertically.
+       - If more than one group is found, the bottom-most group (largest average y) is labeled
+         "x_axis_title" and the others as "x_axis_tick". If only one group is found, it is labeled
+         "x_axis_tick".
+    
+    Returns a list of region dictionaries in the format:
+      {
+          "label": <str>,
+          "rectangular": {"xmin": int, "ymin": int, "xmax": int, "ymax": int},
+          "color": "#000000"
+      }
+    """
+    detections = detect_characters(img)
+    if not detections:
+        return []
+    
+    H, W = img.shape[:2]
+    
+    # Define margin boundaries.
+    top_margin = 0.10 * H       # top 10% → overall title
+    left_margin = 0.10 * W      # left 20% → y-axis related
+    bottom_margin = 0.9 * H    # bottom 15% → x-axis region
+    
+    top_candidates = []
+    left_candidates_ticks = []  # narrow boxes assumed to be ticks
+    left_candidates_title = []  # wide boxes → y-axis title
+    bottom_candidates = []
+    
+    # Partition detections based on their center.
+    for d in detections:
+        x, y, w, h = d["box"]
+        cx = x + w/2
+        cy = y + h/2
+        
+        if cy < top_margin:
+            top_candidates.append(d)
+        elif cx < left_margin:
+            if w < 60:
+                left_candidates_ticks.append(d)
+            else:
+                left_candidates_title.append(d)
+        elif cy > bottom_margin:
+            bottom_candidates.append(d)
+        # Other detections can be ignored or processed as needed.
+    
+    regions = []
+    
+    # 1. Top margin → overall title.
+    if top_candidates:
+        title_box = combine_boxes(top_candidates)
+        if title_box:
+            title_box["label"] = "title"
+            regions.append(title_box)
+    
+    # 2. Left margin processing.
+    # (A) Y-axis title: combine the wider boxes.
+    if left_candidates_title:
+        y_title_box = combine_boxes(left_candidates_title)
+        if y_title_box:
+            y_title_box["label"] = "y_axis_title"
+            regions.append(y_title_box)
+    
+    # (B) Y-axis ticks: group the narrow boxes.
+    if left_candidates_ticks:
+        # Partition further by horizontal position.
+        # For example, use x-center = 40 as the cutoff.
+        tick_groups = group_ticks_by_horizontal_and_vertical(left_candidates_ticks, x_center_threshold=40, y_gap_threshold=20)
+        for group in tick_groups:
+            group["label"] = "y_axis_tick"
+            regions.append(group)
+    
+    # 3. Bottom margin processing: x-axis regions.
+    if bottom_candidates:
+        bottom_groups = group_by_y_overlap(bottom_candidates, y_gap_threshold=10)
+        if bottom_groups:
+            # Compute average y for each group.
+            def avg_y(group):
+                r = group["rectangular"]
+                return (r["ymin"] + r["ymax"]) / 2
+            bottom_groups.sort(key=avg_y)
+            if len(bottom_groups) > 1:
+                # Use the bottom-most group as the x-axis title.
+                title_group = max(bottom_groups, key=avg_y)
+                title_group["label"] = "x_axis_title"
+                regions.append(title_group)
+                for grp in bottom_groups:
+                    if grp is not title_group:
+                        grp["label"] = "x_axis_tick"
+                        regions.append(grp)
+            else:
+                bottom_groups[0]["label"] = "x_axis_tick"
+                regions.append(bottom_groups[0])
+    
+    return regions

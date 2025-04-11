@@ -1,0 +1,701 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bubble representing the metro system in Guangzhou.",
+            "label": "Guangzhou",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Guangzhou)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Guangzhou metro system.",
+                "coordinates": {
+                  "xmin": 431,
+                  "xmax": 484,
+                  "ymin": 468,
+                  "ymax": 517
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Retrieve the total system length for the filtered city Guangzhou.",
+            "label": "Guangzhou",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Guangzhou for alignment.",
+                "coordinates": {
+                  "xmin": 431,
+                  "xmax": 484,
+                  "ymin": 468,
+                  "ymax": 517
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 484,
+                  "ymin": 489,
+                  "ymax": 489
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 484,
+                  "ymax": 494
+                }
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "description": "Filter the bubble representing the metro system in Delhi.",
+            "label": "Delhi",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Delhi)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Delhi metro system.",
+                "coordinates": {
+                  "xmin": 257,
+                  "xmax": 299,
+                  "ymin": 506,
+                  "ymax": 542
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "description": "Retrieve the total system length for the filtered city Delhi.",
+            "label": "Delhi",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Delhi for alignment.",
+                "coordinates": {
+                  "xmin": 257,
+                  "xmax": 299,
+                  "ymin": 506,
+                  "ymax": 542
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 299,
+                  "ymin": 520,
+                  "ymax": 520
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 515,
+                  "ymax": 525
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "description": "Filter the bubble representing the metro system in Tokyo.",
+            "label": "Tokyo",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Tokyo)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Tokyo metro system.",
+                "coordinates": {
+                  "xmin": 209,
+                  "xmax": 285,
+                  "ymin": 454,
+                  "ymax": 524
+                }
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "description": "Retrieve the total system length for the filtered city Tokyo.",
+            "label": "Tokyo",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Tokyo for alignment.",
+                "coordinates": {
+                  "xmin": 209,
+                  "xmax": 285,
+                  "ymin": 454,
+                  "ymax": 524
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 285,
+                  "ymin": 485,
+                  "ymax": 485
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 480,
+                  "ymax": 490
+                }
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "description": "Filter the bubble representing the metro system in Mexico City.",
+            "label": "Mexico City",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Mexico City)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Mexico City metro system.",
+                "coordinates": {
+                  "xmin": 118,
+                  "xmax": 146,
+                  "ymin": 635,
+                  "ymax": 657
+                }
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "description": "Retrieve the total system length for the filtered city Mexico City.",
+            "label": "Mexico City",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Mexico City for alignment.",
+                "coordinates": {
+                  "xmin": 118,
+                  "xmax": 146,
+                  "ymin": 635,
+                  "ymax": 657
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 146,
+                  "ymin": 642,
+                  "ymax": 642
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 637,
+                  "ymax": 647
+                }
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "description": "Filter the bubble representing the metro system in Moscow.",
+            "label": "Moscow",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Moscow)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Moscow metro system.",
+                "coordinates": {
+                  "xmin": 324,
+                  "xmax": 361,
+                  "ymin": 576,
+                  "ymax": 599
+                }
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "description": "Retrieve the total system length for the filtered city Moscow.",
+            "label": "Moscow",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Moscow for alignment.",
+                "coordinates": {
+                  "xmin": 324,
+                  "xmax": 361,
+                  "ymin": 576,
+                  "ymax": 599
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 361,
+                  "ymin": 584,
+                  "ymax": 584
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 579,
+                  "ymax": 589
+                }
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "description": "Filter the bubble representing the metro system in Paris.",
+            "label": "Paris",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Paris)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Paris metro system.",
+                "coordinates": {
+                  "xmin": 124,
+                  "xmax": 177,
+                  "ymin": 365,
+                  "ymax": 411
+                }
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "description": "Retrieve the total system length for the filtered city Paris.",
+            "label": "Paris",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Paris for alignment.",
+                "coordinates": {
+                  "xmin": 124,
+                  "xmax": 177,
+                  "ymin": 365,
+                  "ymax": 411
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 177,
+                  "ymin": 384,
+                  "ymax": 384
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 379,
+                  "ymax": 389
+                }
+              }
+            ]
+          },
+          {
+            "id": 13,
+            "description": "Filter the bubble representing the metro system in Seoul.",
+            "label": "Seoul",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Seoul)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Seoul metro system.",
+                "coordinates": {
+                  "xmin": 445,
+                  "xmax": 484,
+                  "ymin": 119,
+                  "ymax": 173
+                }
+              }
+            ]
+          },
+          {
+            "id": 14,
+            "description": "Retrieve the total system length for the filtered city Seoul.",
+            "label": "Seoul",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Seoul for alignment.",
+                "coordinates": {
+                  "xmin": 445,
+                  "xmax": 484,
+                  "ymin": 119,
+                  "ymax": 173
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 484,
+                  "ymin": 142,
+                  "ymax": 142
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 137,
+                  "ymax": 147
+                }
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "description": "Filter the bubble representing the metro system in London.",
+            "label": "London",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (London)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the London metro system.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "description": "Retrieve the total system length for the filtered city London.",
+            "label": "London",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing London for alignment.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 377,
+                  "ymin": 358,
+                  "ymax": 370
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 377,
+                  "ymin": 360,
+                  "ymax": 360
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 355,
+                  "ymax": 365
+                }
+              }
+            ]
+          },
+          {
+            "id": 17,
+            "description": "Filter the bubble representing the metro system in Beijing.",
+            "label": "Beijing",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Beijing)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Beijing metro system.",
+                "coordinates": {
+                  "xmin": 640,
+                  "xmax": 665,
+                  "ymin": 309,
+                  "ymax": 328
+                }
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "description": "Retrieve the total system length for the filtered city Beijing.",
+            "label": "Beijing",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Beijing for alignment.",
+                "coordinates": {
+                  "xmin": 640,
+                  "xmax": 665,
+                  "ymin": 309,
+                  "ymax": 328
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 665,
+                  "ymin": 315,
+                  "ymax": 315
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 310,
+                  "ymax": 320
+                }
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "description": "Filter the bubble representing the metro system in Shanghai.",
+            "label": "Shanghai",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Shanghai)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the Shanghai metro system.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              }
+            ]
+          },
+          {
+            "id": 20,
+            "description": "Retrieve the total system length for the filtered city Shanghai.",
+            "label": "Shanghai",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing Shanghai for alignment.",
+                "coordinates": {
+                  "xmin": 637,
+                  "xmax": 699,
+                  "ymin": 241,
+                  "ymax": 297
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 699,
+                  "ymin": 265,
+                  "ymax": 265
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 260,
+                  "ymax": 270
+                }
+              }
+            ]
+          },
+          {
+            "id": 21,
+            "description": "Filter the bubble representing the metro system in New York City.",
+            "label": "New York City",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (New York City)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and isolate the bubble that represents the New York City metro system.",
+                "coordinates": {
+                  "xmin": 360,
+                  "xmax": 384,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              }
+            ]
+          },
+          {
+            "id": 22,
+            "description": "Retrieve the total system length for the filtered city New York City.",
+            "label": "New York City",
+            "steps": [
+              {
+                "stepName": "Bubble AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the bubble representing New York City for alignment.",
+                "coordinates": {
+                  "xmin": 360,
+                  "xmax": 384,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a horizontal line from the bubble to the y-axis to retrieve the total system length.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 384,
+                  "ymin": 102,
+                  "ymax": 102
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest y-axis tick label to determine the exact value.",
+                "coordinates": {
+                  "xmin": 56,
+                  "xmax": 77,
+                  "ymin": 97,
+                  "ymax": 107
+                }
+              }
+            ]
+          },
+          {
+            "id": 23,
+            "description": "Determine the range of total system lengths based on the retrieved values.",
+            "label": "System Length Range",
+            "steps": [
+              {
+                "stepName": "Bubble AOI (Maximum Length - NYC)",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the topmost bubble, representing the metro system with the highest total length (New York City).",
+                "coordinates": {
+                  "xmin": 360,
+                  "xmax": 384,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              },
+              {
+                "stepName": "Bubble AOI (Minimum Length - Mexico City)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bottommost bubble, representing the metro system with the shortest total length (Mexico City).",
+                "coordinates": {
+                  "xmin": 118,
+                  "xmax": 146,
+                  "ymin": 635,
+                  "ymax": 657
+                }
+              },
+              {
+                "stepName": "Horizontal Line Mapping to Y-axis",
+                "stepNumber": 3,
+                "aoiDescription": "Draw horizontal lines from both bubble positions to the y-axis to determine the exact total system lengths.",
+                "coordinates": [
+                  {
+                    "xmin": 56,
+                    "xmax": 384,
+                    "ymin": 105,
+                    "ymax": 105
+                  },
+                  {
+                    "xmin": 56,
+                    "xmax": 146,
+                    "ymin": 646,
+                    "ymax": 646
+                  }
+                ]
+              },
+              {
+                "stepName": "Vertical Range Line on Y-axis",
+                "stepNumber": 4,
+                "aoiDescription": "Draw a vertical reference line on the y-axis connecting the max and min length levels to visually show the full range.",
+                "coordinates": {
+                  "xmin": 66,
+                  "xmax": 66,
+                  "ymin": 105,
+                  "ymax": 646
+                }
+              }
+            ]
+          }
+    ]
+}

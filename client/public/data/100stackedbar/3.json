@@ -1,0 +1,498 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bar representing a country. Japan",
+            "label": "Japan",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire area containing the x-axis labels for all countries.",
+                "coordinates": {
+                  "xmin": 252,
+                  "xmax": 971,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the x-axis label for 'Japan' by referencing the bar’s horizontal extent directly above it.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually trace a vertical line upward from the 'Japan' label to reach the entire stacked bar above it.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 52,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Stacked Bar AOI ('Japan')",
+                "stepNumber": 4,
+                "aoiDescription": "Focus on the full stacked bar for 'Japan', which represents all medal categories combined.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 971
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Filter the segment within the bar that represents a medal type.",
+            "label": "Japan - Silver",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire area containing the x-axis labels for all countries.",
+                "coordinates": {
+                  "xmin": 252,
+                  "xmax": 971,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the x-axis label for 'Japan' by referencing the bar’s horizontal extent directly above it.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually trace a vertical line upward from the 'Japan' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 318,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Japan')",
+                "stepNumber": 4,
+                "aoiDescription": "Focus on the silver-colored segment in Japan’s stacked bar, representing silver medals.",
+                "coordinates": {
+                  "xmin": 654,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 542
+                }
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "description": "Retrieve the value of the bottom of the medal segment.",
+            "label": "Japan - Silver",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Japan' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 318,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the silver medal bar segment for 'Japan' to identify its bottom boundary.",
+                "coordinates": {
+                  "xmin": 654,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 542
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the bottom edge of the silver medal segment for 'Japan'.",
+                "coordinates": {
+                  "xmin": 654,
+                  "xmax": 808,
+                  "ymin": 542,
+                  "ymax": 542
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the bottom edge of the silver segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 808,
+                  "ymin": 542,
+                  "ymax": 542
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "description": "Retrieve the value of the top of the medal segment.",
+            "label": "Japan - Silver",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Japan' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 318,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the silver medal bar segment for 'Japan' to identify its top boundary.",
+                "coordinates": {
+                  "xmin": 654,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 542
+                }
+              },
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the top edge of the silver medal segment for 'Japan'.",
+                "coordinates": {
+                  "xmin": 654,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the top edge of the silver segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "description": "Compute the proportion of the medal type for the country by subtracting the bottom value from the top value.",
+            "label": "Japan - Silver",
+            "steps": [
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the top edge of the 'Silver' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 808,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bottom edge of the 'Silver' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 808,
+                  "ymin": 542,
+                  "ymax": 542
+                }
+              },
+              {
+                "stepName": "Vertical Reference Line AOI (Silver Segment Height)",
+                "stepNumber": 3,
+                "aoiDescription": "Draw a vertical line from the top boundary to the bottom boundary along the y-axis to represent the total proportion of silver medals.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 91,
+                  "ymin": 318,
+                  "ymax": 542
+                }
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "description": "Filter the segment within the bar that represents a medal type.",
+            "label": "Japan - Bronze",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire area containing the x-axis labels for all countries.",
+                "coordinates": {
+                  "xmin": 252,
+                  "xmax": 971,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the x-axis label for 'Japan' by referencing the bar’s horizontal extent directly above it.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually trace a vertical line upward from the 'Japan' label to reach the bronze medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 52,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Bronze Segment AOI ('Jaspan')",
+                "stepNumber": 4,
+                "aoiDescription": "Focus on the bronze-colored segment in Japan’s stacked bar, representing bronze medals.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 318
+                }
+              }
+            ]
+          },
+          {
+            "id": 7,
+            "description": "Retrieve the value of the bottom of the medal segment.",
+            "label": "Japan - Bronze",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Japan' label to reach the bronze medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 52,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Bronze Segment AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bronze medal bar segment for 'Japan' to identify its bottom boundary.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the bottom edge of the bronze medal segment for 'Japan'.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the bottom edge of the bronze segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 807,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "description": "Retrieve the value of the top of the medal segment.",
+            "label": "Japan - Bronze",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Japan' label to reach the bronze medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 731,
+                  "xmax": 731,
+                  "ymin": 52,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Bronze Segment AOI ('Japan')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bronze medal bar segment for 'Japan' to identify its top boundary.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the top edge of the bronze medal segment for 'Japan'.",
+                "coordinates": {
+                  "xmin": 655,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 52
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the top edge of the bronze segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 52
+                }
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "description": "Compute the proportion of the medal type for the country by subtracting the bottom value from the top value.",
+            "label": "Japan - Bronze",
+            "steps": [
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the top edge of the 'Bronze' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 807,
+                  "ymin": 52,
+                  "ymax": 52
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bottom edge of the 'Bronze' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 807,
+                  "ymin": 318,
+                  "ymax": 318
+                }
+              },
+              {
+                "stepName": "Vertical Reference Line AOI (Bronze Segment Height)",
+                "stepNumber": 3,
+                "aoiDescription": "Draw a vertical line from the top boundary to the bottom boundary along the y-axis to represent the total proportion of bronze medals.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 91,
+                  "ymin": 52,
+                  "ymax": 318
+                }
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "description": "Compute the combined proportion of two medal types by adding their individual proportions.",
+            "label": "Japan - Bronze + Silver",
+            "steps": [
+              {
+                "stepName": "Segment AOIs for Bronze and Silver",
+                "stepNumber": 1,
+                "aoiDescription": "Highlight the bronze and silver medal segments together to visually represent their combined contribution.",
+                "coordinates": [
+                  {
+                    "xmin": 655,
+                    "xmax": 807,
+                    "ymin": 52,
+                    "ymax": 318
+                  },
+                  {
+                    "xmin": 654,
+                    "xmax": 808,
+                    "ymin": 318,
+                    "ymax": 542
+                  }
+                ]
+              },
+              {
+                "stepName": "Top and Bottom Boundary Reference Lines",
+                "stepNumber": 2,
+                "aoiDescription": "Draw horizontal lines from the top of the bronze segment and the bottom of the silver segment to the y-axis to anchor their positions.",
+                "coordinates": [
+                  {
+                    "xmin": 91,
+                    "xmax": 807,
+                    "ymin": 52,
+                    "ymax": 52
+                  },
+                  {
+                    "xmin": 91,
+                    "xmax": 808,
+                    "ymin": 542,
+                    "ymax": 542
+                  }
+                ]
+              },
+              {
+                "stepName": "Combined Proportion AOI (Vertical)",
+                "stepNumber": 3,
+                "aoiDescription": "Draw a vertical line on the y-axis from the top of the bronze segment to the bottom of the silver segment to represent the total combined proportion.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 91,
+                  "ymin": 52,
+                  "ymax": 542
+                }
+              }
+            ]
+          }               
+    ]
+  }
+  

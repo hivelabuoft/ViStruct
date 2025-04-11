@@ -1,0 +1,1107 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "description": "Filter the data point representing January 2020 on the x-axis",
+        "label": "January",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (January)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'January' within the axis labels area.",
+            "coordinates": {
+              "xmin": 119,
+              "ymin": 1060,
+              "xmax": 164,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "description": "Retrieve the oil price value for January 2020 from the y-axis.",
+        "label": "January",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the January label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 132,
+              "xmax": 132,
+              "ymin": 112,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (January)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for January 2020.",
+            "coordinates": {
+              "xmin": 106,
+              "ymin": 102,
+              "xmax": 146,
+              "ymax": 132
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the January data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 166,
+              "ymin": 115,
+              "ymax": 115
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for January.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 110,
+              "ymax": 120
+            }
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "description": "Filter the data point representing February 2020 on the x-axis",
+        "label": "February",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (February)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'February' within the axis labels area.",
+            "coordinates": {
+                "xmin": 195,
+                "xmax": 241,
+                "ymin": 1069,
+                "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "description": "Retrieve the oil price value for February 2020 from the y-axis.",
+        "label": "February",
+        "steps": [
+                {
+                    "stepName": "Vertical Alignment AOI",
+                    "stepNumber": 1,
+                    "aoiDescription": "Trace a vertical line upward from the February label until you reach the corresponding oil price data point.",
+                    "coordinates": {
+                      "xmin": 212,
+                      "xmax": 212,
+                      "ymin": 209,
+                      "ymax": 1079
+                    }
+                },
+                {
+                    "stepName": "Data Point AOI (February)",
+                    "stepNumber": 2,
+                    "aoiDescription": "Locate the rectangular area representing the oil price data point for February 2020.",
+                    "coordinates": {
+                      "xmin": 186,
+                      "xmax": 243,
+                      "ymin": 209,
+                      "ymax": 249
+                    }
+                },
+                {
+                    "stepName": "Horizontal Mapping to Y-axis AOI",
+                    "stepNumber": 3,
+                    "aoiDescription": "Visually scan horizontally from the February data point toward the y-axis to read the corresponding oil price value.",
+                    "coordinates": {
+                      "xmin": 89,
+                      "xmax": 243,
+                      "ymin": 230,
+                      "ymax": 230
+                    }
+                  },
+                  {
+                    "stepName": "Y-axis Tick AOI",
+                    "stepNumber": 4,
+                    "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for February.",
+                    "coordinates": {
+                      "xmin": 70,
+                      "xmax": 113,
+                      "ymin": 227,
+                      "ymax": 235
+                    }
+                  }  
+        ]
+      },
+      {
+        "id": 5,
+        "description": "Filter the data point representing March 2020 on the x-axis",
+        "label": "March",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (March)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'March' within the axis labels area.",
+            "coordinates": {
+              "xmin": 268,
+              "ymin": 1069,
+              "xmax": 318,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "description": "Retrieve the oil price value for March 2020 from the y-axis.",
+        "label": "March",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the March label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 293,
+              "xmax": 293,
+              "ymin": 552,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (March)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for March 2020.",
+            "coordinates": {
+              "xmin": 279,
+              "ymin": 552,
+              "xmax": 319,
+              "ymax": 592
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the March data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 319,
+              "ymin": 578,
+              "ymax": 578
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for March.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 573,
+              "ymax": 583
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "description": "Filter the data point representing April 2020 on the x-axis",
+        "label": "April",
+        "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+                "coordinates": {
+                  "xmin": 115,
+                  "xmax": 1052,
+                  "ymin": 1069,
+                  "ymax": 1100
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI (April)",
+                "stepNumber": 2,
+                "aoiDescription": "Precisely identify the x-axis label for 'April' within the axis labels area.",
+                "coordinates": {
+                  "xmin": 344,
+                  "xmax": 400,
+                  "ymin": 1069,
+                  "ymax": 1100
+                }
+            }
+        ]
+      },
+      {
+        "id": 8,
+        "description": "Retrieve the oil price value for April 2020 from the y-axis.",
+        "label": "April",
+        "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the April label until you reach the corresponding oil price data point.",
+                "coordinates": {
+                  "xmin": 374,
+                  "xmax": 374,
+                  "ymin": 753,
+                  "ymax": 1100
+                }
+              },
+              {
+                "stepName": "Data Point AOI (April)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the rectangular area representing the oil price data point for April 2020.",
+                "coordinates": {
+                  "xmin": 352,
+                  "xmax": 402,
+                  "ymin": 753,
+                  "ymax": 793
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually scan horizontally from the April data point toward the y-axis to read the corresponding oil price value.",
+                "coordinates": {
+                  "xmin": 89,
+                  "xmax": 402,
+                  "ymin": 777,
+                  "ymax": 777
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for April.",
+                "coordinates": {
+                  "xmin": 80,
+                  "xmax": 113,
+                  "ymin": 770,
+                  "ymax": 784
+                }
+              }
+            ]
+      },
+      {
+        "id": 9,
+        "description": "Filter the data point representing May 2020 on the x-axis",
+        "label": "May",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (May)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'May' within the axis labels area.",
+            "coordinates": {
+              "xmin": 425,
+              "ymin": 1070,
+              "xmax": 479,
+              "ymax": 1100
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "description": "Retrieve the oil price value for May 2020 from the y-axis.",
+        "label": "May",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the May label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 454,
+              "xmax": 454,
+              "ymin": 562,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (May)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for May 2020.",
+            "coordinates": {
+              "xmin": 438,
+              "ymin": 562,
+              "xmax": 478,
+              "ymax": 602
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the May data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 478,
+              "ymin": 586,
+              "ymax": 586
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for May.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 581,
+              "ymax": 591
+            }
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "description": "Filter the data point representing June 2020 on the x-axis",
+        "label": "June",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (June)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'June' within the axis labels area.",
+            "coordinates": {
+              "xmin": 518,
+              "ymin": 1070,
+              "xmax": 559,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "description": "Retrieve the oil price value for June 2020 from the y-axis.",
+        "label": "June",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the June label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 533,
+              "xmax": 533,
+              "ymin": 404,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (June)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for June 2020.",
+            "coordinates": {
+              "xmin": 521,
+              "ymin": 404,
+              "xmax": 561,
+              "ymax": 444
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the June data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 561,
+              "ymin": 428,
+              "ymax": 428
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for June.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 423,
+              "ymax": 433
+            }
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "description": "Filter the data point representing July 2020 on the x-axis",
+        "label": "July",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (July)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'July' within the axis labels area.",
+            "coordinates": {
+              "xmin": 593,
+              "ymin": 1070,
+              "xmax": 638,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "description": "Retrieve the oil price value for July 2020 from the y-axis.",
+        "label": "July",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the July label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 619,
+              "xmax": 619,
+              "ymin": 364,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (July)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for July 2020.",
+            "coordinates": {
+              "xmin": 603,
+              "ymin": 364,
+              "xmax": 643,
+              "ymax": 404
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the July data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 643,
+              "ymin": 388,
+              "ymax": 388
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for July.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 383,
+              "ymax": 393
+            }
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "description": "Filter the data point representing August 2020 on the x-axis",
+        "label": "August",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (August)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'August' within the axis labels area.",
+            "coordinates": {
+              "xmin": 674,
+              "ymin": 1070,
+              "xmax": 726,
+              "ymax": 1100
+            }
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "description": "Retrieve the oil price value for August 2020 from the y-axis.",
+        "label": "August",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the August label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 702,
+              "xmax": 702,
+              "ymin": 340,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (August)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for August 2020.",
+            "coordinates": {
+              "xmin": 686,
+              "ymin": 340,
+              "xmax": 726,
+              "ymax": 380
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the August data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 726,
+              "ymin": 364,
+              "ymax": 364
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for August.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 359,
+              "ymax": 369
+            }
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "description": "Filter the data point representing September 2020 on the x-axis",
+        "label": "September",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (September)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'September' within the axis labels area.",
+            "coordinates": {
+              "xmin": 750,
+              "ymin": 1070,
+              "xmax": 811,
+              "ymax": 1100
+            }
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "description": "Retrieve the oil price value for September 2020 from the y-axis.",
+        "label": "September",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the September label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 784,
+              "xmax": 784,
+              "ymin": 383,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (September)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for September 2020.",
+            "coordinates": {
+              "xmin": 768,
+              "ymin": 383,
+              "xmax": 808,
+              "ymax": 423
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the September data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 808,
+              "ymin": 399,
+              "ymax": 399
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for September.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 394,
+              "ymax": 404
+            }
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "description": "Filter the data point representing October 2020 on the x-axis",
+        "label": "October",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (October)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'October' within the axis labels area.",
+            "coordinates": {
+              "xmin": 834,
+              "ymin": 1070,
+              "xmax": 884,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "description": "Retrieve the oil price value for October 2020 from the y-axis.",
+        "label": "October",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the October label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 862,
+              "xmax": 862,
+              "ymin": 385,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (October)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for October 2020.",
+            "coordinates": {
+              "xmin": 846,
+              "ymin": 385,
+              "xmax": 886,
+              "ymax": 425
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the October data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 886,
+              "ymin": 408,
+              "ymax": 408
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for October.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 403,
+              "ymax": 413
+            }
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "description": "Filter the data point representing November 2020 on the x-axis",
+        "label": "November",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (November)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'November' within the axis labels area.",
+            "coordinates": {
+              "xmin": 930,
+              "ymin": 1070,
+              "xmax": 973,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "description": "Retrieve the oil price value for November 2020 from the y-axis.",
+        "label": "November",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the November label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 945,
+              "xmax": 945,
+              "ymin": 358,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (November)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for November 2020.",
+            "coordinates": {
+              "xmin": 933,
+              "ymin": 358,
+              "xmax": 973,
+              "ymax": 398
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the November data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 973,
+              "ymin": 382,
+              "ymax": 382
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for November.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 377,
+              "ymax": 387
+            }
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "description": "Filter the data point representing December 2020 on the x-axis",
+        "label": "December",
+        "steps": [
+          {
+            "stepName": "X-axis Area AOI",
+            "stepNumber": 1,
+            "aoiDescription": "First, locate the entire area containing the x-axis labels for all months.",
+            "coordinates": {
+              "xmin": 115,
+              "xmax": 1052,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (December)",
+            "stepNumber": 2,
+            "aoiDescription": "Precisely identify the x-axis label for 'December' within the axis labels area.",
+            "coordinates": {
+              "xmin": 1000,
+              "ymin": 1070,
+              "xmax": 1052,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "description": "Retrieve the oil price value for December 2020 from the y-axis.",
+        "label": "December",
+        "steps": [
+          {
+            "stepName": "Vertical Alignment AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Trace a vertical line upward from the December label until you reach the corresponding oil price data point.",
+            "coordinates": {
+              "xmin": 1024,
+              "xmax": 1024,
+              "ymin": 286,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Data Point AOI (December)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the rectangular area representing the oil price data point for December 2020.",
+            "coordinates": {
+              "xmin": 1004,
+              "ymin": 276,
+              "xmax": 1053,
+              "ymax": 296
+            }
+          },
+          {
+            "stepName": "Horizontal Mapping to Y-axis AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Visually scan horizontally from the December data point toward the y-axis to read the corresponding oil price value.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 1053,
+              "ymin": 286,
+              "ymax": 286
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI",
+            "stepNumber": 4,
+            "aoiDescription": "Focus your attention on the closest y-axis tick where your horizontal eye scan meets the axis. This helps confirm the oil price value for December.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 281,
+              "ymax": 291
+            }
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "description": "Find the minimum oil price among all retrieved monthly prices.",
+        "label": "April",
+        "steps": [
+          {
+            "stepName": "Y-axis Tick AOI (Minimum Value)",
+            "stepNumber": 1,
+            "aoiDescription": "Locate the tick on the y-axis that aligns with the lowest oil price observed across all months. This helps confirm the minimum price for April.",
+            "coordinates": {
+              "xmin": 80,
+              "xmax": 113,
+              "ymin": 770,
+              "ymax": 784
+            }
+          },
+          {
+            "stepName": "Horizontal Reference Line AOI",
+            "stepNumber": 2,
+            "aoiDescription": "Draw a horizontal reference line from the y-axis to the data point representing the minimum oil price in April.",
+            "coordinates": {
+              "xmin": 113,
+              "xmax": 402,
+              "ymin": 777,
+              "ymax": 777
+            }
+          },
+          {
+            "stepName": "Vertical Alignment AOI to X-axis",
+            "stepNumber": 3,
+            "aoiDescription": "Trace a vertical line downward from the data point to identify the corresponding month (April) on the x-axis.",
+            "coordinates": {
+              "xmin": 372,
+              "xmax": 372,
+              "ymin": 793,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (Minimum Month)",
+            "stepNumber": 4,
+            "aoiDescription": "Locate the x-axis label for April to confirm the month with the minimum oil price.",
+            "coordinates": {
+              "xmin": 344,
+              "xmax": 400,
+              "ymin": 1069,
+              "ymax": 1100
+            }
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "description": "Find the maximum oil price among all retrieved monthly prices.",
+        "label": "January",
+        "steps": [
+          {
+            "stepName": "Y-axis Tick AOI (Maximum Value)",
+            "stepNumber": 1,
+            "aoiDescription": "Locate the tick on the y-axis that aligns with the highest oil price observed across all months. This helps confirm the maximum price for January.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 110,
+              "ymax": 120
+            }
+          },
+          {
+            "stepName": "Horizontal Reference Line AOI",
+            "stepNumber": 2,
+            "aoiDescription": "Draw a horizontal reference line from the y-axis to the data point representing the maximum oil price in January.",
+            "coordinates": {
+              "xmin": 113,
+              "xmax": 146,
+              "ymin": 117,
+              "ymax": 117
+            }
+          },
+          {
+            "stepName": "Vertical Alignment AOI to X-axis",
+            "stepNumber": 3,
+            "aoiDescription": "Trace a vertical line downward from the data point to identify the corresponding month (January) on the x-axis.",
+            "coordinates": {
+              "xmin": 130,
+              "xmax": 130,
+              "ymin": 132,
+              "ymax": 1100
+            }
+          },
+          {
+            "stepName": "Specific X-axis Label AOI (Maximum Month)",
+            "stepNumber": 4,
+            "aoiDescription": "Locate the x-axis label for January to confirm the month with the maximum oil price.",
+            "coordinates": {
+              "xmin": 114,
+              "xmax": 164,
+              "ymin": 1060,
+              "ymax": 1096
+            }
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "description": "Determine the price range by identifying the difference between the maximum and minimum oil prices.",
+        "label": "",
+        "steps": [
+          {
+            "stepName": "Y-axis Tick AOI (Maximum Value)",
+            "stepNumber": 1,
+            "aoiDescription": "Locate the tick on the y-axis that represents the highest oil price (January) to begin range comparison.",
+            "coordinates": {
+              "xmin": 88,
+              "xmax": 113,
+              "ymin": 110,
+              "ymax": 120
+            }
+          },
+          {
+            "stepName": "Y-axis Tick AOI (Minimum Value)",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the tick on the y-axis that represents the lowest oil price (April) to complete range comparison.",
+            "coordinates": {
+              "xmin": 80,
+              "xmax": 113,
+              "ymin": 770,
+              "ymax": 784
+            }
+          },
+          {
+            "stepName": "Vertical Range Reference Line AOI",
+            "stepNumber": 3,
+            "aoiDescription": "Draw a vertical line between the highest and lowest price points directly on the y-axis to visualize the full oil price range.",
+            "coordinates": {
+              "xmin": 89,
+              "xmax": 89,
+              "ymin": 117,
+              "ymax": 773
+            }
+          }
+        ]
+      }
+
+    ]
+  }

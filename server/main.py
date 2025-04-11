@@ -7,7 +7,7 @@ from openCVdetectComponent import detect_treemap_labels, detect_chart_title, det
 from openCVdetectDots import detect_scatterplot_dots, detect_colored_bubbles, detect_bubble_labels, detect_bubble_legend_items
 import cv2
 import numpy as np
-from openCVmapContinous import extract_specific_axis_labels, find_intersection_bounding_boxes
+from openCVmapContinous import extract_specific_axis_labels, find_intersection_bounding_boxes, extract_axis_labels_advanced
 from openCVdetectShape import detect_pie_slices
 from openCVmapIrregular import detect_legend_colors,detect_stacked_boundaries, detect_abbreviations
 from typing import Dict, List, Tuple, Optional
@@ -147,7 +147,8 @@ async def analyze_bubble_chart(file: UploadFile) -> Dict:
     color_result = detect_colored_bubbles(image, colors, expected_count=1)
     # bubble_labels_result = detect_bubble_labels(image, color_result["regions"])
     # 2. Detect axes and title
-    axes_title_result = detect_axes_and_title_with_legends(image)
+    # axes_title_result = detect_axes_and_title_with_legends(image)
+    axes_title_result = extract_axis_labels_advanced(image)
 
     # 3. Detect legend items
     legend_items_result = detect_bubble_legend_items(image, 3)
@@ -157,8 +158,8 @@ async def analyze_bubble_chart(file: UploadFile) -> Dict:
     if "regions" in color_result:
         combined_regions.extend(color_result["regions"])
         # combined_regions.extend(bubble_labels_result["regions"])
-    if "regions" in axes_title_result:
-        combined_regions.extend(axes_title_result["regions"])
+    # if "regions" in axes_title_result:
+    combined_regions.extend(axes_title_result)
     if "regions" in legend_items_result:
         combined_regions.extend(legend_items_result["regions"])
     return {

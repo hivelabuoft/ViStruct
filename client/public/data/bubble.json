@@ -1,12 +1,12 @@
   {
     "questions": [
       {
-        "question":  "Which city's metro system has the largest number of stations?",
+        "question":  "Which city's metro system has the third largest number of stations?",
         "decomposition": {
           "components": [
             {
               "index": 1,
-              "taskName": "Identify the bubble farthest to the right on the chart. This represents the city with the largest number of stations, based on the x-axis position.",
+              "taskName": "Identify the bubble that is the third farthest to the right on the chart. This represents the city with the third highest number of metro stations, based on its position along the x-axis.",
               "type": "Find Extremum"
             },
             {
@@ -63,16 +63,11 @@
             },
             {
               "index": 2,
-              "taskName": "Identify the size of the bubble for Beijing.",
-              "type": "Retrieve Value"
-            },
-            {
-              "index": 3,
               "taskName": "Filter the legend to find the ridership value that corresponds to the size of Beijing's bubble.",
               "type": "Filter"
             },
             {
-              "index": 4,
+              "index": 3,
               "taskName": "Retrieve the ridership value from the filtered legend entry.",
               "type": "Retrieve Value"
             }
@@ -88,10 +83,6 @@
             },
             {
               "step": 3,
-              "labelName": "Beijing"
-            },
-            {
-              "step": 4,
               "labelName": "Beijing"
             }
           ]

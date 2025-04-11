@@ -1,0 +1,67 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bubble representing the metro system in New York City.",
+            "label": "N.Y.C.",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (N.Y.C.)",
+                "stepNumber": 2,
+                "aoiDescription": "Locate and highlight the bubble representing the New York City metro system.",
+                "coordinates": {
+                  "xmin": 360,
+                  "xmax": 384,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Retrieve the system length for New York City from the y-axis.",
+            "label": "N.Y.C.",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (N.Y.C.)",
+                "stepNumber": 1,
+                "aoiDescription": "Re-identify the bubble representing New York City to begin mapping its system length.",
+                "coordinates": {
+                  "xmin": 360,
+                  "xmax": 384,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Trace a horizontal line from the center of the N.Y.C. bubble to the y-axis to determine its system length.",
+                "coordinates": {
+                  "xmin": 16,
+                  "xmax": 384,
+                  "ymin": 106,
+                  "ymax": 106
+                }
+              },
+              {
+                "stepName": "Y-axis Tick AOI (System Length)",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the closest tick where the line intersects the y-axis to retrieve New York City’s system length.",
+                "coordinates": {
+                  "xmin": 46,
+                  "xmax": 77,
+                  "ymin": 100,
+                  "ymax": 112
+                }
+              }
+            ]
+          }
+          
+          
+          
+          
+            
+    ]
+}

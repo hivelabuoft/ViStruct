@@ -1,0 +1,249 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bar representing Australia.",
+            "label": "Australia",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire area containing the x-axis labels for all countries.",
+                "coordinates": {
+                  "xmin": 252,
+                  "xmax": 971,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI ('Australia')",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the x-axis label for 'Australia' by referencing the bar’s horizontal extent directly above it.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually trace a vertical line upward from the 'Australia' label to reach the entire stacked bar above it.",
+                "coordinates": {
+                  "xmin": 950,
+                  "xmax": 950,
+                  "ymin": 52,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Stacked Bar AOI ('Australia')",
+                "stepNumber": 4,
+                "aoiDescription": "Focus on the full stacked bar for 'Australia', which represents all medal categories combined.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 52,
+                  "ymax": 971
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Filter the segment within the bar that represents 'Silver' medals.",
+            "label": "Australia - Silver",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the entire area containing the x-axis labels for all countries.",
+                "coordinates": {
+                  "xmin": 252,
+                  "xmax": 971,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Specific X-axis Label AOI ('Australia')",
+                "stepNumber": 2,
+                "aoiDescription": "Identify the x-axis label for 'Australia' by referencing the bar’s horizontal extent directly above it.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 982,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Visually trace a vertical line upward from the 'Australia' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 950,
+                  "xmax": 950,
+                  "ymin": 487,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Australia')",
+                "stepNumber": 4,
+                "aoiDescription": "Focus on the silver-colored segment in Australia's stacked bar, representing silver medals.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 631
+                }
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "description": "Retrieve the value of the bottom of the 'Silver' segment.",
+            "label": "Australia - Silver",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Australia' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 950,
+                  "xmax": 950,
+                  "ymin": 487,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Australia')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the silver medal bar segment for 'Australia' to identify its bottom boundary.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 631
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the bottom edge of the silver medal segment for 'Australia'.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 631,
+                  "ymax": 631
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the bottom edge of the silver segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 1027,
+                  "ymin": 631,
+                  "ymax": 631
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "description": "Retrieve the value of the top of the 'Silver' segment.",
+            "label": "Australia - Silver",
+            "steps": [
+              {
+                "stepName": "Vertical Alignment AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Trace a vertical line upward from the 'Australia' label to reach the silver medal segment within the bar.",
+                "coordinates": {
+                  "xmin": 950,
+                  "xmax": 950,
+                  "ymin": 487,
+                  "ymax": 1002
+                }
+              },
+              {
+                "stepName": "Silver Segment AOI ('Australia')",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the silver medal bar segment for 'Australia' to identify its top boundary.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 631
+                }
+              },
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the top edge of the silver medal segment for 'Australia'.",
+                "coordinates": {
+                  "xmin": 874,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 487
+                }
+              },
+              {
+                "stepName": "Horizontal Mapping to Y-axis AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually scan horizontally from the top edge of the silver segment to the y-axis to retrieve its corresponding value.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 487
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "description": "Compute the proportion of Silver medals for Australia by subtracting the bottom value from the top value of the 'Silver' segment.",
+            "label": "Australia - Silver",
+            "steps": [
+              {
+                "stepName": "Top Boundary AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the top edge of the 'Silver' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 1027,
+                  "ymin": 487,
+                  "ymax": 487
+                }
+              },
+              {
+                "stepName": "Bottom Boundary AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Locate the bottom edge of the 'Silver' segment and draw a horizontal reference line toward the y-axis.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 1027,
+                  "ymin": 631,
+                  "ymax": 631
+                }
+              },
+              {
+                "stepName": "Vertical Reference Line AOI (Silver Segment Height)",
+                "stepNumber": 3,
+                "aoiDescription": "Draw a vertical line from the top boundary to the bottom boundary along the y-axis to represent the total proportion of silver medals.",
+                "coordinates": {
+                  "xmin": 91,
+                  "xmax": 91,
+                  "ymin": 487,
+                  "ymax": 631
+                }
+              }
+            ]
+          }      
+    ]
+  }
+  

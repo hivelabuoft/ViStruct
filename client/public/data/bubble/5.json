@@ -1,0 +1,83 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Analyze the overall relationship between number of stations and total system length using selected bubbles and trend alignment.",
+            "label": "Trendline Analysis",
+            "steps": [
+              {
+                "stepName": "Initial Bubble Comparison (Mexico City vs. Paris)",
+                "stepNumber": 1,
+                "aoiDescription": "Start by comparing Mexico City and Paris: Mexico City has fewer stations and shorter system length, while Paris has a similar number of stations but a longer system length.",
+                "coordinates": [
+                  {
+                    "xmin": 118,
+                    "xmax": 146,
+                    "ymin": 635,
+                    "ymax": 657
+                  },
+                  {
+                    "xmin": 124,
+                    "xmax": 177,
+                    "ymin": 365,
+                    "ymax": 411
+                  }
+                ]
+              },
+              {
+                "stepName": "Intermediate Observation (Bubble Above Paris)",
+                "stepNumber": 2,
+                "aoiDescription": "Notice that the bubble above Paris does not follow the trend — despite similar stations, it doesn't have a much longer system length.",
+                "coordinates": {
+                  "xmin": 359,
+                  "xmax": 387,
+                  "ymin": 97,
+                  "ymax": 114
+                }
+              },
+              {
+                "stepName": "Core Trend Supporters (Tokyo, Shanghai, Guangzhou)",
+                "stepNumber": 3,
+                "aoiDescription": "Now examine Tokyo, Shanghai, and Guangzhou — they all have more stations and also much longer system lengths, aligning with the overall upward trend.",
+                "coordinates": [
+                  {
+                    "xmin": 209,
+                    "xmax": 285,
+                    "ymin": 454,
+                    "ymax": 524
+                  },
+                  {
+                    "xmin": 637,
+                    "xmax": 699,
+                    "ymin": 241,
+                    "ymax": 297
+                  },
+                  {
+                    "xmin": 431,
+                    "xmax": 484,
+                    "ymin": 468,
+                    "ymax": 517
+                  }
+                ]
+              },
+              {
+                "stepName": "Suggested Trendline AOI",
+                "stepNumber": 4,
+                "aoiDescription": "Visually trace an upward diagonal region from bottom-left to top-right. This guides your eye along the general trend: more stations often mean longer system length.",
+                "trendline": {
+                  "xmin": 120,
+                  "xmax": 700,
+                  "ymin": 640,
+                  "ymax": 120
+                }
+              }
+            ]
+          }
+          
+          
+          
+          
+          
+            
+    ]
+}

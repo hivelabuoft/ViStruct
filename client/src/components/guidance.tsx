@@ -4,24 +4,28 @@ import styles from '../styles/Guidance.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 
+interface Coordinate {
+  xmin: number;
+  ymin: number;
+  xmax: number;
+  ymax: number;
+}
+
 interface Step {
   stepNumber: number;
   stepName: string;
   aoiDescription: string;
   calculations?: string;
-  coordinates: {
-    xmin: number;
-    ymin: number;
-    xmax: number;
-    ymax: number;
-  };
+  // Coordinates are optional since a step might use a trendline instead.
+  coordinates?: Coordinate | Coordinate[];
+  trendline?: Coordinate;
 }
 
 interface GuidanceProps {
   chartImage: string; // Path to chart image
   stepNumber: number; // Current step number (1-indexed)
   taskName: string; // Task description
-  type: string; // Component type (e.g., "retrieve", "compute")
+  type: string; // Component type (e.g., "retrieve", "compute", "correlate")
   chartType: string; // Type of chart (e.g., "bar", "line")
   labelName?: string; // Optional label name
   mappedRegions: any[]; // Mapped regions from breakdown component
@@ -56,56 +60,40 @@ export default function Guidance({
   const imageRef = useRef<HTMLDivElement>(null);
   const actualImageRef = useRef<HTMLImageElement | null>(null);
 
-  // Modified: Try to get guidance from a local JSON file in public folder first.
+  // Fetch guidance data (local file or API)
   useEffect(() => {
     const fetchAOIGuidance = async () => {
-      // Only fetch for supported task types
       const lowerCaseType = type.toLowerCase();
       if (
-        lowerCaseType !== 'filter' && 
-        lowerCaseType !== 'retrieve value' && 
+        lowerCaseType !== 'filter' &&
+        lowerCaseType !== 'retrieve value' &&
         lowerCaseType !== 'compute derived value' &&
         lowerCaseType !== 'compute' &&
-        lowerCaseType !== 'find extremum'
-      ) return;
+        lowerCaseType !== 'find extremum' &&
+        lowerCaseType !== 'determine range' &&
+        lowerCaseType !== 'correlate'
+      )
+        return;
       
       setLoading(true);
       setError(null);
 
-      // Derive questionId from chartImage.
-      // Assumes chartImage is something like "/studyProblem/someId.png"
-
       try {
-        // Attempt to fetch the local JSON file
         const localUrl = `/data/${chartName}/${questionId}.json`;
         const localResponse = await fetch(localUrl);
         if (localResponse.ok) {
           const jsonData = await localResponse.json();
-          console.log('Local JSON data:', jsonData);
-          // Assume the JSON structure has a tasks array
-          // Try to find the task based on labelName or taskName
-          let selectedTask = jsonData.tasks.find((task: any) => task.label === labelName);
-          if (!selectedTask) {
-            // Fallback: try matching taskName against description (you can adjust the logic as needed)
-            selectedTask = jsonData.tasks.find((task: any) => task.description.includes(taskName));
-          }
-          // If still not found, take the first task (or you can set an error)
-          if (!selectedTask && jsonData.tasks.length > 0) {
-            selectedTask = jsonData.tasks[0];
-          }
+          let selectedTask = jsonData.tasks.find((task: any) => task.id == stepNumber.toString());
           if (selectedTask && selectedTask.steps) {
             setAoiGuidance(selectedTask.steps);
-            // Optionally, set the current step based on stepNumber prop (converted from 1-indexed to 0-indexed)
-            setCurrentStep(stepNumber > 0 && stepNumber <= selectedTask.steps.length ? stepNumber - 1 : 0);
+            setCurrentStep(0);
             setLoading(false);
-            return; // Exit early if local JSON is used
+            return;
           } else {
             setError('Local guidance file found but no valid task/steps data available.');
           }
         }
-        // If the file is not found or the structure is not as expected, fall back to the API call.
-
-        // Determine API endpoint based on the task type if needed.
+        // Determine the API endpoint based on type (fallback)
         let apiEndpoint = '';
         if (lowerCaseType === 'filter') {
           apiEndpoint = '/api/filterAOIs';
@@ -115,9 +103,12 @@ export default function Guidance({
           apiEndpoint = '/api/computeAOIs';
         } else if (lowerCaseType === 'find extremum') {
           apiEndpoint = '/api/findExtremum';
+        } else if (lowerCaseType === 'determine range') {
+          apiEndpoint = '/api/determineRange';
+        } else if (lowerCaseType === 'correlate') {
+          apiEndpoint = '/api/correlateAOIs';
         }
         
-        // API call as fallback
         const response = await axios.post(apiEndpoint, {
           chartType,
           currentTaskName: taskName,
@@ -140,11 +131,9 @@ export default function Guidance({
     };
     
     fetchAOIGuidance();
-  }, [chartType, taskName, type, labelName, mappedRegions, chartImage, stepNumber]);
+  }, [chartType, taskName, type, labelName, mappedRegions, chartImage, stepNumber, chartName, questionId]);
 
-  // (The remaining code is unchanged)
-
-  // Get original image dimensions on load
+  // Load original image dimensions
   useEffect(() => {
     if (chartImage) {
       const img = document.createElement('img');
@@ -163,7 +152,7 @@ export default function Guidance({
     }
   }, [chartImage]);
 
-  // Update actual rendered image measurements
+  // Update rendered image dimensions
   useEffect(() => {
     const updateActualImageDimensions = () => {
       if (imageRef.current) {
@@ -202,8 +191,8 @@ export default function Guidance({
     };
   }, [imageReady]);
 
-  const calculateAoiPosition = (coordinates: any) => {
-    // Ensure required values are present:
+  // Calculate a bounding box style for a given coordinate
+  const calculateAoiPosition = (coordinates: Coordinate) => {
     if (
       !originalImageDimensions.width ||
       !originalImageDimensions.height ||
@@ -219,31 +208,16 @@ export default function Guidance({
       };
     }
   
-    // Get the container dimensions (the div that holds the image)
     const containerRect = imageContainerRef.current.getBoundingClientRect();
-    const containerWidth = containerRect.width;
-    const containerHeight = containerRect.height;
+    const displayedImgRect = actualImageRef.current.getBoundingClientRect();
+    const displayedWidth = displayedImgRect.width;
+    const displayedHeight = displayedImgRect.height;
   
-    // Get the displayed image dimensions from the actual image element
-    const imgRect = actualImageRef.current.getBoundingClientRect();
-    const displayedWidth = imgRect.width;
-    const displayedHeight = imgRect.height;
-
-    console.log('Container dimensions:', { containerWidth, containerHeight });
-    console.log('Displayed image dimensions:', { originalImageDimensions });
-  
-    // Use the displayed dimensions and the natural dimensions to calculate the scale.
-    // (For an image rendered via object-fit: contain, these factors should be identical.)
     const scaleX = displayedWidth / originalImageDimensions.width;
     const scaleY = displayedHeight / originalImageDimensions.height;
-
-    console.log('Scale factors:', { scaleX, scaleY });
+    const offsetLeft = (containerRect.width - displayedWidth) / 2;
+    const offsetTop = (containerRect.height - displayedHeight) / 2;
   
-    // Calculate letterbox offsets: determine how much the image is inset inside the container.
-    const offsetLeft = (containerWidth - displayedWidth) / 2;
-    const offsetTop = (containerHeight - displayedHeight) / 2;
-  
-    // Validate coordinates ordering in case they come reversed from the JSON
     const validCoords = {
       xmin: Math.min(coordinates.xmin, coordinates.xmax),
       xmax: Math.max(coordinates.xmin, coordinates.xmax),
@@ -259,7 +233,52 @@ export default function Guidance({
       display: 'block'
     };
   };
+
+  // Calculate style for rendering a trendline overlay.
+  const calculateTrendlineStyle = (trendline: Coordinate) => {
+    if (
+      !originalImageDimensions.width ||
+      !originalImageDimensions.height ||
+      !imageContainerRef.current ||
+      !actualImageRef.current
+    ) {
+      return { display: 'none' };
+    }
+    
+    const containerRect = imageContainerRef.current.getBoundingClientRect();
+    const displayedImgRect = actualImageRef.current.getBoundingClientRect();
+    const displayedWidth = displayedImgRect.width;
+    const displayedHeight = displayedImgRect.height;
   
+    const scaleX = displayedWidth / originalImageDimensions.width;
+    const scaleY = displayedHeight / originalImageDimensions.height;
+    const offsetLeft = (containerRect.width - displayedWidth) / 2;
+    const offsetTop = (containerRect.height - displayedHeight) / 2;
+  
+    // Compute start and end points
+    const startX = offsetLeft + trendline.xmin * scaleX;
+    const startY = offsetTop + trendline.ymin * scaleY;
+    const endX = offsetLeft + trendline.xmax * scaleX;
+    const endY = offsetTop + trendline.ymax * scaleY;
+  
+    const dx = endX - startX;
+    const dy = endY - startY;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+  
+    return {
+      position: 'absolute',
+      left: startX,
+      top: startY,
+      width: length,
+      height: 2, // line thickness
+      backgroundColor: 'blue', // you can change this to any color you like
+      transform: `rotate(${angle}deg)`,
+      transformOrigin: '0 50%',
+      zIndex: 10,
+      display: 'block'
+    };
+  };
 
   const currentAoiStep = aoiGuidance.length > 0 && currentStep < aoiGuidance.length
     ? aoiGuidance[currentStep]
@@ -300,11 +319,13 @@ export default function Guidance({
   const supportsAoiGuidance = () => {
     const lowerCaseType = type.toLowerCase();
     return (
-      lowerCaseType === 'filter' || 
-      lowerCaseType === 'retrieve value' || 
-      lowerCaseType === 'compute derived value' || 
+      lowerCaseType === 'filter' ||
+      lowerCaseType === 'retrieve value' ||
+      lowerCaseType === 'compute derived value' ||
       lowerCaseType === 'compute' ||
-      lowerCaseType === 'find extremum'
+      lowerCaseType === 'find extremum' ||
+      lowerCaseType === 'determine range' ||
+      lowerCaseType === 'correlate'
     );
   };
 
@@ -345,30 +366,52 @@ export default function Guidance({
                 }}
                 onLoadingComplete={(img) => {
                   if (img.naturalWidth && img.naturalHeight) {
-                    // setOriginalImageDimensions({
-                    //   width: img.naturalWidth,
-                    //   height: img.naturalHeight
-                    // });
                     setTimeout(() => setImageReady(true), 100);
                   }
                 }}
               />
+              {/* Render overlay(s): either trendline or coordinate bounding boxes */}
               {currentAoiStep && imageReady && (
-                <div 
-                  className={styles.aoiHighlight}
-                  style={{
-                    position: 'absolute',
-                    ...calculateAoiPosition(currentAoiStep.coordinates),
-                    border: '2px solid red',
-                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                    zIndex: 10,
-                  }}
-                />
+                <>
+                  {currentAoiStep.trendline ? (
+                    <div
+                      className={styles.aoiTrendline}
+                      style={calculateTrendlineStyle(currentAoiStep.trendline) as React.CSSProperties}
+                    />
+                  ) : currentAoiStep.coordinates ? (
+                    Array.isArray(currentAoiStep.coordinates) ? (
+                      currentAoiStep.coordinates.map((coord, index) => (
+                        <div 
+                          key={index}
+                          className={styles.aoiHighlight}
+                          style={{
+                            position: 'absolute',
+                            ...calculateAoiPosition(coord),
+                            border: '2px solid red',
+                            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                            zIndex: 10,
+                          }}
+                        />
+                      ))
+                    ) : (
+                      <div 
+                        className={styles.aoiHighlight}
+                        style={{
+                          position: 'absolute',
+                          ...calculateAoiPosition(currentAoiStep.coordinates as Coordinate),
+                          border: '2px solid red',
+                          backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                          zIndex: 10,
+                        }}
+                      />
+                    )
+                  ) : null}
+                </>
               )}
             </div>
           </div>
 
-          {/* Right side - AOI Guidance (30%) */}
+          {/* Right side - AOI Guidance details (30%) */}
           {supportsAoiGuidance() && (
             <div className={styles.aoiGuidance}>
               {loading ? (
@@ -387,10 +430,29 @@ export default function Guidance({
                       </div>
                     )}
                     <div className={styles.coordinates}>
-                      <h4>Region Coordinates:</h4>
+                      <h4>
+                        {currentAoiStep.trendline ? "Trendline Coordinates:" : "Region Coordinates:"}
+                      </h4>
                       <p>
-                        X: {currentAoiStep.coordinates.xmin} to {currentAoiStep.coordinates.xmax}<br />
-                        Y: {currentAoiStep.coordinates.ymin} to {currentAoiStep.coordinates.ymax}
+                        {currentAoiStep.trendline ? (
+                          <>
+                            X: {currentAoiStep.trendline.xmin} to {currentAoiStep.trendline.xmax}<br />
+                            Y: {currentAoiStep.trendline.ymin} to {currentAoiStep.trendline.ymax}
+                          </>
+                        ) : currentAoiStep.coordinates ? (
+                          Array.isArray(currentAoiStep.coordinates) ? (
+                            currentAoiStep.coordinates.map((coord, index) => (
+                              <span key={index}>
+                                Region {index + 1}: X: {coord.xmin} to {coord.xmax}, Y: {coord.ymin} to {coord.ymax}<br />
+                              </span>
+                            ))
+                          ) : (
+                            <>
+                              X: {(currentAoiStep.coordinates as Coordinate).xmin} to {(currentAoiStep.coordinates as Coordinate).xmax}<br />
+                              Y: {(currentAoiStep.coordinates as Coordinate).ymin} to {(currentAoiStep.coordinates as Coordinate).ymax}
+                            </>
+                          )
+                        ) : null}
                       </p>
                     </div>
                   </div>

@@ -1,0 +1,63 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Filter the bubble representing the metro system in Paris.",
+            "label": "Paris",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Paris)",
+                "stepNumber": 1,
+                "aoiDescription": "Locate and highlight the bubble representing the Paris metro system.",
+                "coordinates": {
+                  "xmin": 124,
+                  "xmax": 177,
+                  "ymin": 365,
+                  "ymax": 411
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Retrieve the number of stations for Paris from the x-axis.",
+            "label": "Paris",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Paris)",
+                "stepNumber": 1,
+                "aoiDescription": "Re-identify the bubble representing Paris to anchor your value retrieval.",
+                "coordinates": {
+                  "xmin": 124,
+                  "xmax": 177,
+                  "ymin": 365,
+                  "ymax": 411
+                }
+              },
+              {
+                "stepName": "Vertical Mapping to X-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Draw a vertical line downward from the center of the Paris bubble to intersect the x-axis and determine the station count.",
+                "coordinates": {
+                  "xmin": 152,
+                  "xmax": 152,
+                  "ymin": 365,
+                  "ymax": 692
+                }
+              },
+              {
+                "stepName": "X-axis Tick AOI (Station Count)",
+                "stepNumber": 3,
+                "aoiDescription": "Focus on the x-axis region where the vertical line intersects to read the number of metro stations for Paris.",
+                "coordinates": {
+                  "xmin": 138,
+                  "xmax": 177,
+                  "ymin": 675,
+                  "ymax": 692
+                }
+              }
+            ]
+          }
+            
+    ]
+}

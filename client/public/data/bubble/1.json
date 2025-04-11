@@ -1,0 +1,87 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "description": "Identify the bubble that is the third farthest to the right on the chart. This represents the city with the third highest number of metro stations, based on its position along the x-axis.",
+            "label": "Seoul",
+            "steps": [
+              {
+                "stepName": "X-axis Area AOI",
+                "stepNumber": 1,
+                "aoiDescription": "Locate the full x-axis region to understand how cities are distributed by the number of metro stations.",
+                "coordinates": {
+                  "xmin": 74,
+                  "xmax": 742,
+                  "ymin": 675,
+                  "ymax": 692
+                }
+              },
+              {
+                "stepName": "Top 3 Rightmost Bubbles AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Circle the top 3 rightmost bubbles on the chart — Shanghai, Beijing, and Seoul — as candidates based on x-axis position.",
+                "coordinates": [
+                  {
+                    "xmin": 637,
+                    "xmax": 699,
+                    "ymin": 241,
+                    "ymax": 297
+                  },
+                  {
+                    "xmin": 640,
+                    "xmax": 665,
+                    "ymin": 309,
+                    "ymax": 328
+                  },
+                  {
+                    "xmin": 445,
+                    "xmax": 506,
+                    "ymin": 119,
+                    "ymax": 173
+                  }
+                ]
+              },
+              {
+                "stepName": "Target Bubble AOI (Seoul)",
+                "stepNumber": 3,
+                "aoiDescription": "Highlight Seoul’s bubble, which is the third farthest to the right and represents the city with the third highest number of metro stations.",
+                "coordinates": {
+                  "xmin": 445,
+                  "xmax": 506,
+                  "ymin": 119,
+                  "ymax": 173
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "description": "Determine the city associated with the identified bubble.",
+            "label": "Seoul",
+            "steps": [
+              {
+                "stepName": "Target Bubble AOI (Seoul)",
+                "stepNumber": 1,
+                "aoiDescription": "Re-highlight the bubble identified in the previous step to confirm the city it represents.",
+                "coordinates": {
+                  "xmin": 445,
+                  "xmax": 502,
+                  "ymin": 119,
+                  "ymax": 173
+                }
+              },
+              {
+                "stepName": "Vertical Mapping to X-axis AOI",
+                "stepNumber": 2,
+                "aoiDescription": "Trace a vertical line downward from the bubble to the x-axis to visually align it with the correct city label.",
+                "coordinates": {
+                  "xmin": 475,
+                  "xmax": 475,
+                  "ymin": 119,
+                  "ymax": 692
+                }
+              }
+            ]
+          }   
+    ]
+}
