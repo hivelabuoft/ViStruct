@@ -22,7 +22,7 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 1400px;
+  width: 70%;
   margin: 0 auto;
   text-align: center;
 }
@@ -303,4 +303,85 @@ html, body {
   .chartName {
     font-size: 1.1rem;
   }
+}
+
+.apiContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;;
+  margin: 2rem auto;
+}
+
+.apiTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.apiDescription {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.apiInstructions {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.apiInput {
+  width: 80%;
+  max-width: 500px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apiInput:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 8px rgba(0, 112, 243, 0.2);
+}
+
+.apiEndpoint {
+  display: block;
+  background-color: #e0e0e0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  margin: 0.5rem 0;
+}
+
+.apiCode {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Added a horizontal layout for the chart grid */
+.horizontalLayout {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
