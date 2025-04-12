@@ -52,7 +52,7 @@ source venv/bin/activate
 deployed:
 
 server: https://server-silent-dew-747-fast-api.fly.dev
-client: 
+client: https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/
 
 
 
