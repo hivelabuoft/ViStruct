@@ -5,9 +5,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
   webpack: (config, { isServer }) => {
-    // For client-side, disable Node built-ins that Monaco might try to load.
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -17,7 +18,6 @@ const nextConfig = {
       };
     }
 
-    // Add the Monaco Editor plugin
     config.plugins.push(
       new MonacoWebpackPlugin({
         languages: ["json"],
