@@ -99,25 +99,26 @@ export default function BreakdownComponent({
   // Capture screenshot using html2canvas and send to API
  const captureScreenshot = async () => {
     // Cast element to HTMLElement
-    const element = document.querySelector(".AnnotatedImage-module__IWnhea__imageWrapper") as HTMLElement;
-    console.log(element);
-    if (element) {
-      try {
-        const canvas = await html2canvas(element);
-        const dataURL = canvas.toDataURL("image/png");
-        // Send the screenshot to the API route
-        const response = await fetch("/api/saveScreenshot", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ image: dataURL }),
-        });
-        const result = await response.json();
-        console.log("Screenshot saved at:", result.filePath);
-        setScreenshotCaptured(true);
-      } catch (error) {
-        console.error("Error capturing screenshot:", error);
-      }
-    }
+    // const element = document.querySelector(".AnnotatedImage-module__IWnhea__imageWrapper") as HTMLElement;
+    // console.log(element);
+    // if (element) {
+    //   try {
+    //     const canvas = await html2canvas(element);
+    //     const dataURL = canvas.toDataURL("image/png");
+    //     // Send the screenshot to the API route
+    //     const response = await fetch("/api/saveScreenshot", {
+    //       method: "POST",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify({ image: dataURL }),
+    //     });
+    //     const result = await response.json();
+    //     console.log("Screenshot saved at:", result.filePath);
+    //     setScreenshotCaptured(true);
+    //   } catch (error) {
+    //     console.error("Error capturing screenshot:", error);
+    //   }
+    // }
+    setScreenshotCaptured(true);
   };
 
 //   wait 5 second before taking the screenshot
