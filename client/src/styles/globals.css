@@ -1,0 +1,9 @@
+:root {
+    overflow: hidden;
+    --primary-blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --blue-lighter: #f0f9ff;
+    --border-color: #e2e8f0;
+    --text-color: #1f2937;
+    --font-family: 'Segoe UI', sans-serif;
+}
