@@ -49,5 +49,10 @@ python3.10 -m venv venv
 
 source venv/bin/activate
 
+deployed:
+
+server: https://server-silent-dew-747-fast-api.fly.dev
+client: 
+
 
 

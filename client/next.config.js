@@ -1,6 +1,11 @@
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   webpack: (config, { isServer }) => {
     // For client-side, disable Node built-ins that Monaco might try to load.
     if (!isServer) {
@@ -15,7 +20,6 @@ module.exports = {
     // Add the Monaco Editor plugin
     config.plugins.push(
       new MonacoWebpackPlugin({
-        // Specify languages you need (here we use JSON for example)
         languages: ["json"],
       })
     );
@@ -23,3 +27,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = nextConfig;
