@@ -14,3 +14,10 @@ html, body {
     margin: 0;
     font-family: var(--font-family);
   }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--blue-lighter);
+    color: var(--text-color);
+  }
