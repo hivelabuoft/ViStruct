@@ -71,7 +71,8 @@ export default function Guidance({
         lowerCaseType !== 'compute' &&
         lowerCaseType !== 'find extremum' &&
         lowerCaseType !== 'determine range' &&
-        lowerCaseType !== 'correlate'
+        lowerCaseType !== 'correlate' &&
+        lowerCaseType !== 'characterize distribution' 
       )
         return;
       
@@ -107,6 +108,8 @@ export default function Guidance({
           apiEndpoint = '/api/determineRange';
         } else if (lowerCaseType === 'correlate') {
           apiEndpoint = '/api/correlateAOIs';
+        } else if (lowerCaseType === 'characterize distribution') {
+          apiEndpoint = '/api/characterizeDistribution';
         }
         
         const response = await axios.post(apiEndpoint, {
@@ -325,7 +328,8 @@ export default function Guidance({
       lowerCaseType === 'compute' ||
       lowerCaseType === 'find extremum' ||
       lowerCaseType === 'determine range' ||
-      lowerCaseType === 'correlate'
+      lowerCaseType === 'correlate' ||
+      lowerCaseType === 'characterize distribution'
     );
   };
 

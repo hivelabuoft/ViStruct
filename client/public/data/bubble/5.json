@@ -1,83 +1,409 @@
 {
-    "tasks": [
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Characterize the layout of the data: Begin by scanning from the bottom-left (few stations, short system) to the top-right (many stations, long system). This path helps capture the distribution of bubbles.",
+      "label": "Characterize Distribution",
+      "steps": [
         {
-            "id": 1,
-            "description": "Analyze the overall relationship between number of stations and total system length using selected bubbles and trend alignment.",
-            "label": "Trendline Analysis",
-            "steps": [
-              {
-                "stepName": "Initial Bubble Comparison (Mexico City vs. Paris)",
-                "stepNumber": 1,
-                "aoiDescription": "Start by comparing Mexico City and Paris: Mexico City has fewer stations and shorter system length, while Paris has a similar number of stations but a longer system length.",
-                "coordinates": [
-                  {
-                    "xmin": 118,
-                    "xmax": 146,
-                    "ymin": 635,
-                    "ymax": 657
-                  },
-                  {
-                    "xmin": 124,
-                    "xmax": 177,
-                    "ymin": 365,
-                    "ymax": 411
-                  }
-                ]
-              },
-              {
-                "stepName": "Intermediate Observation (Bubble Above Paris)",
-                "stepNumber": 2,
-                "aoiDescription": "Notice that the bubble above Paris does not follow the trend — despite similar stations, it doesn't have a much longer system length.",
-                "coordinates": {
-                  "xmin": 359,
-                  "xmax": 387,
-                  "ymin": 97,
-                  "ymax": 114
-                }
-              },
-              {
-                "stepName": "Core Trend Supporters (Tokyo, Shanghai, Guangzhou)",
-                "stepNumber": 3,
-                "aoiDescription": "Now examine Tokyo, Shanghai, and Guangzhou — they all have more stations and also much longer system lengths, aligning with the overall upward trend.",
-                "coordinates": [
-                  {
-                    "xmin": 209,
-                    "xmax": 285,
-                    "ymin": 454,
-                    "ymax": 524
-                  },
-                  {
-                    "xmin": 637,
-                    "xmax": 699,
-                    "ymin": 241,
-                    "ymax": 297
-                  },
-                  {
-                    "xmin": 431,
-                    "xmax": 484,
-                    "ymin": 468,
-                    "ymax": 517
-                  }
-                ]
-              },
-              {
-                "stepName": "Suggested Trendline AOI",
-                "stepNumber": 4,
-                "aoiDescription": "Visually trace an upward diagonal region from bottom-left to top-right. This guides your eye along the general trend: more stations often mean longer system length.",
-                "trendline": {
-                  "xmin": 120,
-                  "xmax": 700,
-                  "ymin": 640,
-                  "ymax": 120
-                }
-              }
-            ]
+          "stepName": "Visual Scan Path",
+          "stepNumber": 1,
+          "aoiDescription": "Guide your eyes through the general spread of data. Most cities fall within a diagonal band moving from the lower-left to the upper-right. This helps you visually track how ridership and system size vary across cities.",
+          "trendline": {
+            "xmin": 113,
+            "xmax": 693,
+            "ymin": 633,
+            "ymax": 113
           }
-          
-          
-          
-          
-          
-            
-    ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Retrieve the ridership (bubble size) and number of stations for Mexico City.",
+      "label": "Retrieve Value",
+      "steps": [
+        {
+          "stepName": "Step 1: Locate Mexico City",
+          "stepNumber": 1,
+          "aoiDescription": "Mexico City is near the bottom-left corner of the chart. Find its bubble to begin analyzing its values.",
+          "coordinates": [
+            {
+              "xmin": 121,
+              "xmax": 136,
+              "ymin": 635,
+              "ymax": 650
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Estimate number of stations from horizontal position",
+          "stepNumber": 2,
+          "aoiDescription": "Mexico City is located toward the left side of the chart, indicating it has a relatively low number of stations — estimate based on the x-axis tick labels just below it.",
+          "coordinates": [
+            {
+              "xmin": 77,
+              "xmax": 732,
+              "ymin": 675,
+              "ymax": 685
+            }
+          ]
+        },
+        {
+          "stepName": "Step 3: Estimate ridership from bubble size",
+          "stepNumber": 3,
+          "aoiDescription": "Use the bubble size and the legend in the top-right to estimate ridership. Mexico City’s bubble is small — closest in size to the 1.5B legend bubble or possibly even less.",
+          "coordinates": [
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 52,
+              "ymax": 201
+            },
+            {
+              "xmin": 121,
+              "xmax": 136,
+              "ymin": 635,
+              "ymax": 650
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Retrieve and compare Tokyo, Delhi, Paris, and Moscow. Pay attention to differences in ridership despite similar number of stations.",
+      "label": "Filter",
+      "steps": [
+        {
+          "stepName": "Step 1: Locate and assess Tokyo",
+          "stepNumber": 1,
+          "aoiDescription": "Find Tokyo’s bubble. It's mid-chart in terms of stations and system length, but its bubble is the **largest** on the entire chart — ridership is around **3.5 billion**.",
+          "coordinates": [
+            {
+              "xmin": 212,
+              "xmax": 275,
+              "ymin": 454,
+              "ymax": 517
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 52,
+              "ymax": 116
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Locate and assess Delhi",
+          "stepNumber": 2,
+          "aoiDescription": "Find Delhi’s bubble just right of Tokyo. Similar station count, but smaller bubble — ridership is **less than 2.5 billion**.",
+          "coordinates": [
+            {
+              "xmin": 260,
+              "xmax": 289,
+              "ymin": 506,
+              "ymax": 535
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 123,
+              "ymax": 169
+            }
+          ]
+        },
+        {
+          "stepName": "Step 3: Locate and assess Paris",
+          "stepNumber": 3,
+          "aoiDescription": "Paris is to the left of Tokyo. It has a slightly smaller station count, and a **medium-sized bubble**, ridership around **2.5 billion**.",
+          "coordinates": [
+            {
+              "xmin": 127,
+              "xmax": 167,
+              "ymin": 365,
+              "ymax": 404
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 123,
+              "ymax": 169
+            }
+          ]
+        },
+        {
+          "stepName": "Step 4: Locate and assess Moscow",
+          "stepNumber": 4,
+          "aoiDescription": "Moscow is below Delhi on the chart. Similar infrastructure, but its bubble is much smaller — ridership is closer to **1.5 billion**.",
+          "coordinates": [
+            {
+              "xmin": 327,
+              "xmax": 351,
+              "ymin": 576,
+              "ymax": 592
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 173,
+              "ymax": 201
+            }
+          ]
+        },
+        {
+          "stepName": "Step 5: Compare all four cities",
+          "stepNumber": 5,
+          "aoiDescription": "Now compare: Tokyo, Delhi, Paris, and Moscow have **similar number of stations**, but Tokyo's ridership is **significantly higher**. This shows that more stations do not always mean more riders.",
+          "coordinates": [
+            {
+              "xmin": 121,
+              "xmax": 351,
+              "ymin": 365,
+              "ymax": 592
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "description": "Filter the bubble representing the metro system in London.",
+      "label": "Filter",
+      "steps": [
+        {
+          "stepName": "Step 1: Locate London",
+          "stepNumber": 1,
+          "aoiDescription": "Find London’s bubble near the middle of the chart, slightly above Paris and Moscow. It represents a system with a **relatively high number of stations and long system length**.",
+          "coordinates": [
+            {
+              "xmin": 362,
+              "xmax": 367,
+              "ymin": 358,
+              "ymax": 363
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Assess ridership",
+          "stepNumber": 2,
+          "aoiDescription": "Despite its large system, the bubble is **very small**, indicating that ridership is **under 1.5 billion**. This shows that even well-developed metro systems may have relatively low usage.",
+          "coordinates": [
+            {
+              "xmin": 362,
+              "xmax": 367,
+              "ymin": 358,
+              "ymax": 363
+            },
+            {
+              "xmin": 743,
+              "xmax": 771,
+              "ymin": 173,
+              "ymax": 201
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "description": "Characterize Seoul and NYC: both have the largest system lengths but modest ridership.",
+      "label": "Characterize Distribution",
+      "steps": [
+        {
+          "stepName": "Step 1: Locate Seoul near the top-right",
+          "stepNumber": 1,
+          "aoiDescription": "Seoul is positioned near the top of the chart, representing one of the **longest total system lengths**. Its bubble size indicates **ridership is around 2.5 billion**.",
+          "coordinates": [
+            {
+              "xmin": 448,
+              "xmax": 474,
+              "ymin": 119,
+              "ymax": 166
+            },
+            {
+              "xmin": 734,
+              "xmax": 780,
+              "ymin": 123,
+              "ymax": 169
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Locate NYC — high infrastructure, low ridership",
+          "stepNumber": 2,
+          "aoiDescription": "NYC is also near the top but further left than Seoul. Despite a **very long system length**, its bubble is **very small**, showing **ridership below 1.5 billion** — smaller than many cities with less infrastructure.",
+          "coordinates": [
+            {
+              "xmin": 363,
+              "xmax": 374,
+              "ymin": 97,
+              "ymax": 107
+            },
+            {
+              "xmin": 743,
+              "xmax": 771,
+              "ymin": 173,
+              "ymax": 201
+            }
+          ]
+        },
+        {
+          "stepName": "Step 3: Compare both cities to expectations",
+          "stepNumber": 3,
+          "aoiDescription": "Compare Seoul and NYC to cities like Tokyo or Shanghai. Even with very long systems, they have **modest to low ridership**, showing that system length alone doesn’t predict usage.",
+          "coordinates": [
+            {
+              "xmin": 363,
+              "xmax": 474,
+              "ymin": 97,
+              "ymax": 166
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "description": "Retrieve Shanghai and Beijing. Examine if higher station count leads to highest ridership.",
+      "label": "Retrieve Value",
+      "steps": [
+        {
+          "stepName": "Step 1: Locate Shanghai on the far right",
+          "stepNumber": 1,
+          "aoiDescription": "Shanghai appears far to the right, indicating it has the **highest number of stations**. Its bubble is large, but **still smaller than Tokyo’s**, suggesting ridership is high but not the highest.",
+          "coordinates": [
+            {
+              "xmin": 640,
+              "xmax": 689,
+              "ymin": 241,
+              "ymax": 290
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 52,
+              "ymax": 116
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Locate Beijing just left of Shanghai",
+          "stepNumber": 2,
+          "aoiDescription": "Beijing also has a very high station count. Like Shanghai, its bubble is sizable but **not as large as Tokyo’s**. This further suggests that **more stations doesn’t always mean more riders**.",
+          "coordinates": [
+            {
+              "xmin": 643,
+              "xmax": 655,
+              "ymin": 309,
+              "ymax": 321
+            },
+            {
+              "xmin": 725,
+              "xmax": 789,
+              "ymin": 123,
+              "ymax": 169
+            }
+          ]
+        },
+        {
+          "stepName": "Step 3: Compare to Tokyo",
+          "stepNumber": 3,
+          "aoiDescription": "Tokyo has fewer stations than either Shanghai or Beijing, but its bubble is the largest on the chart. This confirms that **station count alone does not determine ridership**.",
+          "coordinates": [
+            {
+              "xmin": 212,
+              "xmax": 275,
+              "ymin": 454,
+              "ymax": 517
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "description": "Determine whether a general trend exists by comparing ridership and number of stations across all cities.",
+      "label": "Correlate",
+      "steps": [
+        {
+          "stepName": "Step 1: Visually compare bubbles from left to right",
+          "stepNumber": 1,
+          "aoiDescription": "Scan bubbles from the left (fewer stations) to the right (more stations). Check if bubble sizes tend to grow. While some larger bubbles appear on the right, others like Tokyo (mid-chart) break the pattern.",
+          "coordinates": [
+            {
+              "xmin": 113,
+              "xmax": 693,
+              "ymin": 633,
+              "ymax": 113
+            }
+          ]
+        },
+        {
+          "stepName": "Step 2: Recall cities with low stations and small ridership",
+          "stepNumber": 2,
+          "aoiDescription": "Mexico City and Moscow are on the left side with small bubbles — consistent with the idea that fewer stations may lead to lower ridership.",
+          "coordinates": [
+            {
+              "xmin": 121,
+              "xmax": 136,
+              "ymin": 635,
+              "ymax": 650
+            },
+            {
+              "xmin": 327,
+              "xmax": 351,
+              "ymin": 576,
+              "ymax": 592
+            }
+          ]
+        },
+        {
+          "stepName": "Step 3: Recall Tokyo, which breaks the pattern",
+          "stepNumber": 3,
+          "aoiDescription": "Tokyo has a moderate number of stations but the largest ridership. This contradicts the idea that more stations = more riders.",
+          "coordinates": [
+            {
+              "xmin": 212,
+              "xmax": 275,
+              "ymin": 454,
+              "ymax": 517
+            }
+          ]
+        },
+        {
+          "stepName": "Step 4: Recall cities with high stations but not the highest ridership",
+          "stepNumber": 4,
+          "aoiDescription": "Shanghai and Beijing have the highest number of stations but don’t have the biggest bubbles — further showing the relationship is not consistent.",
+          "coordinates": [
+            {
+              "xmin": 640,
+              "xmax": 689,
+              "ymin": 241,
+              "ymax": 290
+            },
+            {
+              "xmin": 643,
+              "xmax": 655,
+              "ymin": 309,
+              "ymax": 321
+            }
+          ]
+        },
+        {
+          "stepName": "Step 5: Conclude: No consistent trend",
+          "stepNumber": 5,
+          "aoiDescription": "Based on this comparison, there is **no clear upward trend**. Some cities with more stations have low ridership (e.g., NYC), while some with fewer stations (e.g., Tokyo) have very high ridership.",
+          "coordinates": [
+            {
+              "xmin": 113,
+              "xmax": 693,
+              "ymin": 633,
+              "ymax": 113
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -1,314 +1,360 @@
-  {
-    "questions": [
-      {
-        "question":  "Which city's metro system has the third largest number of stations?",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Identify the bubble that is the third farthest to the right on the chart. This represents the city with the third highest number of metro stations, based on its position along the x-axis.",
-              "type": "Find Extremum"
-            },
-            {
-              "index": 2,
-              "taskName": "Determine the city associated with the identified bubble.",
-              "type": "Retrieve Value"
-            }
-          ],
-          "example": [
-            {
-              "step": 1
-            },
-            {
-              "step": 2
-            }
-          ]
-        }
-      },
-      {
-        "question":  "How many stations does the metro system in Paris have?",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Filter the bubble representing the metro system in Paris.",
-              "type": "Filter"
-            },
-            {
-              "index": 2,
-              "taskName": "Retrieve the number of stations for Paris from the x-axis.",
-              "type": "Retrieve Value"
-            }
-          ],
-          "example": [
-            {
-              "step": 1,
-              "labelName": "Paris"
-            },
-            {
-              "step": 2,
-              "labelName": "Paris"
-            }
-          ]
-        }
-      },
-      {
-        "question":  "What is the ridership of the metro system in Beijing (in bn per year)?",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Filter the bubble representing the metro system in Beijing.",
-              "type": "Filter"
-            },
-            {
-              "index": 2,
-              "taskName": "Filter the legend to find the ridership value that corresponds to the size of Beijing's bubble.",
-              "type": "Filter"
-            },
-            {
-              "index": 3,
-              "taskName": "Retrieve the ridership value from the filtered legend entry.",
-              "type": "Retrieve Value"
-            }
-          ],
-          "example": [
-            {
-              "step": 1,
-              "labelName": "Beijing"
-            },
-            {
-              "step": 2,
-              "labelName": "Beijing"
-            },
-            {
-              "step": 3,
-              "labelName": "Beijing"
-            }
-          ]
-        }
-      },
-      {
-        "question":  "What is the system length of New York City?",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Filter the bubble representing the metro system in New York City.",
-              "type": "Filter"
-            },
-            {
-              "index": 2,
-              "taskName": "Retrieve the system length for New York City from the y-axis.",
-              "type": "Retrieve Value"
-            }
-          ],
-          "example": [
-            {
-              "step": 1,
-              "labelName": "New York City"
-            },
-            {
-              "step": 2,
-              "labelName": "New York City"
-            }
-          ]
-        }
-      },
-      {
-        "question":  "In general, the ridership of the metro system increases as the number of station increases",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Observe the general trend of the bubbles: As the number of stations (x-axis) increases, observe if the bubble positions generally tend to increase along the Total System Length (y-axis).",
-              "type": "Correlate"
-            }
-          ],
-          "example": [
-            {
-              "step": 1
-            }
-          ]
-        }
-      },
-      {
-        "question":  "The metro system in Shanghai has more ridership than the metro system in London",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Identify that the bubble size represents ridership from the legend.",
-              "type": "Retrieve Value"
-            },
-            {
-              "index": 2,
-              "taskName": "Filter the bubble representing the metro system in Shanghai.",
-              "type": "Filter"
-            },
-            {
-              "index": 3,
-              "taskName": "Retrieve the bubble size (ridership value) for Shanghai.",
-              "type": "Retrieve Value"
-            },
-            {
-              "index": 4,
-              "taskName": "Filter the bubble representing the metro system in London.",
-              "type": "Filter"
-            },
-            {
-              "index": 5,
-              "taskName": "Retrieve the bubble size (ridership value) for London.",
-              "type": "Retrieve Value"
-            },
-            {
-              "index": 6,
-              "taskName": "Determine if the ridership value of Shanghai is greater than the ridership value of London.",
-              "type": "Compute Derived Value"
-            }
-          ],
-          "example": [
-            {
-              "step": 1
-            },
-            {
-              "step": 2,
-              "labelName": "Shanghai"
-            },
-            {
-              "step": 3,
-              "labelName": "Shanghai"
-            },
-            {
-              "step": 4,
-              "labelName": "London"
-            },
-            {
-              "step": 5,
-              "labelName": "London"
-            },
-            {
-              "step": 6
-            }
-          ]
-        }
-      },
-      {
-        "question":  "What is the range of total system length (Km) for the metro systems?",
-        "decomposition": {
-          "components": [
-            {
-              "index": 1,
-              "taskName": "Filter the bubble representing a metro system of a city",
-              "type": "Filter"
-            },
-            {
-              "index": 2,
-              "taskName": "Retrieve the total system length for the filtered city.",
-              "type": "Retrieve Value"
-            },
-            {
-              "index": 3,
-              "taskName": "Determine the range of total system lengths based on the retrieved values.",
-              "type": "Determine Range"
-            }
-          ],
-          "example": [
-            {
-              "step": 1,
-              "labelName": "Guangzhou"
-            },
-            {
-              "step": 2,
-              "labelName": "Guangzhou"
-            },
-            {
-              "step": 1,
-              "labelName": "Delhi"
-            },
-            {
-              "step": 2,
-              "labelName": "Delhi"
-            },
-            {
-              "step": 1,
-              "labelName": "Tokyo"
-            },
-            {
-              "step": 2,
-              "labelName": "Tokyo"
-            },
-            {
-              "step": 1,
-              "labelName": "Mexico City"
-            },
-            {
-              "step": 2,
-              "labelName": "Mexico City"
-            },
-            {
-              "step": 1,
-              "labelName": "Moscow"
-            },
-            {
-              "step": 2,
-              "labelName": "Moscow"
-            },
-            {
-              "step": 1,
-              "labelName": "Paris"
-            },
-            {
-              "step": 2,
-              "labelName": "Paris"
-            },
-            {
-              "step": 1,
-              "labelName": "Seoul"
-            },
-            {
-              "step": 2,
-              "labelName": "Seoul"
-            },
-            {
-              "step": 1,
-              "labelName": "London"
-            },
-            {
-              "step": 2,
-              "labelName": "London"
-            },
-            {
-              "step": 1,
-              "labelName": "Beijing"
-            },
-            {
-              "step": 2,
-              "labelName": "Beijing"
-            },
-            {
-              "step": 1,
-              "labelName": "Shanghai"
-            },
-            {
-              "step": 2,
-              "labelName": "Shanghai"
-            },
-            {
-              "step": 1,
-              "labelName": "New York City"
-            },
-            {
-              "step": 2,
-              "labelName": "New York City"
-            },
-            {
-              "step": 3
-            }
-          ]
-        }
+{
+  "questions": [
+    {
+      "question": "Which city's metro system has the third largest number of stations?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Identify the bubble that is the third farthest to the right on the chart. This represents the city with the third highest number of metro stations, based on its position along the x-axis.",
+            "type": "Find Extremum"
+          },
+          {
+            "index": 2,
+            "taskName": "Determine the city associated with the identified bubble.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1
+          },
+          {
+            "step": 2
+          }
+        ]
       }
-    ]
-  }
-  
-  
+    },
+    {
+      "question": "How many stations does the metro system in Paris have?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bubble representing the metro system in Paris.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Retrieve the number of stations for Paris from the x-axis.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "Paris"
+          },
+          {
+            "step": 2,
+            "labelName": "Paris"
+          }
+        ]
+      }
+    },
+    {
+      "question": "What is the ridership of the metro system in Beijing (in bn per year)?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bubble representing the metro system in Beijing.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Filter the legend to find the ridership value that corresponds to the size of Beijing's bubble.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Retrieve the ridership value from the filtered legend entry.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "Beijing"
+          },
+          {
+            "step": 2,
+            "labelName": "Beijing"
+          },
+          {
+            "step": 3,
+            "labelName": "Beijing"
+          }
+        ]
+      }
+    },
+    {
+      "question": "What is the system length of New York City?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bubble representing the metro system in New York City.",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Retrieve the system length for New York City from the y-axis.",
+            "type": "Retrieve Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "New York City"
+          },
+          {
+            "step": 2,
+            "labelName": "New York City"
+          }
+        ]
+      }
+    },
+    {
+      "question": "In general, does the ridership of the metro system increase as the number of stations increases?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Characterize the layout of the data: Begin by scanning from the bottom-left (few stations, short system) to the top-right (many stations, long system). This path helps capture the distribution of bubbles.",
+            "type": "Characterize Distribution"
+          },
+          {
+            "index": 2,
+            "taskName": "Retrieve the ridership (bubble size) and number of stations for Mexico City.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 3,
+            "taskName": "Retrieve and compare Tokyo, Delhi, Paris, and Moscow. Pay attention to differences in ridership despite similar number of stations.",
+            "type": "Filter"
+          },
+          {
+            "index": 4,
+            "taskName": "Identify London. Compare its relatively larger infrastructure with its small ridership.",
+            "type": "Filter"
+          },
+          {
+            "index": 5,
+            "taskName": "Characterize Seoul and NYC: both have the largest system lengths but modest ridership.",
+            "type": "Characterize Distribution"
+          },
+          {
+            "index": 6,
+            "taskName": "Retrieve Shanghai and Beijing. Examine if higher station count leads to highest ridership.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 7,
+            "taskName": "Determine whether a general trend exists by comparing ridership and number of stations across all cities.",
+            "type": "Correlate"
+          }
+        ],
+        "example": [
+        {
+          "step": 1
+        },
+        {
+          "step": 2
+        },
+        {
+          "step": 3
+        },
+        {
+          "step": 4
+        },
+        {
+          "step": 5
+        },
+        {
+          "step": 6
+        },
+        {
+          "step": 7
+        }
+      ]
+    }
+  },   
+    {
+      "question": "The metro system in Shanghai has more ridership than the metro system in London",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Identify that the bubble size represents ridership from the legend.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 2,
+            "taskName": "Filter the bubble representing the metro system in Shanghai.",
+            "type": "Filter"
+          },
+          {
+            "index": 3,
+            "taskName": "Retrieve the bubble size (ridership value) for Shanghai.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 4,
+            "taskName": "Filter the bubble representing the metro system in London.",
+            "type": "Filter"
+          },
+          {
+            "index": 5,
+            "taskName": "Retrieve the bubble size (ridership value) for London.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 6,
+            "taskName": "Determine if the ridership value of Shanghai is greater than the ridership value of London.",
+            "type": "Compute Derived Value"
+          }
+        ],
+        "example": [
+          {
+            "step": 1
+          },
+          {
+            "step": 2,
+            "labelName": "Shanghai"
+          },
+          {
+            "step": 3,
+            "labelName": "Shanghai"
+          },
+          {
+            "step": 4,
+            "labelName": "London"
+          },
+          {
+            "step": 5,
+            "labelName": "London"
+          },
+          {
+            "step": 6
+          }
+        ]
+      }
+    },
+    {
+      "question": "What is the range of total system length (Km) for the metro systems?",
+      "decomposition": {
+        "components": [
+          {
+            "index": 1,
+            "taskName": "Filter the bubble representing a metro system of a city",
+            "type": "Filter"
+          },
+          {
+            "index": 2,
+            "taskName": "Retrieve the total system length for the filtered city.",
+            "type": "Retrieve Value"
+          },
+          {
+            "index": 3,
+            "taskName": "Determine the range of total system lengths based on the retrieved values.",
+            "type": "Determine Range"
+          }
+        ],
+        "example": [
+          {
+            "step": 1,
+            "labelName": "Guangzhou"
+          },
+          {
+            "step": 2,
+            "labelName": "Guangzhou"
+          },
+          {
+            "step": 1,
+            "labelName": "Delhi"
+          },
+          {
+            "step": 2,
+            "labelName": "Delhi"
+          },
+          {
+            "step": 1,
+            "labelName": "Tokyo"
+          },
+          {
+            "step": 2,
+            "labelName": "Tokyo"
+          },
+          {
+            "step": 1,
+            "labelName": "Mexico City"
+          },
+          {
+            "step": 2,
+            "labelName": "Mexico City"
+          },
+          {
+            "step": 1,
+            "labelName": "Moscow"
+          },
+          {
+            "step": 2,
+            "labelName": "Moscow"
+          },
+          {
+            "step": 1,
+            "labelName": "Paris"
+          },
+          {
+            "step": 2,
+            "labelName": "Paris"
+          },
+          {
+            "step": 1,
+            "labelName": "Seoul"
+          },
+          {
+            "step": 2,
+            "labelName": "Seoul"
+          },
+          {
+            "step": 1,
+            "labelName": "London"
+          },
+          {
+            "step": 2,
+            "labelName": "London"
+          },
+          {
+            "step": 1,
+            "labelName": "Beijing"
+          },
+          {
+            "step": 2,
+            "labelName": "Beijing"
+          },
+          {
+            "step": 1,
+            "labelName": "Shanghai"
+          },
+          {
+            "step": 2,
+            "labelName": "Shanghai"
+          },
+          {
+            "step": 1,
+            "labelName": "New York City"
+          },
+          {
+            "step": 2,
+            "labelName": "New York City"
+          },
+          {
+            "step": 3
+          }
+        ]
+      }
+    }
+  ]
+}
