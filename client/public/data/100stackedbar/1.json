@@ -794,6 +794,46 @@
         ]
       },
       {
+        "id": 17,
+        "description": "Calculate the proportion of 'Gold' medals by subtracting the bottom boundary from the top boundary.",
+        "label": "Australia",
+        "steps": [
+          {
+            "stepName": "Top Boundary AOI",
+            "stepNumber": 1,
+            "aoiDescription": "Locate the top edge of the 'Gold' segment for 'Australia' and trace a horizontal line to the y-axis.",
+            "coordinates": {
+              "xmin": 91,
+              "xmax": 1027,
+              "ymin": 632,
+              "ymax": 632
+            }
+          },
+          {
+            "stepName": "Bottom Boundary AOI",
+            "stepNumber": 2,
+            "aoiDescription": "Locate the bottom edge of the 'Gold' segment for 'Australia' and trace a horizontal line to the y-axis.",
+            "coordinates": {
+              "xmin": 91,
+              "xmax": 1027,
+              "ymin": 971,
+              "ymax": 971
+            }
+          },
+          {
+            "stepName": "Vertical Reference Line AOI (Gold Segment Height)",
+            "stepNumber": 3,
+            "aoiDescription": "Draw a vertical line along the y-axis from the top to bottom boundary to visually represent the proportion of gold medals for 'Australia'.",
+            "coordinates": {
+              "xmin": 91,
+              "xmax": 91,
+              "ymin": 632,
+              "ymax": 971
+            }
+          }
+        ]
+      },
+      {
         "id": 18,
         "description": "Find the country with the minimum proportion of 'Gold' medals among all calculated proportions.",
         "label": "",
