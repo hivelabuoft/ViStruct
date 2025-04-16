@@ -121,7 +121,7 @@
         "components": [
           {
             "index": 1,
-            "taskName": "Characterize the layout of the data: Begin by scanning from the bottom-left (few stations, short system) to the top-right (many stations, long system). This path helps capture the distribution of bubbles.",
+            "taskName": "Characterize the layout of the data: Begin by scanning from the left (few stations) to the top-right (many stations). This path helps capture the distribution of bubbles.",
             "type": "Characterize Distribution"
           },
           {
@@ -136,12 +136,12 @@
           },
           {
             "index": 4,
-            "taskName": "Identify London. Compare its relatively larger infrastructure with its small ridership.",
+            "taskName": "Identify London. Compare its relatively larger number of stations with its small ridership.",
             "type": "Filter"
           },
           {
             "index": 5,
-            "taskName": "Characterize Seoul and NYC: both have the largest system lengths but modest ridership.",
+            "taskName": "Characterize Seoul and NYC: both have the higher station count but modest ridership.",
             "type": "Characterize Distribution"
           },
           {

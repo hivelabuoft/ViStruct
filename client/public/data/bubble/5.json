@@ -2,13 +2,13 @@
   "tasks": [
     {
       "id": 1,
-      "description": "Characterize the layout of the data: Begin by scanning from the bottom-left (few stations, short system) to the top-right (many stations, long system). This path helps capture the distribution of bubbles.",
+      "description": "Characterize the layout of the data: Begin by scanning from the left (fewer stations) to the right (many stations). This path helps capture the distribution of bubbles.",
       "label": "Characterize Distribution",
       "steps": [
         {
           "stepName": "Visual Scan Path",
           "stepNumber": 1,
-          "aoiDescription": "Guide your eyes through the general spread of data. Most cities fall within a diagonal band moving from the lower-left to the upper-right. This helps you visually track how ridership and system size vary across cities.",
+          "aoiDescription": "Guide your eyes through the general spread of data. Most cities fall within a horizontal band moving from the left to the right. This helps you visually track how ridership and station count vary across cities.",
           "trendline": {
             "xmin": 113,
             "xmax": 693,
@@ -52,7 +52,7 @@
         {
           "stepName": "Step 3: Estimate ridership from bubble size",
           "stepNumber": 3,
-          "aoiDescription": "Use the bubble size and the legend in the top-right to estimate ridership. Mexico City’s bubble is small — closest in size to the 1.5B legend bubble or possibly even less.",
+          "aoiDescription": "Use the bubble size and the legend in the right to estimate ridership. Mexico City’s bubble is small — closest in size to the 1.5B legend bubble or possibly even less.",
           "coordinates": [
             {
               "xmin": 725,
@@ -211,7 +211,7 @@
       "label": "Characterize Distribution",
       "steps": [
         {
-          "stepName": "Step 1: Locate Seoul near the top-right",
+          "stepName": "Step 1: Locate Seoul near the right",
           "stepNumber": 1,
           "aoiDescription": "Seoul is positioned near the top of the chart, representing one of the **longest total system lengths**. Its bubble size indicates **ridership is around 2.5 billion**.",
           "coordinates": [
@@ -251,7 +251,7 @@
         {
           "stepName": "Step 3: Compare both cities to expectations",
           "stepNumber": 3,
-          "aoiDescription": "Compare Seoul and NYC to cities like Tokyo or Shanghai. Even with very long systems, they have **modest to low ridership**, showing that system length alone doesn’t predict usage.",
+          "aoiDescription": "Compare Seoul and NYC to cities like Tokyo or Shanghai. Even with most stations, they have **modest to low ridership**, showing that system length alone doesn’t predict usage.",
           "coordinates": [
             {
               "xmin": 363,
