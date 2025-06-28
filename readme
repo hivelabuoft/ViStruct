@@ -1,58 +1,83 @@
-how to setup:
+# ViStruct Client
 
-cd ../server
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-pip install fastapi uvicorn python-multipart tobii-research opencv-python numpy
+This is the frontend client for the ViStruct project, built using [Next.js](https://nextjs.org).
 
-for mac: python3.10 -m pip install fastapi uvicorn python-multipart opencv-python numpy tobii-research
+## 📋 Overview
 
-cd ../client
-npm install axios
+ViStruct is a visualization tool that connects with a FastAPI backend server for processing and analyzing visual data. The client provides an interactive interface for users to work with visualization structures.
 
-make .env.local file under the client folder
+## 🔧 System Requirements
 
-put in: 
+- Node.js version 20.0 or higher
+- npm version 25.0 or higher
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env.local` file in the client folder with:
+
+```
 NEXT_PUBLIC_API_URL=http://localhost:8000
+```
 
+### Development
 
+Start the development server:
 
-
-how to run:
-
-cd in server:
-
-python path  -m venv venv
-
-.\venv\Scripts\activate
-
-uvicorn main:app --reload
-
-uvicorn main:app --reload --log-level debug
-
-in another terminal, cd in client:
-
+```bash
 npm run dev
+```
 
+This uses turbopack for faster development builds. The application will be available at [http://localhost:3000](http://localhost:3000).
 
+### Building for Production
 
-requirement:
+Build the application:
 
-pip version 25.0
+```bash
+npm run build
+```
 
-node v >=20.00
+Start the production server:
 
-python 3.10 must
+```bash
+npm run start
+```
 
+## 🔄 Connecting to the Backend
 
-python3.10 -m venv venv
+The client communicates with a FastAPI server. To run the full stack:
 
-source venv/bin/activate
+1. Start the backend server first (from the server directory):
+   ```bash
+   uvicorn main:app --reload
+   ```
+   
+2. Then start the frontend client (from the client directory):
+   ```bash
+   npm run dev
+   ```
 
-deployed:
+## 🧩 Key Features
 
-server: https://server-silent-dew-747-fast-api.fly.dev
-client: https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/
+- Integration with Google Generative AI
+- Monaco Editor for code visualization
+- Axios for API communication with backend
+- HTML to canvas conversion for visualization capturing
+- Icon-rich interface with React Icons
+
+## 🌐 Deployment
+
+- **Server:** [https://server-silent-dew-747-fast-api.fly.dev](https://server-silent-dew-747-fast-api.fly.dev)
+- **Client:** [https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/](https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/)
 
 
 
