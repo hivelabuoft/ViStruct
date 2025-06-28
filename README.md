@@ -1,10 +1,22 @@
-# ViStruct Client
+# ViStruct
 
-This is the frontend client for the ViStruct project, built using [Next.js](https://nextjs.org).
+A visualization structure analysis tool combining Next.js frontend with OpenCV-powered FastAPI backend.
 
 ## 📋 Overview
 
 ViStruct is a visualization tool that connects with a FastAPI backend server for processing and analyzing visual data. The client provides an interactive interface for users to work with visualization structures.
+
+
+
+## 🎬 Video Demo
+
+Watch ViStruct in action:
+
+   <p align="center">
+     <video width="700" controls>
+       <source src="assets/vistruct-video-demo.mp4" type="video/mp4">
+     </video>
+   </p>
 
 ## 🔧 System Requirements
 
@@ -85,17 +97,6 @@ cd ../server
 - **Server:** [https://server-silent-dew-747-fast-api.fly.dev](https://server-silent-dew-747-fast-api.fly.dev)
 - **Client:** [https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/](https://vi-struct-prkmwfhrd-hive-labs-projects.vercel.app/)
 
-## 📚 Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
-- [React Documentation](https://react.dev) - learn about React
-
-## 📝 Notes for Developers
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font).
-
 ## 📊 Visualization Processing
 
 The ViStruct client works with the server's OpenCV-based visualization analysis system:
@@ -111,3 +112,27 @@ The ViStruct client works with the server's OpenCV-based visualization analysis 
 5. **Structure Analysis**: The system provides structural analysis of visualizations
 
 This allows users to analyze, understand, and work with various visualization structures directly in the browser.
+
+## 📊 Evaluations
+
+ViStruct has undergone rigorous evaluation to ensure its effectiveness and usability:
+
+### Expert Evaluation
+
+Twenty visualization experts evaluated ViStruct to assess its:
+- Visualization decomposition accuracy
+- Semantic region identification
+- Visual attention cues effectiveness
+- Feature comprehensiveness
+
+The expert evaluation data and findings are available in the `evaluations/expert-review.zip` folder.
+
+### Performance Evaluation
+
+A comprehensive performance evaluation was conducted involving:
+- 45 distinct visualization tasks
+- 5 trials per task
+
+This evaluation measured ViStruct's effectiveness across diverse visualization scenarios from VLAT and Mini-VLAT. The complete performance evaluation data can be found in the `evaluations/performance_evaluation.zip` folder.
+
+
